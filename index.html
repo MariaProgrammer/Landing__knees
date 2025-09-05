@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Health knee</title>
+    <meta
+      name="description"
+      content="Краткое описание вашей страницы, включающее ключевые слова."
+    />
+    <meta
+      name="keywords"
+      content="ключевое слово 1, ключевое слово 2, ключевое слово 3"
+    />
+    <meta name="robots" content="index, follow" />
+    <meta property="og:title" content="Название вашей страницы" />
+    <meta property="og:description" content="Краткое описание для соцсетей" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://вашсайт.ру/страница" />
+    <meta
+      property="og:image"
+      content="https://вашсайт.ру/images/имя_изображения.jpg"
+    />
+
+    <link
+      rel="preload"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.21/normalize.min.css"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
+    />
+
+    <style>
+      /* Минимальный критический CSS для первичной отрисовки */
+      body {
+        font-family: var(--font-family);
+        background-color: var(--light-color);
+        margin: 0;
+        padding: 0;
+      }
+      .header,
+      .main,
+      .footer {
+        padding: 0;
+      }
+      .header__logo {
+        display: block;
+        width: 60px;
+        height: 60px;
+      }
+      .hero__title {
+        max-width: 860px;
+        font-size: 140px;
+        font-weight: 400;
+        margin-bottom: 50px;
+        color: var(--dark-blue-color);
+        letter-spacing: -1px;
+        line-height: 1;
+      }
+      .container {
+        max-width: 1720px;
+        width: 100%;
+        padding: 0 15px;
+        margin: 0 auto;
+      }
+    </style>
+
+    <link
+      rel="preload"
+      href="css/styles.css"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <link
+      rel="preload"
+      href="css/media.css"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+  </head>
+  <script src="js/main.js"></script>
+  <body class="page__body">
+    <header class="header">
+      <div class="container">
+        <div class="header__container">
+          <a href="#" class="header__logo-link">
+            <img src="icons/logo.svg" alt="Logo" class="header__logo" />
+          </a>
+
+          <nav class="nav">
+            <ul class="nav__list list-reset">
+              <li class="nav__item">
+                <a href="#about" class="nav__link">Our Program</a>
+              </li>
+              <li class="nav__item">
+                <a href="#why" class="nav__link">Why Trust Us</a>
+              </li>
+              <li class="nav__item">
+                <a href="#results" class="nav__link">Results</a>
+              </li>
+              <li class="nav__item">
+                <a href="#faq" class="nav__link">FAQ</a>
+              </li>
+              <li class="nav__item">
+                <a href="#contact" class="nav__link">Contact</a>
+              </li>
+            </ul>
+          </nav>
+          <button class="header__email btn-reset">
+            <svg class="header__email-pic" width="31" height="25">
+              <use xlink:href="icons/sprite.svg#email-icon"></use>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+    <main>
+      <section class="hero">
+         <div class="hero__img">
+              <picture>
+                <source srcset="img/hero__bg-mob.webp" media="(max-width: 375px)" />
+                <source srcset="img/hero__bg.webp" media="(max-width: 768px)" />
+                <img src="img/hero__bg.webp" alt="бегущая женщина" />
+              </picture>
+            </div>
+        <div class="container">
+          <div class="hero__inner">
+           
+            <div class="hero__inner-left">
+              <h1 class="hero__title">GET RID OF KNEE PAIN IN JUST 14 DAYS</h1>
+              <p class="hero__subtitle">
+                Regain ease of movement and get rid of knee pain in 14 days at
+                home, without surgery or expensive procedures.
+              </p>
+              <button class="hero__btn btn btn-reset">
+                Schedule a Consultation
+              </button>
+            </div>
+
+            <div class="hero__inner-right">
+              <div class="hero__item">
+                <span class="hero__number">1,564</span>
+                <span class="hero__label">People helped so far</span>
+              </div>
+              <div class="hero__item">
+                <span class="hero__number">99%</span>
+                <span class="hero__label">Satisfied clients</span>
+              </div>
+              <div class="hero__item">
+                <span class="hero__number">28,000+</span>
+                <span class="hero__label">Lives changed</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- <section class="about" id="about">
+        <h2 class="section__title">
+          KNEE PAIN LIMITS YOUR LIFE BUT IT DOESN'T HAVE TO
+        </h2>
+        <p class="about__text">
+          Pain limits your life, but it doesn't have to. Our program helps get
+          rid of knee pain in 14 days and restore your quality of life.
+        </p>
+        <div class="about__stats">
+          <div class="about__stat">
+            <span class="about__number">1,564</span>
+            <span class="about__label">People helped</span>
+          </div>
+          <div class="about__stat">
+            <span class="about__number">99%</span>
+            <span class="about__label">Customer satisfaction</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="video" id="video">
+        <h2 class="section__title">How We Relieve Knee Pain?</h2>
+        <div class="video__wrapper">
+          <iframe
+            class="video__iframe"
+            src="https://www.youtube.com/embed/yourvideoid"
+            loading="lazy"
+            title="Program Overview"
+          ></iframe>
+        </div>
+      </section>
+
+      <section class="trust" id="why">
+        <h2 class="section__title">5 Reasons to Trust Us</h2>
+        <ul class="trust__list">
+          <li class="trust__item">Expert Approach</li>
+          <li class="trust__item">Real Results</li>
+          <li class="trust__item">Affordable Prices</li>
+          <li class="trust__item">Guaranteed Results</li>
+          <li class="trust__item">24/7 Support</li>
+        </ul>
+      </section>
+
+      <section class="testimonials" id="results">
+        <h2 class="section__title">What Our Clients Say</h2>
+        <div class="testimonials__list">
+          <article class="testimonial">
+            <img
+              src="client1.jpg"
+              alt="Client testimonial"
+              class="testimonial__avatar"
+              loading="lazy"
+            />
+            <p class="testimonial__text">
+              I got rid of pain in two weeks. Very satisfied!
+            </p>
+            <p class="testimonial__author">Alexey</p>
+          </article>
+          <article class="testimonial">
+            <img
+              src="client2.jpg"
+              alt="Client testimonial"
+              class="testimonial__avatar"
+              loading="lazy"
+            />
+            <p class="testimonial__text">Living pain-free for a month now!</p>
+            <p class="testimonial__author">Maria</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="faq" id="faq">
+        <h2 class="section__title">FAQ</h2>
+        <div class="faq__item">
+          <h3 class="faq__question">How long is the program?</h3>
+          <p class="faq__answer">
+            The program lasts 14 days, after which you'll enjoy a pain-free
+            life.
+          </p>
+        </div>
+        <div class="faq__item">
+          <h3 class="faq__question">What do I need to start?</h3>
+          <p class="faq__answer">
+            Just sign up and follow the instructions of our specialists.
+          </p>
+        </div>
+      </section>
+
+      <section class="contacts" id="contact">
+        <h2 class="section__title">Contact Us</h2>
+        <address class="contacts__info">
+          <p>
+            Phone:
+            <a href="tel:+79161234567" class="contacts__link"
+              >+7 916 123-45-67</a
+            >
+          </p>
+          <p>
+            Email:
+            <a href="mailto:info@kneehelp.com" class="contacts__link"
+              >info@kneehelp.com</a
+            >
+          </p>
+        </address>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p class="footer__text">© 2025 KneeHelp. All rights reserved.</p>
+    </footer> -->
+    </main>
+    <script src="js/main.js" defer></script>
+  </body>
+</html>
