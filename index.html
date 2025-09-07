@@ -121,16 +121,15 @@
     </header>
     <main>
       <section class="hero">
-         <div class="hero__img">
-              <picture>
-                <source srcset="img/hero__bg-mob.webp" media="(max-width: 375px)" />
-                <source srcset="img/hero__bg.webp" media="(max-width: 768px)" />
-                <img src="img/hero__bg.webp" alt="бегущая женщина" />
-              </picture>
-            </div>
+        <div class="hero__img">
+          <picture>
+            <source srcset="img/hero__bg-mob.webp" media="(max-width: 375px)" />
+            <source srcset="img/hero__bg.webp" media="(max-width: 768px)" />
+            <img src="img/hero__bg.webp" alt="бегущая женщина" />
+          </picture>
+        </div>
         <div class="container">
           <div class="hero__inner">
-           
             <div class="hero__inner-left">
               <h1 class="hero__title">GET RID OF KNEE PAIN IN JUST 14 DAYS</h1>
               <p class="hero__subtitle">
@@ -159,40 +158,163 @@
           </div>
         </div>
       </section>
+      <div class="cover">
+        <section class="about" id="about">
+          <div class="container">
+            <h2 class="about__title title-h2">
+              Knee Pain Limits Your Life<br />
+              But It Doesn’t Have To
+            </h2>
 
-      <!-- <section class="about" id="about">
-        <h2 class="section__title">
-          KNEE PAIN LIMITS YOUR LIFE BUT IT DOESN'T HAVE TO
-        </h2>
-        <p class="about__text">
-          Pain limits your life, but it doesn't have to. Our program helps get
-          rid of knee pain in 14 days and restore your quality of life.
-        </p>
-        <div class="about__stats">
-          <div class="about__stat">
-            <span class="about__number">1,564</span>
-            <span class="about__label">People helped</span>
+            <div class="about__inner">
+              <div class="about__img">
+                <img
+                  src="img/about__img-1.webp"
+                  alt="фото мужчины с болью в колене"
+                />
+                <h3 class="about__subtitle title-h3">Walking is uncomfortable</h3>
+              </div>
+              <div class="about__img">
+                <img
+                  src="img/about__img-2.webp"
+                  alt="фото мужчины с болью в колене"
+                />
+                <h3 class="about__subtitle title-h3">Stairs exhaust you</h3>
+              </div>
+              <div class="about__img">
+                <img
+                  src="img/about__img-3.webp"
+                  alt="фото мужчины с болью в колене"
+                />
+                <h3 class="about__subtitle title-h3">Sports seem impossible</h3>
+              </div>
+              <div class="about__img">
+                <img
+                  src="img/about__img-4.webp"
+                  alt="фото мужчины с болью в колене"
+                />
+                <h3 class="about__subtitle title-h3">
+                  Playing with your children feels risky
+                </h3>
+              </div>
+            </div>
           </div>
-          <div class="about__stat">
-            <span class="about__number">99%</span>
-            <span class="about__label">Customer satisfaction</span>
+        </section>
+
+        <section class="video" id="video">
+          <div class="container">
+            <h2 class="video__title title-h2">
+              But it doesn’t have to be this way. Join 1,500+ people who already
+              got rid of knee pain and live freely again
+            </h2>
+
+            <div class="video-container" id="video-wrapper">
+              <video
+                id="custom-video-player"
+                class="video-player"
+                src="video/about.mp4"
+                poster="img/about__video-poster.webp"
+                preload="metadata"
+                controls
+                playsinline
+                width="1280"
+                height="720"
+                aria-label="Видео-демонстрация упражнений для коленей"
+              ></video>
+              <button
+                class="play-pause-button"
+                aria-label="Воспроизвести видео"
+              >
+                <svg
+                  class="play-icon"
+                  width="48"
+                  height="48"
+                  viewBox="0 0 48 48"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M0.242851 47.1487L0.234863 0.192139L47.144 23.7522L0.242851 47.1487V47.1487Z"
+                    fill="white"
+                  />
+                </svg>
+                <!-- <svg
+                  class="pause-icon"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="white"
+                >
+                  <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
+                </svg> -->
+              </button>
+            </div>
+
+            <div class="video__list">
+              <div class="video__item">
+                <img src="icons/check.svg" alt="" />
+                <h4 class="video-subtitle">Walking is free and easy</h4>
+              </div>
+              <div class="video__item">
+                <img src="icons/check.svg" alt="" />
+                <h4 class="video-subtitle">Stairs feel effortless again</h4>
+              </div>
+              <div class="video__item">
+                <img src="icons/check.svg" alt="" />
+                <h4 class="video-subtitle">Sports are back in your life</h4>
+              </div>
+              <div class="video__item">
+                <img src="icons/check.svg" alt="check item" />
+                <h4 class="video-subtitle">
+                  You enjoy every moment with your children
+                </h4>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+      <section class="program">
+        <div class="container">
+          <h2 class="program__title title-h2">
+            Is This Program Right for You?
+          </h2>
+          <div class="program__inner">
+            <div class="program__left">
+              <img class="program__img" src="img/program-1.webp" alt="" />
+              <img class="program__img" src="img/program-2.webp" alt="" />
+              <img class="program__img" src="img/program-3.webp" alt="" />
+              <img class="program__img" src="img/program-4.webp" alt="" />
+            </div>
+            <div class="program__right">
+              <h3 class="program__subtitle title-h3">
+                The “Iron Knees” online course is a step-by-step recovery system
+                that has already helped more than 1 500 + people! It will help
+                you:
+              </h3>
+              <ul class="program__list list-reset">
+                <li class="program__item text">
+                  Reduce inflammation, swelling, and tension in the knees
+                </li>
+                <li class="program__item text">
+                  Strengthen muscles and ligaments without strain or overloading
+                  the joints
+                </li>
+                <li class="program__item text">
+                  Improve movement biomechanics and restore stability in your
+                  legs
+                </li>
+                <li class="program__item text">
+                  Bring back the joy and freedom of movement
+                </li>
+              </ul>
+              <button class="program__btn btn btn-reset">
+                Start My Recovery Now
+              </button>
+            </div>
           </div>
         </div>
       </section>
 
-      <section class="video" id="video">
-        <h2 class="section__title">How We Relieve Knee Pain?</h2>
-        <div class="video__wrapper">
-          <iframe
-            class="video__iframe"
-            src="https://www.youtube.com/embed/yourvideoid"
-            loading="lazy"
-            title="Program Overview"
-          ></iframe>
-        </div>
-      </section>
-
-      <section class="trust" id="why">
+      <!-- <section class="trust" id="id-why">
         <h2 class="section__title">5 Reasons to Trust Us</h2>
         <ul class="trust__list">
           <li class="trust__item">Expert Approach</li>
@@ -203,7 +325,7 @@
         </ul>
       </section>
 
-      <section class="testimonials" id="results">
+      <section class="testimonials" id="id-results">
         <h2 class="section__title">What Our Clients Say</h2>
         <div class="testimonials__list">
           <article class="testimonial">
@@ -231,7 +353,7 @@
         </div>
       </section>
 
-      <section class="faq" id="faq">
+      <section class="faq" id="id-faq">
         <h2 class="section__title">FAQ</h2>
         <div class="faq__item">
           <h3 class="faq__question">How long is the program?</h3>
@@ -248,7 +370,7 @@
         </div>
       </section>
 
-      <section class="contacts" id="contact">
+      <section class="contacts" id="id-contact">
         <h2 class="section__title">Contact Us</h2>
         <address class="contacts__info">
           <p>
@@ -264,13 +386,13 @@
             >
           </p>
         </address>
-      </section>
+      </section> -->
     </main>
 
-    <footer class="footer">
+    <!-- <footer class="footer">
       <p class="footer__text">© 2025 KneeHelp. All rights reserved.</p>
     </footer> -->
-    </main>
+
     <script src="js/main.js" defer></script>
   </body>
 </html>

@@ -29,7 +29,7 @@ p {
   padding: 0;
 }
 :root {
-  --light-color: #f1f5f9;
+  --light-color: #F1F3F4; 
   --color-black: #10222d;
   --dark-blue-color: #00588c;
   --gradient-blue-color: linear-gradient(
@@ -108,7 +108,7 @@ p {
   font-weight: 600;
   font-style: normal;
 }
-@font-face {
+/* @font-face {
   font-family: var(--third-family);
   src: url("../fonts/OpenSans-Bold.woff2") format("woff2");
   font-display: swap;
@@ -121,7 +121,7 @@ p {
   font-display: swap;
   font-weight: 700;
   font-style: normal;
-}
+} */
 
 .page__body {
   font-family: var(--font-family);
@@ -173,6 +173,7 @@ p {
   font-weight: 600;
   font-size: 18px;
   line-height: 1.25;
+  padding: 24px 66px;
   border-radius: 30px;
   -webkit-border-radius: 30px;
   -moz-border-radius: 30px;
@@ -191,11 +192,27 @@ p {
   background: var(--dark-orange-color);
 }
 .btn:disabled {
-  background: #C4C9CC;
-
+  background: #c4c9cc;
 }
-
-
+.title-h2 {
+  font-size: 100px;
+  font-weight: 400;
+  line-height: 1;
+}
+.title-h3 {
+  font-size: 48px;
+  color: #fff;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0.8px;
+  
+}
+.text {
+  font-family: var(--second-family);
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.25;
+}
 
 /* HEADER */
 .header {
@@ -260,8 +277,8 @@ p {
 }
 
 /* HERO */
-.hero { 
-  padding-top: 216px;  
+.hero {
+  padding-top: 216px;
   width: 100%;
   height: 100%;
   background: url("../img/hero__bg.webp");
@@ -282,7 +299,6 @@ p {
   width: 100%;
   height: 100%;
   align-self: flex-start;
-  
 }
 .hero__title {
   max-width: 860px;
@@ -304,11 +320,9 @@ p {
   letter-spacing: 0px;
   line-height: 1;
 }
-.hero__btn {
-  padding: 24px 66px;
+.hero__btn {  
   margin-bottom: 181px;
 }
-
 
 .hero__inner-right {
   align-self: flex-end;
@@ -317,8 +331,7 @@ p {
   justify-content: space-between;
   width: 100%;
   height: 100%;
-  margin-bottom: 20px;  
-  
+  margin-bottom: 20px;
 }
 .hero__item {
   display: flex;
@@ -331,15 +344,262 @@ p {
   background-image: var(--gradient-blue-color);
   background-clip: text;
   -webkit-background-clip: text;
-  color: transparent;  
+  color: transparent;
   letter-spacing: 0px;
   line-height: 1;
-
 }
 .hero__label {
   font-family: var(--second-family);
   color: var(--color-black);
   font-size: 18px;
   font-weight: 400;
-  
 }
+
+/* ABOUT */
+.about {
+  padding: 100px 0;
+}
+
+.about__title {
+  background-image: var(--gradient-blue-color);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.about__inner {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+.about__img {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 30px;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  -ms-border-radius: 30px;
+  -o-border-radius: 30px;
+  overflow: hidden;
+}
+.about__img img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.about__subtitle {
+  max-width: 350px;  
+  position: absolute;
+  left: 30px;
+  bottom: 30px;
+}
+.cover {
+  width: 100%;
+  height: 100%;
+  background: url("../img/blue__bg.png"), url("../img/orange__bg.png");
+  background-size: 90% 90%;
+  background-position: 100% 40%, 0% 32%;
+  background-repeat: no-repeat;
+}
+
+/* VIDEO */
+/* .video {
+ 
+} */
+
+.video__title {
+  color: var(--dark-orange-color);
+  text-align: center;
+  max-width: 1355px;
+  margin: 0 auto;
+  width: 100%;
+  margin-bottom: 40px;
+}
+
+/* Стили контейнера видео */
+.video-container {
+  position: relative;
+  width: 100%;  
+  border-radius: 20px;
+  overflow: hidden; /* Обрезаем все, что выходит за скругленные углы */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  cursor: pointer; /* Показываем, что на видео можно нажать */
+  margin-bottom: 40px;
+  background-color: #000; /* Черный фон на случай, если видео не загрузится */
+}
+
+/* Стили самого видео-плеера */
+.video-player {
+  width: 100%;
+  height: 100%;
+  max-height: 790px; 
+  object-fit: cover; /* Видео заполняет контейнер, сохраняя пропорции */
+  display: block; /* Убираем возможный нижний отступ */
+}
+
+/* Стили кнопки Play/Pause */
+.play-pause-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  /*Адаптивныйразмеркнопки*/
+  width: clamp(52px, 10vw, 172px);
+    height: clamp(36px, 10vw, 120px);
+  border-radius: 15%/35%;
+  background-color: var(--dark-orange-color);
+  /*Оранжевыйцветкаквдизайне*/border: none;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  -webkit-border-radius: 15%/35%;
+  -moz-border-radius: 15%/35%;
+  -ms-border-radius: 15%/35%;
+  -o-border-radius: 15%/35%;
+}
+
+.play-pause-button:hover {
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+.play-pause-button:hover {
+    background-color: rgba(249, 115, 22, 1);
+}
+
+.play-pause-button .play-icon {
+    width: clamp(14px, 5vw, 46px);
+    height: clamp(14px, 3vw, 46px);
+}
+
+
+/* Когда на контейнере появляется класс .video-started, мы скрываем кнопку */
+.video-container.video-started .play-pause-button {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.video__list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+.video__item {  
+  background: #fff;
+  padding: 30px;
+  border-radius: 30px;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  -ms-border-radius: 30px;
+  -o-border-radius: 30px;
+}
+.video__item img {
+  display: block;
+  margin-bottom: 30px;
+}
+.video-subtitle {
+  font-size: 42px;
+  font-weight: 400;
+  background-image: var(--gradient-orange-color);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  letter-spacing: 0.8px;
+  line-height: 1;
+}
+/* PROGRAM */
+.program {
+  padding: 100px 0;
+  text-align: center;
+}
+
+.program__title {
+  background-image: var(--gradient-blue-color);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.program__inner {
+  display: flex;
+  gap: 20px;
+}
+
+.program__left {  
+  aspect-ratio: 1.4/ 1 ;
+  width: 100%;
+  display: grid;  
+  grid-template-columns: repeat(2,  1fr);
+  grid-template-rows: repeat(2,  1fr);
+  gap: 20px;
+}
+.program__img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+ 
+  border-radius: 30px;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  -ms-border-radius: 30px;
+  -o-border-radius: 30px;
+}
+.program__right {
+  
+  width: 100%;
+  text-align: left;
+  background: #fff;
+  padding: 50px 40px;
+  border-radius: 30px;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  -ms-border-radius: 30px;
+  -o-border-radius: 30px;
+}
+.program__subtitle {
+  color: var(--dark-blue-color);
+  margin-bottom: 30px;
+}
+
+.program__list {
+  margin-bottom: 30px;
+}
+.program__item { 
+  position: relative;
+  padding-left: 30px;
+}
+.program__item:not(:last-child) {
+  margin-bottom: 20px;
+}
+.program__item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 24px;
+  height: 24px;
+  background: var(--dark-orange-color);
+  border: solid 4px var(--light-color);
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+/* .program__btn {
+}
+
+.btn-reset {
+} */
+
