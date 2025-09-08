@@ -29,7 +29,7 @@ p {
   padding: 0;
 }
 :root {
-  --light-color: #F1F3F4; 
+  --light-color: #f1f3f4;
   --color-black: #10222d;
   --dark-blue-color: #00588c;
   --gradient-blue-color: linear-gradient(
@@ -205,7 +205,6 @@ p {
   font-weight: 400;
   line-height: 1;
   letter-spacing: 0.8px;
-  
 }
 .text {
   font-family: var(--second-family);
@@ -320,7 +319,7 @@ p {
   letter-spacing: 0px;
   line-height: 1;
 }
-.hero__btn {  
+.hero__btn {
   margin-bottom: 181px;
 }
 
@@ -392,7 +391,7 @@ p {
   object-fit: cover;
 }
 .about__subtitle {
-  max-width: 350px;  
+  max-width: 350px;
   position: absolute;
   left: 30px;
   bottom: 30px;
@@ -423,7 +422,7 @@ p {
 /* Стили контейнера видео */
 .video-container {
   position: relative;
-  width: 100%;  
+  width: 100%;
   border-radius: 20px;
   overflow: hidden; /* Обрезаем все, что выходит за скругленные углы */
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
@@ -436,7 +435,7 @@ p {
 .video-player {
   width: 100%;
   height: 100%;
-  max-height: 790px; 
+  max-height: 790px;
   object-fit: cover; /* Видео заполняет контейнер, сохраняя пропорции */
   display: block; /* Убираем возможный нижний отступ */
 }
@@ -450,10 +449,11 @@ p {
   z-index: 10;
   /*Адаптивныйразмеркнопки*/
   width: clamp(52px, 10vw, 172px);
-    height: clamp(36px, 10vw, 120px);
+  height: clamp(36px, 10vw, 120px);
   border-radius: 15%/35%;
   background-color: var(--dark-orange-color);
-  /*Оранжевыйцветкаквдизайне*/border: none;
+  /*Оранжевыйцветкаквдизайне*/
+  border: none;
   padding: 0;
   cursor: pointer;
   display: flex;
@@ -472,19 +472,18 @@ p {
 }
 
 .play-pause-button:hover {
-    background-color: rgba(249, 115, 22, 1);
+  background-color: rgba(249, 115, 22, 1);
 }
 
 .play-pause-button .play-icon {
-    width: clamp(14px, 5vw, 46px);
-    height: clamp(14px, 3vw, 46px);
+  width: clamp(14px, 5vw, 46px);
+  height: clamp(14px, 3vw, 46px);
 }
-
 
 /* Когда на контейнере появляется класс .video-started, мы скрываем кнопку */
 .video-container.video-started .play-pause-button {
-    opacity: 0;
-    visibility: hidden;
+  opacity: 0;
+  visibility: hidden;
 }
 
 .video__list {
@@ -492,7 +491,7 @@ p {
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
 }
-.video__item {  
+.video__item {
   background: #fff;
   padding: 30px;
   border-radius: 30px;
@@ -501,8 +500,7 @@ p {
   -ms-border-radius: 30px;
   -o-border-radius: 30px;
 }
-.video__item img {
-  display: block;
+.video__img {
   margin-bottom: 30px;
 }
 .video-subtitle {
@@ -535,12 +533,12 @@ p {
   gap: 20px;
 }
 
-.program__left {  
-  aspect-ratio: 1.4/ 1 ;
+.program__left {
+  aspect-ratio: 1.4/ 1;
   width: 100%;
-  display: grid;  
-  grid-template-columns: repeat(2,  1fr);
-  grid-template-rows: repeat(2,  1fr);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
   gap: 20px;
 }
 .program__img {
@@ -548,7 +546,7 @@ p {
   width: 100%;
   height: 100%;
   object-fit: cover;
- 
+
   border-radius: 30px;
   -webkit-border-radius: 30px;
   -moz-border-radius: 30px;
@@ -556,7 +554,6 @@ p {
   -o-border-radius: 30px;
 }
 .program__right {
-  
   width: 100%;
   text-align: left;
   background: #fff;
@@ -575,7 +572,7 @@ p {
 .program__list {
   margin-bottom: 30px;
 }
-.program__item { 
+.program__item {
   position: relative;
   padding-left: 30px;
 }
@@ -583,7 +580,7 @@ p {
   margin-bottom: 20px;
 }
 .program__item::before {
-  content: '';
+  content: "";
   position: absolute;
   left: 0;
   top: 0;
@@ -597,9 +594,174 @@ p {
   -ms-border-radius: 50%;
   -o-border-radius: 50%;
 }
-/* .program__btn {
+.program__btn {
 }
 
-.btn-reset {
-} */
+/* POPUP */
+.popup {
+  display: none;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 100;
+}
+.popup.active {
+  display: block;
+}
+.popup__cover {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(    180deg,    rgba(0, 88, 140, .5) 0%,    rgba(0, 116, 183, .5) 100%  );
+  backdrop-filter: blur(20px); /* Apply blur to the background behind this element */
+  -webkit-backdrop-filter: blur(20px);
+  z-index: 300;
+  transition: all ease 1s;
+  -webkit-transition: all ease 1s;
+  -moz-transition: all ease 1s;
+  -ms-transition: all ease 1s;
+  -o-transition: all ease 1s;
+  -webkit-filter: blur(20px);
+}
+.popup__inner{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: auto;
+  padding: 0 15px;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+}
+/* Контейнер формы */
+.form-wrapper {
+  position: relative;
+  margin: 0 auto;
+  background: #fff;
+  padding: 40px;  
+  border-radius: 12px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+  max-width: 700px;
+  min-width: 300px;
+  height: 100%;
+  transition: all ease 1s;
+  -webkit-transition: all ease 1s;
+  -moz-transition: all ease 1s;
+  -ms-transition: all ease 1s;
+  -o-transition: all ease 1s;  
+}
 
+/* Кнопка закрытия */
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: var(--gradient-orange-color);
+  border: none;
+  color: white;
+  width: 48px;
+  height: 48px;
+  border-radius: 6px;
+  font-size: 36px;
+  line-height: 32px;
+  text-align: center;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  -webkit-transition: background 0.3s ease;
+  -moz-transition: background 0.3s ease;
+  -ms-transition: background 0.3s ease;
+  -o-transition: background 0.3s ease;
+}
+
+.close-btn:hover {
+  background: var(--dark-orange-color);
+}
+.close-btn:active {
+  background: var(--light-orange-color);
+}
+
+/* Заголовок формы */
+.form-title {
+  background-image: var(--gradient-blue-color);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  letter-spacing: 0px;
+  line-height: 1;
+  margin-bottom: 30px;
+}
+
+/* Группа полей (инпут + сообщение об ошибке) */
+.form-group {
+  margin-bottom: 20px;
+  position: relative;
+}
+
+/* Стили для полей ввода */
+input[type="text"],
+input[type="email"] {
+  width: 100%;
+  padding: 15px 20px;
+  border: 1px solid #dcdcdc;
+  border-radius: 50px;
+  font-size: 16px; /* Требуемый размер шрифта */
+  color: #000000; /* Требуемый цвет шрифта */
+  transition: border-color 0.3s ease;
+}
+
+input[type="text"]::placeholder,
+input[type="email"]::placeholder {
+  color: #aaaaaa;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus {
+  outline: none;
+  border-color: #005a9c;
+}
+
+/* Кнопка отправки */
+.submit-btn {
+  width: 100%;
+  padding: 15px 20px;
+  background: linear-gradient(90deg, #f7941e, #f57f20);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+  margin-top: 10px;
+}
+
+
+
+/* Стили для ошибок валидации */
+.form-group .error-message {
+  color: #e74c3c;
+  font-size: 14px;
+  padding-left: 20px;
+  margin-top: 5px;
+  min-height: 20px; /* Резервируем место, чтобы форма не "прыгала" */
+}
+
+.form-group input.error {
+  border-color: #e74c3c; /* Красная обводка */
+}
+
+/* Адаптивность */
+@media (max-width: 540px) {
+  .form-wrapper {
+    padding: 25px;
+  }
+
+  .form-title {
+    font-size: 36px;
+  }
+}

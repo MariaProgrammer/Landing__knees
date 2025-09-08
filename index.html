@@ -85,6 +85,45 @@
   </head>
   <script src="js/main.js"></script>
   <body class="page__body">
+    <div class="popup">
+      <div class="popup__cover"></div>
+      <div class="popup__inner">
+        <div class="form-wrapper">
+          <button class="close-btn">&times;</button>
+          <h1 class="form-title title-h2">SUBMIT YOUR<br />REQUEST</h1>
+
+          <form id="requestForm" novalidate>
+            <div class="form-group">
+              <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Name*"
+                required
+              />
+              <div class="error-message" id="name-error"></div>
+            </div>
+
+            <div class="form-group">
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="E-mail*"
+                required
+              />
+              <div class="error-message" id="email-error"></div>
+            </div>
+
+            <button type="submit" class="submit-btn btn btn-reset">
+              Start My Recovery Now
+            </button>
+          </form>
+        </div>
+      </div>
+        
+      
+    </div>
     <header class="header">
       <div class="container">
         <div class="header__container">
@@ -95,7 +134,7 @@
           <nav class="nav">
             <ul class="nav__list list-reset">
               <li class="nav__item">
-                <a href="#about" class="nav__link">Our Program</a>
+                <a href="#program" class="nav__link">Our Program</a>
               </li>
               <li class="nav__item">
                 <a href="#why" class="nav__link">Why Trust Us</a>
@@ -111,9 +150,9 @@
               </li>
             </ul>
           </nav>
-          <button class="header__email btn-reset">
+          <button class="header__email btn-reset ">
             <svg class="header__email-pic" width="31" height="25">
-              <use xlink:href="icons/sprite.svg#email-icon"></use>
+              <use href="icons/sprite.svg#email-icon"></use>
             </svg>
           </button>
         </div>
@@ -172,7 +211,9 @@
                   src="img/about__img-1.webp"
                   alt="фото мужчины с болью в колене"
                 />
-                <h3 class="about__subtitle title-h3">Walking is uncomfortable</h3>
+                <h3 class="about__subtitle title-h3">
+                  Walking is uncomfortable
+                </h3>
               </div>
               <div class="about__img">
                 <img
@@ -251,19 +292,27 @@
 
             <div class="video__list">
               <div class="video__item">
-                <img src="icons/check.svg" alt="" />
+                <svg class="video__img" width="61" height="57">
+                  <use href="icons/sprite.svg#check"></use>
+                </svg>
                 <h4 class="video-subtitle">Walking is free and easy</h4>
               </div>
               <div class="video__item">
-                <img src="icons/check.svg" alt="" />
+                <svg class="video__img" width="61" height="57">
+                  <use href="icons/sprite.svg#check"></use>
+                </svg>
                 <h4 class="video-subtitle">Stairs feel effortless again</h4>
               </div>
               <div class="video__item">
-                <img src="icons/check.svg" alt="" />
+                <svg class="video__img" width="61" height="57">
+                  <use href="icons/sprite.svg#check"></use>
+                </svg>
                 <h4 class="video-subtitle">Sports are back in your life</h4>
               </div>
               <div class="video__item">
-                <img src="icons/check.svg" alt="check item" />
+                <svg class="video__img" width="61" height="57">
+                  <use href="icons/sprite.svg#check"></use>
+                </svg>
                 <h4 class="video-subtitle">
                   You enjoy every moment with your children
                 </h4>
@@ -272,7 +321,7 @@
           </div>
         </section>
       </div>
-      <section class="program">
+      <section class="program " id="program">
         <div class="container">
           <h2 class="program__title title-h2">
             Is This Program Right for You?

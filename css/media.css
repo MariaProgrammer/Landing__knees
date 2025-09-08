@@ -100,6 +100,7 @@
     font-family: var(--second-family);
     font-size: 18px;
     font-weight: 600;
+    margin-bottom: 30px;
   }
   .btn {
     font-size: 16px;
@@ -117,6 +118,27 @@
     text-transform: lowercase;
     color: var(--dark-blue-color);
   }
+  .about, .program {
+    padding: 80px 0;
+  }
+  .about__title, .video__title {
+    margin-bottom: 32px;
+  }
+  .video-container {
+    margin-bottom: 32px;
+  }
+  .video__img {
+    width: 35px;
+    height: 33px;
+  }
+  .program__right {
+    padding: 20px;
+  }
+  .program__btn {
+    display: block;
+    width: 100%;
+  }
+  
 }
 @media (max-width: 650px) {
   .hero__title {
@@ -153,11 +175,15 @@
   grid-template-rows: repeat(auto,  minmax(1170px, 1fr));
   
 }
+.program__img {
+    height: 200px;
+  }
 }
 
 @media (max-width: 380px) {
   .hero__title {
     font-size: 46px;
+    margin-bottom: 30px;
   }
   .title-h2 {
     font-size: 34px;
