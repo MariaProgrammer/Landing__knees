@@ -594,8 +594,8 @@ p {
   -ms-border-radius: 50%;
   -o-border-radius: 50%;
 }
-.program__btn {
-}
+/* .program__btn {
+} */
 
 /* POPUP */
 .popup {
@@ -623,7 +623,7 @@ p {
   -moz-transition: all ease 1s;
   -ms-transition: all ease 1s;
   -o-transition: all ease 1s;
-  -webkit-filter: blur(20px);
+  
 }
 .popup__inner{
   position: absolute;

@@ -1,138 +1,126 @@
 document.addEventListener('DOMContentLoaded', () => {
-    //Плавный скролл
-  const anchors = document.querySelectorAll('a[href*="#"]');
+    // Плавный скролл
+    const anchors = document.querySelectorAll('a[href*="#"]');
 
-  for (let anchor of anchors) {
-    anchor.addEventListener("click", function (e) {
-      e.preventDefault();
+    for (let anchor of anchors) {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            const blockID = anchor.getAttribute("href").substring(1);
+            document.getElementById(blockID).scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+            });
+        });
+    }
 
-      const blockID = anchor.getAttribute("href").substring(1);
-
-      document.getElementById(blockID).scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
-    });
-  }
     // ----------Видеоплеер------------------
     const videoWrapper = document.getElementById('video-wrapper');
-    const video = document.getElementById('custom-video-player');
-    const playPauseBtn = videoWrapper.querySelector('.play-pause-button');
+    if (videoWrapper) { // Добавим проверку на наличие элемента
+        const video = document.getElementById('custom-video-player');
+        const playPauseBtn = videoWrapper.querySelector('.play-pause-button');
 
-    // Функция, которая сработает ТОЛЬКО при клике на нашу кастомную кнопку
-    const handleCustomButtonFirstPlay = () => {
-        // 1. Добавляем класс, который скроет кнопку через CSS
-        videoWrapper.classList.add('video-started');
+        const handleCustomButtonFirstPlay = () => {
+            videoWrapper.classList.add('video-started');
+            const playPromise = video.play();
+            if (playPromise !== undefined) {
+                playPromise.catch(error => {
+                    console.error("Не удалось запустить видео:", error);
+                    videoWrapper.classList.remove('video-started');
+                });
+            }
+        };
 
-        // 2. Даем команду на воспроизведение видео
-        const playPromise = video.play();
+        const handleVideoEnded = () => {
+            video.currentTime = 0;
+        };
 
-        // 3. Обрабатываем возможные ошибки, чтобы избежать мусора в консоли
-        if (playPromise !== undefined) {
-            playPromise.catch(error => {
-                console.error("Не удалось запустить видео:", error);
-                // Если запуск не удался, можно вернуть кнопку обратно
-                videoWrapper.classList.remove('video-started');
-            });
-        }
-    };
+        playPauseBtn.addEventListener('click', handleCustomButtonFirstPlay);
+        video.addEventListener('ended', handleVideoEnded);
+    }
+    
+    // --------------- Модальное окно (Popup) -----------------------
+    const openPopupButtons = document.querySelectorAll('.btn-open, .header__email');
+    const popup = document.querySelector('.popup');
+    const cross = document.querySelector('.close-btn');
 
-    // Функция, которая сработает, когда видео доиграет до конца
-    const handleVideoEnded = () => {
-        // Браузер автоматически покажет постер или первый кадр.
-        // Мы можем принудительно перемотать на начало для 100% гарантии.
-        video.currentTime = 0;
-        
-        // ВАЖНО: Мы НЕ убираем класс 'video-started',
-        // поэтому кастомная кнопка не появится снова.
-        // Дальнейшее управление происходит через стандартные controls.
-    };
+    // Функция открытия окна по любой из кнопок
+    openPopupButtons.forEach(button => {
+        button.addEventListener('click', (e) => {
+            e.preventDefault();
+            popup.classList.add('active');
+            document.body.classList.add('stop-scroll');
+        });
+    }); // <-- ВОТ ЗДЕСЬ ЗАКАНЧИВАЕТСЯ ЦИКЛ forEach. ОН БЫЛ ЗАКРЫТ В САМОМ КОНЦЕ ФАЙЛА.
 
-    // Назначаем обработчики событий
-    playPauseBtn.addEventListener('click', handleCustomButtonFirstPlay);
-    video.addEventListener('ended', handleVideoEnded);
+    // Функция закрытия окна на крестик (теперь она ВНЕ цикла)
+    if (cross) { // Добавим проверку на наличие элемента
+        cross.addEventListener('click', () => {
+            popup.classList.remove('active');
+            document.body.classList.remove('stop-scroll');
+        });
+    }
 
-
-
-    // ---------------Валидация формы-----------------------
+    // --------------- Валидация формы (теперь она ВНЕ цикла) -----------------------
     const form = document.getElementById('requestForm');
-    const nameInput = document.getElementById('name');
-    const emailInput = document.getElementById('email');
 
-    const nameError = document.getElementById('name-error');
-    const emailError = document.getElementById('email-error');
+    // Важно: если формы на странице нет, дальнейший код вызовет ошибку.
+    // Поэтому добавляем проверку.
+    if (form) {
+        const nameInput = document.getElementById('name');
+        const emailInput = document.getElementById('email');
+        const nameError = document.getElementById('name-error');
+        const emailError = document.getElementById('email-error');
 
-    form.addEventListener('submit', function(event) {
-        // Предотвращаем стандартную отправку формы
-        event.preventDefault();
+        form.addEventListener('submit', function (event) {
+            event.preventDefault();
+            resetErrors();
+            let isValid = true;
 
-        // Сбрасываем предыдущие ошибки
-        resetErrors();
+            // 1. Валидация поля "Name"
+            if (nameInput.value.trim() === '') {
+                showError(nameInput, nameError, 'Это поле обязательно для заполнения');
+                isValid = false;
+            }
 
-        let isValid = true;
+            // 2. Валидация поля "E-mail"
+            if (emailInput.value.trim() === '') {
+                showError(emailInput, emailError, 'Это поле обязательно для заполнения');
+                isValid = false;
+            } else if (!isValidEmail(emailInput.value.trim())) {
+                showError(emailInput, emailError, 'Пожалуйста, введите корректный E-mail');
+                isValid = false;
+            }
 
-        // 1. Валидация поля "Name"
-        if (nameInput.value.trim() === '') {
-            showError(nameInput, nameError, 'Это поле обязательно для заполнения');
-            isValid = false;
+            if (isValid) {
+                alert('Форма успешно отправлена!');
+                form.reset();
+                // опционально - закрыть попап после успешной отправки
+                if (popup) {
+                    popup.classList.remove('active');
+                    document.body.classList.remove('stop-scroll');
+                }
+            }
+        });
+
+        // Функция для отображения ошибки
+        function showError(inputElement, errorElement, message) {
+            inputElement.classList.add('error');
+            errorElement.textContent = message;
         }
 
-        // 2. Валидация поля "E-mail"
-        if (emailInput.value.trim() === '') {
-            showError(emailInput, emailError, 'Это поле обязательно для заполнения');
-            isValid = false;
-        } else if (!isValidEmail(emailInput.value.trim())) {
-            showError(emailInput, emailError, 'Пожалуйста, введите корректный E-mail');
-            isValid = false;
+        // Функция для сброса ошибок
+        function resetErrors() {
+            nameInput.classList.remove('error');
+            nameError.textContent = '';
+            emailInput.classList.remove('error');
+            emailError.textContent = '';
         }
 
-        // Если все поля прошли валидацию
-        if (isValid) {
-            alert('Форма успешно отправлена!');
-            // Здесь может быть код для отправки данных на сервер (AJAX/Fetch)
-            form.reset(); // Очищаем форму
+        // Функция для проверки корректности E-mail
+        function isValidEmail(email) {
+            const regex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            return regex.test(String(email).toLowerCase());
         }
-    });
-
-    // Функция для отображения ошибки
-    function showError(inputElement, errorElement, message) {
-        inputElement.classList.add('error');
-        errorElement.textContent = message;
     }
-
-    // Функция для сброса ошибок
-    function resetErrors() {
-        nameInput.classList.remove('error');
-        nameError.textContent = '';
-        emailInput.classList.remove('error');
-        emailError.textContent = '';
-    }
-
-    // Функция для проверки корректности E-mail с помощью регулярного выражения
-    function isValidEmail(email) {
-        const regex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-        return regex.test(String(email).toLowerCase());
-    }
-//функция открытия окна по любой из кнопок
-const openPopupButtons = document.querySelectorAll('.btn, .header__email');
-const popup = document.querySelector('.popup');
-const cross = document.querySelector('.close-btn')
-    
-// 2. Дальнейший код остается точно таким же
-openPopupButtons.forEach(button => {
-  button.addEventListener('click', (e) => {
-    e.preventDefault();
-    popup.classList.add('active');
-    document.body.classList.add('stop-scroll');
-
-  });
-});
-//функция закрытия окна на крестик
-    
-    cross.addEventListener('click', ()=> {
-        popup.classList.remove('active')
-        document.body.classList.remove('stop-scroll');
-
-    })
 
 });
