@@ -178,6 +178,11 @@
 .program__img {
     height: 200px;
   }
+  .close-btn {
+    width: 32px;
+    height: 32px;
+    font-size: 24px;
+  }
 }
 
 @media (max-width: 380px) {
