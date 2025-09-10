@@ -62,8 +62,12 @@ document.addEventListener('DOMContentLoaded', () => {
         
         // --- ОБНОВЛЕННЫЕ УСЛОВИЯ: ГРАДАЦИОННОЕ СМЕЩЕНИЕ ---
         // Сначала проверяем самый узкий диапазон для максимального смещения
-        if (screenWidth >= 375 && screenWidth <= 650) {
-            // Итоговое смещение 50%
+        if (screenWidth >= 320 && screenWidth <= 390) {
+            // Итоговое смещение 10%
+            bgPosX -= screenWidth * 0.01; 
+        } 
+        else if (screenWidth >= 391 && screenWidth <= 650) {
+            // Итоговое смещение 10%
             bgPosX -= screenWidth * 0.50; 
         } 
         // Затем проверяем более широкий диапазон для стандартного смещения
