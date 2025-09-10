@@ -339,13 +339,7 @@
     font-size: 19px;
   }
 
-  .hero__inner-right {
-    flex-direction: column;
-    gap: 15px;
-    align-self: flex-start;
-    align-items: flex-start;
-    text-align: left;
-  }
+  
   .trust {
     padding-top: 100px;
     width: 100%;
@@ -364,5 +358,12 @@
 @media (max-width: 360px) {
   .hero__img picture img {
     object-position: center;
+  }
+  .hero__inner-right {
+    flex-direction: column;
+    gap: 15px;
+    align-self: flex-start;
+    align-items: flex-start;
+    text-align: left;
   }
 }
