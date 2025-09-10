@@ -9,8 +9,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const isMobile = screenWidth <= 374;
         
         // Ваши пути к файлам
-        const desktopImage = '/img/hero__bg.webp'; 
-        const mobileImage = '/img/hero__bg--mob.webp';
+        const desktopImage = 'img/hero__bg.webp'; 
+        const mobileImage = 'img/hero__bg--mob.webp';
 
         const imageSrc = isMobile ? mobileImage : desktopImage;
         const tileSize = isMobile ? 25 : 100;
