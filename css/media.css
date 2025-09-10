@@ -314,6 +314,7 @@
   }
   .trust__title {
     max-width: 100%;
+    width: 100%;
     text-align: center;
     margin-bottom: 20px;
   }
