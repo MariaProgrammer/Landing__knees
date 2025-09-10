@@ -117,20 +117,7 @@ p {
   font-weight: 600;
   font-style: normal;
 }
-/* @font-face {
-  font-family: var(--third-family);
-  src: url("../fonts/OpenSans-Bold.woff2") format("woff2");
-  font-display: swap;
-  font-weight: 700;
-  font-style: normal;
-}
-@font-face {
-  font-family: var(--third-family);
-  src: url("../fonts/OpenSans-Bold.woff") format("woff");
-  font-display: swap;
-  font-weight: 700;
-  font-style: normal;
-} */
+
 
 .page__body {
   font-family: var(--font-family);
