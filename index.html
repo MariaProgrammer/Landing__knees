@@ -1,11 +1,90 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Анимация сборки картинки</title>
-    <link rel="stylesheet" href="css/styles.css" />
-    <link rel="stylesheet" href="css/media.css" />
+    <title>Health knee</title>
+    <meta
+      name="description"
+      content="Краткое описание вашей страницы, включающее ключевые слова."
+    />
+    <meta
+      name="keywords"
+      content="ключевое слово 1, ключевое слово 2, ключевое слово 3"
+    />
+    <meta name="robots" content="index, follow" />
+    <meta property="og:title" content="Название вашей страницы" />
+    <meta property="og:description" content="Краткое описание для соцсетей" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://вашсайт.ру/страница" />
+    <meta
+      property="og:image"
+      content="https://вашсайт.ру/images/имя_изображения.jpg"
+    />
+    <link
+      href="
+https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css
+"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+    />
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
+    />
+
+    <style>
+      /* Минимальный критический CSS для первичной отрисовки */
+      body {
+        font-family: var(--font-family);
+        background-color: var(--light-color);
+        margin: 0;
+        padding: 0;
+      }
+      .header,
+      .main,
+      .footer {
+        padding: 0;
+      }
+      .header__logo {
+        display: block;
+        width: 60px;
+        height: 60px;
+      }
+      .hero__title {
+        max-width: 860px;
+        font-size: 140px;
+        font-weight: 400;
+        margin-bottom: 50px;
+        color: var(--dark-blue-color);
+        letter-spacing: -1px;
+        line-height: 1;
+      }
+      .container {
+        max-width: 1720px;
+        width: 100%;
+        padding: 0 15px;
+        margin: 0 auto;
+      }
+    </style>
+
+    <link
+      rel="preload"
+      href="css/styles.css"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <link
+      rel="preload"
+      href="css/media.css"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
   </head>
   <body class="page__body">
     <div class="popup">

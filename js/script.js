@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function setupAdaptiveAnimation() {
         const screenWidth = window.innerWidth;
-        const isMobile = screenWidth <= 380;
+        const isMobile = screenWidth <= 390;
         
         // Ваши пути к файлам
         const desktopImage = 'img/hero__bg.webp'; 
