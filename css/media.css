@@ -141,6 +141,9 @@
   .about {
     padding-top: 0;
   }
+  .hero__inner-right {
+    position: static;
+  }
   .hero__number {
     font-weight: 700;
   }

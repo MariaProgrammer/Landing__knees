@@ -402,6 +402,10 @@ p {
 }
 
 .hero__inner-right {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  padding-right: 15px;
   align-self: flex-end;
   display: flex;
   align-items: flex-end;
@@ -435,6 +439,7 @@ p {
 }
 /* ABOUT */
 .about {
+  
   padding: 100px 0;
 }
 
