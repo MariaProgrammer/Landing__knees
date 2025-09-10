@@ -63,56 +63,56 @@ p {
 
 @font-face {
   font-family: var(--font-family);
-  src: url("../fonts/BebasNeue-Regular.woff2") format("woff2");
+  src: url("fonts/BebasNeue-Regular.woff2") format("woff2");
   font-display: swap;
   font-weight: 400;
   font-style: normal;
 }
 @font-face {
   font-family: var(--font-family);
-  src: url("../fonts/BebasNeue-Regular.woff") format("woff");
+  src: url("fonts/BebasNeue-Regular.woff") format("woff");
   font-display: swap;
   font-weight: 400;
   font-style: normal;
 }
 @font-face {
   font-family: var(--font-family);
-  src: url("../fonts/BebasNeue-Bold.woff2") format("woff2");
+  src: url("fonts/BebasNeue-Bold.woff2") format("woff2");
   font-display: swap;
   font-weight: 700;
   font-style: normal;
 }
 @font-face {
   font-family: var(--font-family);
-  src: url("../fonts/BebasNeue-Bold.woff") format("woff");
+  src: url("fonts/BebasNeue-Bold.woff") format("woff");
   font-display: swap;
   font-weight: 700;
   font-style: normal;
 }
 @font-face {
   font-family: var(--second-family);
-  src: url("../fonts/OpenSans-Regular.woff2") format("woff2");
+  src: url("fonts/OpenSans-Regular.woff2") format("woff2");
   font-display: swap;
   font-weight: 400;
   font-style: normal;
 }
 @font-face {
   font-family: var(--second-family);
-  src: url("../fonts/OpenSans-Regular.woff") format("woff");
+  src: url("fonts/OpenSans-Regular.woff") format("woff");
   font-display: swap;
   font-weight: 400;
   font-style: normal;
 }
 @font-face {
   font-family: var(--second-family);
-  src: url("../fonts/OpenSans-SemiBold.woff2") format("woff2");
+  src: url("fonts/OpenSans-SemiBold.woff2") format("woff2");
   font-display: swap;
   font-weight: 600;
   font-style: normal;
 }
 @font-face {
   font-family: var(--second-family);
-  src: url("../fonts/OpenSans-SemiBold.woff") format("woff");
+  src: url("fonts/OpenSans-SemiBold.woff") format("woff");
   font-display: swap;
   font-weight: 600;
   font-style: normal;
