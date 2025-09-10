@@ -1,4 +1,125 @@
 document.addEventListener('DOMContentLoaded', () => {
+    
+    const container = document.getElementById('hero-animation-container');
+    const heroSection = document.querySelector('.hero');
+    const heroContent = document.querySelector('.hero__container'); 
+
+    function setupAdaptiveAnimation() {
+        const screenWidth = window.innerWidth;
+        const isMobile = screenWidth <= 374;
+        
+        // Ваши пути к файлам
+        const desktopImage = '/img/hero__bg.webp'; 
+        const mobileImage = '/img/hero__bg--mob.webp';
+
+        const imageSrc = isMobile ? mobileImage : desktopImage;
+        const tileSize = isMobile ? 25 : 100;
+        
+        const img = new Image();
+        img.src = imageSrc;
+
+        img.onload = () => {
+            const imageRatio = img.naturalHeight / img.naturalWidth;
+            const imageBasedHeight = screenWidth * imageRatio;
+            
+            const contentHeight = heroContent.scrollHeight;
+
+            const finalHeroHeight = Math.max(imageBasedHeight, contentHeight);
+            
+            heroSection.style.height = `${finalHeroHeight}px`;
+
+            createGrid(img.naturalWidth, img.naturalHeight, tileSize, imageSrc, finalHeroHeight);
+        };
+        img.onerror = () => {
+            console.error("Не удалось загрузить изображение для анимации:", imageSrc);
+        }
+    }
+
+    function createGrid(imageNaturalWidth, imageNaturalHeight, tileSize, imageSrc, screenHeight) {
+        container.innerHTML = '';
+
+        const screenWidth = window.innerWidth;
+        
+        const cols = Math.ceil(screenWidth / tileSize);
+        const rows = Math.ceil(screenHeight / tileSize);
+
+        let bgWidth, bgHeight, bgPosX, bgPosY; 
+        
+        const containerRatio = screenWidth / screenHeight;
+        const imageRatio = imageNaturalWidth / imageNaturalHeight;
+
+        if (containerRatio > imageRatio) {
+            bgWidth = screenWidth;
+            bgHeight = screenWidth / imageRatio;
+            bgPosX = 0;
+            bgPosY = (screenHeight - bgHeight) / 2;
+        } else {
+            bgHeight = screenHeight;
+            bgWidth = screenHeight * imageRatio;
+            bgPosX = (screenWidth - bgWidth) / 2;
+            bgPosY = 0;
+        }
+        
+        // --- ОБНОВЛЕННЫЕ УСЛОВИЯ: ГРАДАЦИОННОЕ СМЕЩЕНИЕ ---
+        // Сначала проверяем самый узкий диапазон для максимального смещения
+        if (screenWidth >= 375 && screenWidth <= 650) {
+            // Итоговое смещение 50%
+            bgPosX -= screenWidth * 0.50; 
+        } 
+        // Затем проверяем более широкий диапазон для стандартного смещения
+        else if (screenWidth > 650 && screenWidth <= 980) {
+            // Смещение 30%
+            bgPosX -= screenWidth * 0.30;
+        }
+        // Для всех остальных разрешений (> 1200px) дополнительное смещение не применяется.
+        // --- ---------------------------------------------------
+
+        const backgroundSize = `${bgWidth}px ${bgHeight}px`;
+
+        for (let i = 0; i < rows; i++) {
+            for (let j = 0; j < cols; j++) {
+                const tile = document.createElement('div');
+                tile.classList.add('tile');
+
+                const tileLeft = j * tileSize;
+                const tileTop = i * tileSize;
+                
+                tile.style.width = `${tileSize}px`;
+                tile.style.height = `${tileSize}px`;
+                tile.style.backgroundImage = `url('${imageSrc}')`;
+                tile.style.top = `${tileTop}px`;
+                tile.style.left = `${tileLeft}px`;
+                tile.style.backgroundSize = backgroundSize;
+                tile.style.backgroundPosition = `-${tileLeft - bgPosX}px -${tileTop - bgPosY}px`;
+
+                let delay;
+                if (i < 2) {
+                    delay = (cols - j - 1) * 0.04 + (i * 0.03) + Math.random() * 0.05;
+                } else {
+                    const baseDelay = 0.3;
+                    delay = baseDelay + (cols - j - 1) * 0.05 + Math.random() * 0.1;
+                }
+                tile.style.transitionDelay = `${delay}s`;
+
+                container.appendChild(tile);
+            }
+        }
+
+        setTimeout(() => {
+            document.querySelectorAll('.tile').forEach(tile => {
+                tile.classList.add('is-visible');
+            });
+        }, 100);
+    }
+    
+    setupAdaptiveAnimation();
+
+    let resizeTimeout;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(setupAdaptiveAnimation, 500);
+    });
+
     // Плавный скролл
     const anchors = document.querySelectorAll('a[href*="#"]');
 
@@ -122,5 +243,4 @@ document.addEventListener('DOMContentLoaded', () => {
             return regex.test(String(email).toLowerCase());
         }
     }
-
 });

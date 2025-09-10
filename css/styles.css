@@ -1,3 +1,12 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  background-color: #f1f3f4; /* Добавим фон на случай, если картинка грузится долго */
+}
 html {
   box-sizing: border-box;
 }
@@ -129,6 +138,7 @@ p {
   font-weight: 400;
   margin: 0;
   padding: 0;
+  position: relative;
 }
 
 .stop-scroll {
@@ -167,7 +177,12 @@ p {
 }
 
 .btn {
-  background: var(--gradient-orange-color);
+  position: relative;
+  background: linear-gradient(
+    180deg,
+    rgba(243, 112, 33, 1) 0%,
+    rgba(248, 156, 60, 1) 100%
+  );
   color: #fff;
   font-family: var(--second-family);
   font-weight: 600;
@@ -175,25 +190,63 @@ p {
   line-height: 1.25;
   padding: 24px 66px;
   border-radius: 30px;
-  -webkit-border-radius: 30px;
-  -moz-border-radius: 30px;
-  -ms-border-radius: 30px;
-  -o-border-radius: 30px;
-  transition: background 1s ease;
-  -webkit-transition: background 1s ease;
-  -moz-transition: background 1s ease;
-  -ms-transition: background 1s ease;
-  -o-transition: background 1s ease;
+  overflow: hidden;
+  
+  /* ДОБАВЛЕНО: Плавный переход для движения.
+     Можно указать несколько свойств через запятую,
+     но "all" сработает для всего. 
+     Для лучшей производительности лучше указывать конкретные свойства.
+     Например: transition: transform 0.3s ease; */
+  transition: transform 0.3s ease;
 }
+
+.btn span {
+  position: relative;
+  z-index: 2;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    180deg,
+    rgba(243, 112, 33, 1) 0%,
+    rgba(243, 112, 33, 1) 100%
+  );
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+/* ИЗМЕНЕНО: Создаем отдельное правило для :hover, 
+   чтобы применить сдвиг к самой кнопке */
 .btn:hover {
-  background: var(--light-orange-color);
+  /* ДОБАВЛЕНО: Сдвигаем кнопку вверх на 2 пикселя */
+  transform: translateY(-2px);
 }
+
+/* Правило для псевдо-элемента при наведении остается без изменений */
+.btn:hover::before {
+  opacity: 1;
+}
+
 .btn:active {
-  background: var(--dark-orange-color);
+  background: linear-gradient(
+    180deg,
+    rgba(248, 156, 60, 1) 0%,
+    rgba(248, 156, 60, 1) 100%
+  );
+  /* ДОБАВЛЕНО: при нажатии можно убирать сдвиг для эффекта "вдавливания" */
+  transform: translateY(0);
+  transition: transform 0.1s ease; /* можно сделать обратное движение быстрым */
 }
 .btn:disabled {
   background: #c4c9cc;
 }
+
 .title-h2 {
   font-size: 100px;
   font-weight: 400;
@@ -212,19 +265,26 @@ p {
   font-size: 18px;
   line-height: 1.25;
 }
-
 /* HEADER */
 .header {
   position: absolute;
-  inset: 0;
+  left: 0;
+  top: 0;
   width: 100%;
   height: 106px;
   background: transparent;
 }
+.header__inner {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  position: absolute;
+  padding: 26px 0 0 0;
+  inset: 0;
+  z-index: 500;
+}
 .header__container {
-  position: relative;
-  top: 26px;
-  left: 50%;
+  padding: 0 15px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -236,13 +296,12 @@ p {
   -moz-border-radius: 50px;
   -ms-border-radius: 50px;
   -o-border-radius: 50px;
-  padding: 0 15px;
-  transform: translateX(-50%);
-  -webkit-transform: translateX(-50%);
-  -moz-transform: translateX(-50%);
-  -ms-transform: translateX(-50%);
-  -o-transform: translateX(-50%);
+   
 }
+.hero__container--mob {
+    display: none;
+    
+  }
 
 .header__logo {
   width: 60px;
@@ -277,37 +336,56 @@ p {
 
 /* HERO */
 .hero {
-  padding-top: 216px;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  transition: height 0.3s ease;
+  position: relative;
+}
+#hero-animation-container {
   width: 100%;
   height: 100%;
-  background: url("../img/hero__bg.webp");
-  background-position: center;
-  background-size: cover;
+  position: absolute; /* Позиционируется внутри .hero-section */
+  inset: 0;  
+}
+
+.tile {
+ position: absolute;
+  /* background-image будет задаваться в JS, чтобы можно было его менять */
   background-repeat: no-repeat;
+  transform: translateX(-150vw);
+  transition: transform 1.8s cubic-bezier(0.23, 1, 0.32, 1); 
 }
-.hero__img {
-  display: none;
+
+.tile.is-visible {
+  transform: translateX(0);
 }
-.hero__inner {
+.hero__container {
+   width: 100%;
+  height: 100%;
+  position: absolute; /* ОБЯЗАТЕЛЬНО absolute для наложения */
+  inset: 0;
+  z-index: 2; /* Ставим контент выше фона (у которого z-index: 1 или auto) */
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  flex-direction: column;
+  /* `position: relative` здесь было лишним и конфликтовало с `absolute` */
+  /* `overflow-y: visible` здесь не нужно */
 }
 
 .hero__inner-left {
   width: 100%;
   height: 100%;
-  align-self: flex-start;
 }
 .hero__title {
+  padding-top: 10%;
   max-width: 860px;
   width: 100%;
   font-size: 140px;
   font-weight: 400;
   margin-bottom: 50px;
   color: var(--dark-blue-color);
-  letter-spacing: -1px;
-  line-height: 1;
+  letter-spacing: -2px;
+  line-height: 0.8;
 }
 .hero__subtitle {
   max-width: 790px;
@@ -320,21 +398,23 @@ p {
   line-height: 1;
 }
 .hero__btn {
-  margin-bottom: 181px;
+  margin-bottom: 100px;
 }
 
 .hero__inner-right {
   align-self: flex-end;
   display: flex;
   align-items: flex-end;
-  justify-content: space-between;
+  justify-content: flex-end;
   width: 100%;
   height: 100%;
-  margin-bottom: 20px;
 }
 .hero__item {
   display: flex;
   flex-direction: column;
+}
+.hero__item:not(:last-child) {
+  margin-right: 150px;
 }
 .hero__number {
   font-size: 100px;
@@ -345,7 +425,7 @@ p {
   -webkit-background-clip: text;
   color: transparent;
   letter-spacing: 0px;
-  line-height: 1;
+  line-height: 0.8;
 }
 .hero__label {
   font-family: var(--second-family);
@@ -353,7 +433,6 @@ p {
   font-size: 18px;
   font-weight: 400;
 }
-
 /* ABOUT */
 .about {
   padding: 100px 0;
@@ -400,11 +479,10 @@ p {
   width: 100%;
   height: 100%;
   background: url("../img/blue__bg.png"), url("../img/orange__bg.png");
-  background-size: 90% 90%;
-  background-position: 100% 40%, 0% 32%;
+  background-size: 60% 60%;
+  background-position: 100% 0%, 0% 0%;
   background-repeat: no-repeat;
 }
-
 /* VIDEO */
 /* .video {
  
@@ -413,7 +491,7 @@ p {
 .video__title {
   color: var(--dark-orange-color);
   text-align: center;
-  max-width: 1355px;
+  max-width: 80%;
   margin: 0 auto;
   width: 100%;
   margin-bottom: 40px;
@@ -514,8 +592,7 @@ p {
   line-height: 1;
 }
 /* PROGRAM */
-.program {
-  padding: 100px 0;
+.program {  
   text-align: center;
 }
 
@@ -599,23 +676,36 @@ p {
 
 /* POPUP */
 .popup {
-  display: none;
+  opacity: 0;
   position: fixed;
   left: 0;
   right: 0;
   top: 0;
   width: 100vw;
   height: 100vh;
-  z-index: 100;
+  z-index: -1;
+  transition: all 1s ease-in;
+  -webkit-transition: all .5s ease-in;
+  -moz-transition: all .5s ease-in;
+  -ms-transition: all .5s ease-in;
+  -o-transition: all .5s ease-in;
 }
 .popup.active {
   display: block;
+  opacity: 1;
+   z-index: 1000;
 }
 .popup__cover {
   width: 100%;
   height: 100%;
-  background: linear-gradient(    180deg,    rgba(0, 88, 140, .5) 0%,    rgba(0, 116, 183, .5) 100%  );
-  backdrop-filter: blur(20px); /* Apply blur to the background behind this element */
+  background: linear-gradient(
+    180deg,
+    rgba(0, 88, 140, 0.5) 0%,
+    rgba(0, 116, 183, 0.5) 100%
+  );
+  backdrop-filter: blur(
+    20px
+  ); /* Apply blur to the background behind this element */
   -webkit-backdrop-filter: blur(20px);
   z-index: 300;
   transition: all ease 1s;
@@ -623,9 +713,8 @@ p {
   -moz-transition: all ease 1s;
   -ms-transition: all ease 1s;
   -o-transition: all ease 1s;
-  
 }
-.popup__inner{
+.popup__inner {
   position: absolute;
   left: 50%;
   top: 50%;
@@ -643,7 +732,7 @@ p {
   position: relative;
   margin: 0 auto;
   background: #fff;
-  padding: 40px;  
+  padding: 40px;
   border-radius: 12px;
   box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
   max-width: 700px;
@@ -653,7 +742,7 @@ p {
   -webkit-transition: all ease 1s;
   -moz-transition: all ease 1s;
   -ms-transition: all ease 1s;
-  -o-transition: all ease 1s;  
+  -o-transition: all ease 1s;
 }
 
 /* Кнопка закрытия */
@@ -671,18 +760,26 @@ p {
   line-height: 32px;
   text-align: center;
   cursor: pointer;
-  transition: background 0.3s ease;
-  -webkit-transition: background 0.3s ease;
-  -moz-transition: background 0.3s ease;
-  -ms-transition: background 0.3s ease;
-  -o-transition: background 0.3s ease;
+  transition: background 0.7s ease;
+  -webkit-transition: background 0.7s ease;
+  -moz-transition: background 0.7s ease;
+  -ms-transition: background 0.7s ease;
+  -o-transition: background 0.7s ease;
 }
 
 .close-btn:hover {
-  background: var(--dark-orange-color);
+  background: linear-gradient(
+    180deg,
+    rgba(243, 112, 33, 1) 0%,
+    rgba(243, 112, 33, 1) 100%
+  );
 }
 .close-btn:active {
-  background: var(--light-orange-color);
+  background: linear-gradient(
+    180deg,
+    rgba(248, 156, 60, 1) 0%,
+    rgba(248, 156, 60, 1) 100%
+  );
 }
 
 /* Заголовок формы */
@@ -736,11 +833,8 @@ input[type="email"]:focus {
   font-size: 18px;
   font-weight: bold;
   cursor: pointer;
-  transition: opacity 0.3s ease;
   margin-top: 10px;
 }
-
-
 
 /* Стили для ошибок валидации */
 .form-group .error-message {
@@ -764,4 +858,115 @@ input[type="email"]:focus {
   .form-title {
     font-size: 36px;
   }
+}
+
+/* TRUST */
+
+.trust {
+  padding-top: 100px;
+  width: 100%;
+  height: 100%;
+  display: block;
+  background-image: url('../img/trust__bg.webp'), url('../img/trust__ellipse2.png'), url('../img/trust__ellipse1.png');
+  background-position: right center, left top, center top ;
+  background-size: contain, 80%, 80%;
+  background-repeat: no-repeat;
+}
+.trust__container {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 30px;
+
+}
+.trust__left {
+  width: 100%;  
+  flex: 1 1 auto;
+}
+.trust__right {
+  width: 100%;
+  flex: 1 1 auto;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
+
+.trust__title {
+  max-width: 1036px;
+  width: 100%;
+  background-image: var(--gradient-orange-color);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  margin-bottom: 30px;
+  align-self: flex-end;
+}
+
+.trust__title span {
+  color: var(--light-blue-color);
+}
+.trust__subtitle {
+  color: var(--dark-orange-color);
+  margin-bottom: 10px;
+}
+.trust-h3 {
+  background-image: var(--gradient-blue-color);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+
+}
+.trust__subtitle--mob {
+  display: none;
+}
+
+.trust__desc {
+  color: var(--light-blue-color);
+  margin-bottom: 40px;
+  font-family: var(--second-family);
+  font-size: 24px;
+  font-weight: 600;
+  max-width: 568px;
+  width: 100%;
+}
+.trust__list {
+  max-width: 860px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+  margin-bottom: 30px;
+}
+
+.trust__item {
+  padding: 15px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  border-radius: 30px;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  -ms-border-radius: 30px;
+  -o-border-radius: 30px;
+}
+.trust__icon {
+}
+.trust__item--text {
+}
+
+
+.trust-text {
+  background-image: var(--gradient-blue-color);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.trust__btn {
+  display: block;
+  width: 100%;
+  max-width: 860px;
+  margin-bottom: 67px;
 }

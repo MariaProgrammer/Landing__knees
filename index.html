@@ -1,92 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Health knee</title>
-    <meta
-      name="description"
-      content="Краткое описание вашей страницы, включающее ключевые слова."
-    />
-    <meta
-      name="keywords"
-      content="ключевое слово 1, ключевое слово 2, ключевое слово 3"
-    />
-    <meta name="robots" content="index, follow" />
-    <meta property="og:title" content="Название вашей страницы" />
-    <meta property="og:description" content="Краткое описание для соцсетей" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://вашсайт.ру/страница" />
-    <meta
-      property="og:image"
-      content="https://вашсайт.ру/images/имя_изображения.jpg"
-    />
-
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
-    <link rel="icon" href="favicon.ico" type="image/x-icon" />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
-    />
-
-    <style>
-      /* Минимальный критический CSS для первичной отрисовки */
-      body {
-        font-family: var(--font-family);
-        background-color: var(--light-color);
-        margin: 0;
-        padding: 0;
-      }
-      .header,
-      .main,
-      .footer {
-        padding: 0;
-      }
-      .header__logo {
-        display: block;
-        width: 60px;
-        height: 60px;
-      }
-      .hero__title {
-        max-width: 860px;
-        font-size: 140px;
-        font-weight: 400;
-        margin-bottom: 50px;
-        color: var(--dark-blue-color);
-        letter-spacing: -1px;
-        line-height: 1;
-      }
-      .container {
-        max-width: 1720px;
-        width: 100%;
-        padding: 0 15px;
-        margin: 0 auto;
-      }
-    </style>
-
-    <link
-      rel="preload"
-      href="css/styles.css"
-      as="style"
-      onload="this.onload=null;this.rel='stylesheet'"
-    />
-    <link
-      rel="preload"
-      href="css/media.css"
-      as="style"
-      onload="this.onload=null;this.rel='stylesheet'"
-    />
-    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <title>Анимация сборки картинки</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/media.css" />
   </head>
-  <script src="js/main.js"></script>
   <body class="page__body">
     <div class="popup">
       <div class="popup__cover"></div>
       <div class="popup__inner">
         <div class="form-wrapper">
           <button class="close-btn">&times;</button>
-          <h1 class="title-h2 form-title ">SUBMIT YOUR<br />REQUEST</h1>
+          <h1 class="title-h2 form-title">SUBMIT YOUR<br />REQUEST</h1>
 
           <form id="requestForm" novalidate>
             <div class="form-group">
@@ -112,17 +39,18 @@
             </div>
 
             <button type="submit" class="submit-btn btn btn-reset">
-              Start My Recovery Now
+              <span>Start My Recovery Now</span> 
             </button>
           </form>
         </div>
       </div>
-        
-      
     </div>
     <header class="header">
-      <div class="container">
-        <div class="header__container">
+      <div class="header__inner">
+        <div class="container">
+
+
+          <div class="header__container">
           <a href="#" class="header__logo-link">
             <img src="icons/logo.svg" alt="Logo" class="header__logo" />
           </a>
@@ -146,54 +74,78 @@
               </li>
             </ul>
           </nav>
-          <button class="header__email btn-reset btn-open ">
+          <button class="header__email btn-reset btn-open">
             <svg class="header__email-pic" width="31" height="25">
               <use href="icons/sprite.svg#email-icon"></use>
             </svg>
           </button>
         </div>
       </div>
-    </header>
-    <main>
-      <section class="hero">
-        <div class="hero__img">
-          <picture>
-            <source srcset="img/hero__bg-mob.webp" media="(max-width: 375px)" />
-            <source srcset="img/hero__bg.webp" media="(max-width: 768px)" />
-            <img src="img/hero__bg.webp" alt="бегущая женщина" />
-          </picture>
-        </div>
-        <div class="container">
-          <div class="hero__inner">
-            <div class="hero__inner-left">
-              <h1 class="hero__title">GET RID OF KNEE PAIN IN JUST 14 DAYS</h1>
-              <p class="hero__subtitle">
-                Regain ease of movement and get rid of knee pain in 14 days at
-                home, without surgery or expensive procedures.
-              </p>
-              <button class="hero__btn btn btn-reset btn-open">
-                Start My Recovery Now
-              </button>
-            </div>
 
-            <div class="hero__inner-right">
-              <div class="hero__item">
-                <span class="hero__number">1,564</span>
-                <span class="hero__label">People helped so far</span>
-              </div>
-              <div class="hero__item">
-                <span class="hero__number">99%</span>
-                <span class="hero__label">Satisfied clients</span>
-              </div>
-              <div class="hero__item">
-                <span class="hero__number">28,000+</span>
-                <span class="hero__label">Lives changed</span>
-              </div>
-            </div>
+      </div>
+      
+    </header>
+   <main>
+    <section class="hero">
+       
+        <div class="container hero__container">
+          <div class="hero__inner-left">
+          <h1 class="hero__title">GET RID OF KNEE<br> PAIN IN JUST 14 DAYS</h1>
+          <p class="hero__subtitle">
+            Regain ease of movement and get rid of knee pain in 14 days at home,
+            without surgery or expensive procedures.
+          </p>
+          <button class="hero__btn btn btn-reset btn-open">
+           <span>Start My Recovery Now</span> 
+          </button>
+        </div>
+
+        <div class="hero__inner-right">
+          <div class="hero__item">
+            <span class="hero__number">1,564</span>
+            <span class="hero__label">People helped so far</span>
+          </div>
+          <div class="hero__item">
+            <span class="hero__number">99%</span>
+            <span class="hero__label">Satisfied clients</span>
+          </div>
+          <div class="hero__item">
+            <span class="hero__number">28,000+</span>
+            <span class="hero__label">Lives changed</span>
           </div>
         </div>
-      </section>
-      <div class="cover">
+        </div>
+        
+      
+      <div id="hero-animation-container"></div>
+    </section>
+    <div class="container hero__container--mob">
+          <div class="hero__inner-left">
+          <h1 class="hero__title">GET RID OF KNEE<br> PAIN IN JUST 14 DAYS</h1>
+          <p class="hero__subtitle">
+            Step-by-step plan from a physiotherapist. Just 20 minutes a day.
+          </p>
+          <button class="hero__btn btn btn-reset btn-open">
+           <span>Start My Recovery Now</span> 
+          </button>
+        </div>
+
+        <div class="hero__inner-right">
+          <div class="hero__item">
+            <span class="hero__number">1,564</span>
+            <span class="hero__label">People helped so far</span>
+          </div>
+          <div class="hero__item">
+            <span class="hero__number">99%</span>
+            <span class="hero__label">Satisfied clients</span>
+          </div>
+          <div class="hero__item">
+            <span class="hero__number">28,000+</span>
+            <span class="hero__label">Lives changed</span>
+          </div>
+        </div>
+        </div>
+    <div class="cover">
         <section class="about" id="about">
           <div class="container">
             <h2 class="about__title title-h2">
@@ -241,8 +193,7 @@
         <section class="video" id="video">
           <div class="container">
             <h2 class="video__title title-h2">
-              But it doesn’t have to be this way. Join 1,500+ people who already
-              got rid of knee pain and live freely again
+              But it doesn’t have to be this way. Join 1,500+ people who already got rid of knee pain and live freely again
             </h2>
 
             <div class="video-container" id="video-wrapper">
@@ -317,7 +268,7 @@
           </div>
         </section>
       </div>
-      <section class="program " id="program">
+    <section class="program" id="program">
         <div class="container">
           <h2 class="program__title title-h2">
             Is This Program Right for You?
@@ -352,7 +303,7 @@
                 </li>
               </ul>
               <button class="program__btn btn btn-reset btn-open">
-                Start My Recovery Now
+                <span>Start My Recovery Now</span>
               </button>
             </div>
           </div>
@@ -360,22 +311,81 @@
       </section>
 
       <section class="trust" id="id-why">
-        <div class="container">
-
-          <h2 class="trust__title title-h2">5 Reasons to Live Without Knee Pain Just 20 Minutes a Day</h2>
-          <p class="trust__desc">Each reason is not just about knees — it’s about getting your life back</p>
-        <ul class="trust__list">
-          <li class="trust__item">
-
-            <div class="trust__item--text">
-              <h3 class="trust-title title-h3">Wake up without stiffness</h3>
-              <p class="trust-text text">start your day moving freely.</p>
-            </div>
+        
+        <div class="container trust__container">
+          <div class="trust__left">
+            <h2 class="trust__title title-h2">
+            5 Reasons to Live Without Knee Pain
+            <span>Just 20 Minutes a Day</span>
+          </h2>
+          <p class="trust__desc">
+            Each reason is not just about knees — it’s about getting your life
+            back
+          </p>
+          <ul class="trust__list list-reset">
+            <li class="trust__item list-reset">
+              <svg class="trust__icon" width="60" height="60">
+                <use href="icons/sprite.svg#sneakers"></use>
+              </svg>
+              <div class="trust__item--text">
+                <h3 class="trust-h3 title-h3">Wake up without stiffness</h3>
+                <p class="trust-text text">start your day moving freely.</p>
+              </div>
+            </li>
+            <li class="trust__item list-reset">
+              <svg class="trust__icon" width="45" height="52">
+                <use href="icons/sprite.svg#protection"></use>
+              </svg>
+              <div class="trust__item--text">
+                <h3 class="trust-h3 title-h3">Protect your knees</h3>
+                <p class="trust-text text">
+                  strong joints mean no surprises, no injuries.
+                </p>
+              </div>
+            </li>
+            <li class="trust__item list-reset">
+              <svg class="trust__icon" width="52" height="45">
+                <use href="icons/sprite.svg#time"></use>
+              </svg>
+              <div class="trust__item--text">
+                <h3 class="trust-h3 title-h3">Stay young longer</h3>
+                <p class="trust-text text">dance, walk, play sports at any age</p>
+              </div>
+            </li>
+            <li class="trust__item list-reset">
+              <svg class="trust__icon" width="52" height="39">
+                <use href="icons/sprite.svg#stairs"></use>
+              </svg>
+              <div class="trust__item--text">
+                <h3 class="trust-h3 title-h3">Step with confidence</h3>
+                <p class="trust-text text">no fear of stairs, uneven ground or sudden pain</p>
+              </div>
+            </li>
+            <li class="trust__item">
+              <svg class="trust__icon" width="51" height="52">
+                <use href="icons/sprite.svg#danse"></use>
+              </svg>
+              <div class="trust__item--text">
+                <h3 class="trust-h3 title-h3">Live fully again</h3>
+                <p class="trust-text text">start your travel, enjoy hobbies, spend time with family without limits.moving freely.</p>
+              </div>
+            </li>
+          </ul>
+          <h3 class="trust__subtitle--mob title-h3">
+              Strong knees = strong life. And it takes only 20 minutes a day
+            </h3>
+          <button class="trust__btn btn btn-reset btn-open">
+            <span>Start My Recovery Now</span>
+          </button>
+          </div>
+          <div class="trust__right">
+            <h3 class="trust__subtitle title-h3">
+              Strong knees = strong life.<br> And it takes only 20 minutes a day
+            </h3>
             
-          </li>
-          
-        </ul>
+          </div>
 
+          
         </div>
         
       </section>
@@ -443,11 +453,8 @@
         </address>
       </section>
     </main>
+    
 
-    <!-- <footer class="footer">
-      <p class="footer__text">© 2025 KneeHelp. All rights reserved.</p>
-    </footer> -->
-
-    <script src="js/main.js" defer></script>
+    <script src="js/script.js"></script>
   </body>
 </html>
