@@ -64,7 +64,7 @@ p {
 @font-face {
   font-family: "Bebas Neue"; /* Используйте имя напрямую, а не переменную */
   src: url("../fonts/BebasNeueRegular.woff2") format("woff2"),
-       url("../fonts/BebasNeueRegular.woff") format("woff");
+    url("../fonts/BebasNeueRegular.woff") format("woff");
   font-display: swap;
   font-weight: 400; /* Normal */
   font-style: normal;
@@ -73,7 +73,7 @@ p {
 @font-face {
   font-family: "Bebas Neue";
   src: url("../fonts/BebasNeue-Bold.woff2") format("woff2"),
-       url("../fonts/BebasNeue-Bold.woff") format("woff");
+    url("../fonts/BebasNeue-Bold.woff") format("woff");
   font-display: swap;
   font-weight: 700; /* Bold */
   font-style: normal;
@@ -82,7 +82,7 @@ p {
 @font-face {
   font-family: "Open Sans";
   src: url("../fonts/OpenSans-Regular.woff2") format("woff2"),
-       url("../fonts/OpenSans-Regular.woff") format("woff");
+    url("../fonts/OpenSans-Regular.woff") format("woff");
   font-display: swap;
   font-weight: 400; /* Normal */
   font-style: normal;
@@ -91,7 +91,7 @@ p {
 @font-face {
   font-family: "Open Sans";
   src: url("../fonts/OpenSans-SemiBold.woff2") format("woff2"),
-       url("../fonts/OpenSans-SemiBold.woff") format("woff");
+    url("../fonts/OpenSans-SemiBold.woff") format("woff");
   font-display: swap;
   font-weight: 600; /* SemiBold */
   font-style: normal;
@@ -213,19 +213,19 @@ p {
 }
 
 .title-h2 {
-  font-size: 100px;
+  font-size: clamp(2.1rem, 1rem + 5vw, 6.25rem);
   font-weight: 400;
   line-height: 1;
 }
 .title-h3 {
-  font-size: 48px;
+  font-size: clamp(1.75rem, 1rem + 5vw, 3rem);
   color: #fff;
   font-weight: 400;
   line-height: 1;
   letter-spacing: 0.8px;
 }
 .title-h4 {
-  font-size: 32px;
+  font-size: clamp(1.5rem, 1rem + 5vw, 2rem);
   font-weight: 400;
   line-height: 1;
   letter-spacing: 0.8px;
@@ -349,7 +349,7 @@ p {
   padding-top: 10%;
   max-width: 860px;
   width: 100%;
-  font-size: 140px;
+  font-size: clamp(2.8rem, 1rem + 5vw, 8.75rem);
   font-weight: 400;
   margin-bottom: 50px;
   color: var(--dark-blue-color);
@@ -359,7 +359,7 @@ p {
 .hero__subtitle {
   max-width: 790px;
   width: 100%;
-  font-size: 48px;
+  font-size: clamp(1.1rem, 1rem + 5vw, 3rem);
   font-weight: 400;
   margin-bottom: 30px;
   color: var(--dark-blue-color);
@@ -952,6 +952,10 @@ input[type="email"]:focus {
 .whats-inside {
   padding: 100px 0;
   overflow: hidden; /* Чтобы выезжающие элементы не создавали горизонтальный скролл */
+  background: url("../img/whats-inside__ellipse.png");
+  background-position: 50% 60%;
+  background-size: 80%;
+  background-repeat: no-repeat;
 }
 
 .whats-inside__container {
@@ -961,6 +965,7 @@ input[type="email"]:focus {
 }
 
 .whats-inside__title {
+  text-align: center;
   background-image: var(--gradient-blue-color);
   background-clip: text;
   -webkit-background-clip: text;
@@ -1027,7 +1032,7 @@ input[type="email"]:focus {
 
 .video-slider__slide {
   width: 65%; /* Ширина активного слайда */
-  
+
   aspect-ratio: 16 / 9;
   border-radius: 30px;
   overflow: hidden;
@@ -1097,44 +1102,73 @@ input[type="email"]:focus {
 /* --- СТИЛИ БЛОКА SPECIAL-OFFER --- */
 .special-offer {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr minmax(335px, 652px);
   gap: 40px;
   align-items: center;
+}
+.special-offer__container {
+  position: relative;
+  width: 100%;
+  height: auto;
+  background: url("../img/present__img.png");
+  background-size: 34vw;
+  background-position: left center;
+  background-repeat: no-repeat;
 }
 
 .special-offer__bonus {
   position: relative;
+  width: 100%;
+  height: 100%;
+}
+.special-offer__bonus--mob {
+  display: none;
 }
 
-.special-offer__gift-image {
-  max-width: 80%;
-  height: auto;
+.bonus-text--top {
+  position: absolute;
+  top: 3%;
+  right: 3%;
+  background-image: var(--gradient-orange-color);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
 }
-
-.special-offer__bonus-text {
-  font-size: 18px;
-  font-weight: 600;
-  color: #000;
-  line-height: 1.5;
-  text-align: center;
-}
-
-.special-offer__bonus-text:first-of-type {
-  margin-bottom: 20px;
+.bonus-text--bottom {
+  position: absolute;
+  top: 25%;
+  right: 0%;
+  background-image: var(--gradient-blue-color);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
 }
 
 .special-offer__details {
-  background-color: #dcecfc;
-  border-radius: 30px;
-  padding: 30px;
-  text-align: center;
+  justify-self: end;
+  max-width: 652px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+}
+.price-block {
+  background-color: #cbe3f1;
+  border-radius: 20px;
+  padding: 30px 45px;
 }
 
 .price-block__title {
-  font-size: 20px;
-  color: grey;
-  font-weight: 500;
-  margin-bottom: 10px;
+  font-size: clamp(2rem, 1rem + 5vw, 5rem);
+  background-image: var(--gradient-blue-color);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  font-weight: 400;
+  margin-bottom: 20px;
+  line-height: 1;
+  letter-spacing: -1px;
+  text-transform: uppercase;
 }
 
 .price-block__prices {
@@ -1146,21 +1180,45 @@ input[type="email"]:focus {
 }
 
 .price-block__old-price {
-  font-size: 32px;
-  color: grey;
-  text-decoration: line-through;
+  font-size: 80px;
+  color: var(--light-blue-color);
+  position: relative;
+}
+.price-block__old-price::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 100%;
+  height: 3px;
+  background-color: var(--dark-orange-color);
+  z-index: 1000;
 }
 
 .price-block__new-price {
-  font-size: 64px;
+  font-size: clamp(6.25rem, 1rem + 5vw, 8.75rem);
   font-weight: 700;
-  color: #000;
+  background-image: var(--gradient-blue-color);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
 }
-
+.countdown-timer {
+  background-color: #cbe3f1;
+  border-radius: 20px;
+  padding: 30px 45px;
+}
 .countdown-timer__title {
-  font-size: 16px;
-  color: grey;
-  margin-bottom: 10px;
+  text-align: center;
+  font-size: clamp(2rem, 1rem + 5vw, 5rem);
+  background-image: var(--gradient-blue-color);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  font-weight: 400;
+  margin-bottom: 20px;
+  line-height: 1;
+  letter-spacing: -1px;
   text-transform: uppercase;
 }
 
@@ -1178,25 +1236,34 @@ input[type="email"]:focus {
 }
 
 .time-unit__value {
+  font-family: var(--second-family);
+  padding: 8px 38px;
   background-color: #fff;
   border-radius: 10px;
   padding: 10px 20px;
-  font-size: 32px;
-  font-weight: 700;
-  color: #000;
-  min-width: 70px;
+  font-size: clamp(2.6rem, 1rem + 5vw, 3.75rem);
+  font-weight: 600;
+  color: #ff6b00;
 }
 
 .time-unit__label {
-  font-size: 12px;
-  color: grey;
+  font-family: var(--second-family);
+  font-weight: 400;
+  font-size: 15px;
+  background-image: var(--gradient-blue-color);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
   margin-top: 5px;
 }
 
 .countdown-timer__separator {
   font-size: 32px;
   font-weight: 700;
-  color: grey;
+  background-image: var(--gradient-blue-color);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
   align-self: center;
   padding-bottom: 25px; /* Визуальная коррекция */
 }
@@ -1366,5 +1433,519 @@ input[type="email"]:focus {
 
   .time-unit__value {
     min-width: 50px;
+  }
+}
+.body--modal-open {
+  overflow: hidden;
+}
+
+/* --- СТИЛИ БЛОКА TRUST-ME --- */
+section.trust-me {
+  width: 100%;
+  height: 100%;
+  background-image: url("../img/trust__ellipse-blue.png"),
+    url("../img/trust__ellipse-orange.png");
+  background-position: 19% 27%, 100% 0%;
+  background-size: 60% 70%;
+  background-repeat: no-repeat;
+}
+
+.trust-me__title {
+  background-image: var(--gradient-blue-color);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  text-align: left;
+  margin-bottom: 40px;
+}
+
+/* Верхний блок: фото + текст */
+.trust-me__about {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+  margin-bottom: 60px;
+}
+
+.trust-me__photo-wrapper {
+  max-width: 90%;
+  border-radius: 30px;
+  overflow: hidden;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  -ms-border-radius: 30px;
+  -o-border-radius: 30px;
+}
+
+.trust-me__photo {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* .trust-me__content {
+ 
+} */
+
+.trust-me__intro {
+  font-family: var(--second-family);
+  font-size: 16px;
+  font-weight: 400;
+
+  color: var(--color-black);
+  margin-bottom: 25px;
+}
+
+.trust-me__list {
+  list-style: none;
+  padding-left: 20px;
+}
+
+.trust-me__list-item {
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--color-text-light);
+  position: relative;
+}
+
+.trust-me__list-item:not(:last-child) {
+  margin-bottom: 15px;
+}
+
+.trust-me__list-item::before {
+  content: "•";
+  position: absolute;
+  left: -20px;
+  top: 0;
+  color: var(--color-accent);
+  font-size: 20px;
+  line-height: 1.2;
+}
+
+/* --- СТИЛИ БЛОКА PHOTO-GALLERY (СЛАЙДЕР) --- */
+.photo-gallery {
+  padding-bottom: 60px;
+}
+
+/* Важно: используем уникальный класс для этого слайдера */
+.photo-gallery__slider {
+  width: 100%;
+  overflow: hidden; /* Важно для Swiper */
+}
+
+.photo-gallery__slide {
+  /* Сбрасываем стили кнопки */
+  border: none;
+  background: none;
+  padding: 0;
+  font-family: inherit;
+  text-align: left;
+
+  width: 23%; /* Примерная ширина, чтобы поместилось 4-5 слайдов */
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+}
+
+.photo-gallery__slide:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+  border-radius: var(--border-radius-main);
+}
+
+.photo-gallery__image-wrapper {
+  border-radius: 30px;
+  overflow: hidden;
+  margin-bottom: 15px;
+  aspect-ratio: 1.5 / 1;
+  /*Делаемкартинкиквадратными*/
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  -ms-border-radius: 30px;
+  -o-border-radius: 30px;
+}
+
+.photo-gallery__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.photo-gallery__slide:hover .photo-gallery__image {
+  transform: scale(1.05);
+}
+
+.photo-gallery__caption {
+  font-size: 14px;
+  line-height: 1.4;
+  color: var(--color-text-dark);
+}
+
+.photo-gallery__caption strong {
+  display: block;
+  font-weight: 700;
+}
+
+/* --- БЛОК С ПРИЗЫВОМ К ДЕЙСТВИЮ (только для мобильных) --- */
+.trust-me__call-to-action {
+  display: none; /* Скрыт по умолчанию */
+  text-align: center;
+  padding: 0 15px;
+}
+
+.trust-me__cta-text {
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--color-text-dark);
+  margin-bottom: 30px;
+}
+
+.trust-me__cta-button {
+  display: inline-block;
+  background-color: var(--color-accent);
+  color: var(--color-background-light);
+  border: none;
+  border-radius: 50px;
+  padding: 15px 40px;
+  font-size: 18px;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.trust-me__cta-button:hover,
+.trust-me__cta-button:focus-visible {
+  background-color: #e67e00;
+  transform: translateY(-2px);
+  outline: none;
+}
+
+/* --- СТИЛИ ЛАЙТБОКСА (POPUP ДЛЯ ФОТО) --- */
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2000;
+  /* Главный контейнер использует flexbox для идеального центрирования контента */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Анимация появления/исчезновения */
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  opacity: 1;
+  visibility: visible;
+}
+
+.lightbox--hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.lightbox__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 88, 140, 0.5) 0%,
+    rgba(0, 116, 183, 0.5) 100%
+  );
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  cursor: pointer;
+}
+
+/* Этот контейнер теперь максимально простой. Он просто существует. */
+.lightbox__content {
+  position: relative;
+  z-index: 2001;
+  /* Убираем все размеры и flex-свойства отсюда. */
+  /* Анимация масштабирования */
+  transform: scale(1);
+  transition: transform 0.3s ease;
+}
+
+.lightbox--hidden .lightbox__content {
+    transform: scale(0.95);
+}
+
+
+/* --- ГЛАВНОЕ ИСПРАВЛЕНИЕ ЗДЕСЬ --- */
+.lightbox__image {
+  display: block;
+  
+  /* Прямо указываем изображению максимальные размеры. */
+  /* Оно не может быть шире 90% экрана И не может быть выше 90% экрана. */
+  /* Браузер сам выберет, какое ограничение сработает первым, и пропорционально уменьшит другую сторону. */
+  max-width: 90vw;
+  max-height: 90vh;
+
+  /* Свойства ниже теперь просто помогают браузеру, но основную работу делают max-width/height */
+  width: auto;
+  height: auto;
+  object-fit: contain; 
+  border-radius: 10px;
+}
+/* --- КОНЕЦ ИСПРАВЛЕНИЯ --- */
+
+
+.lightbox__close-button {
+  position: fixed; /* Позиционируем относительно окна браузера */
+  top: 20px;
+  right: 20px;
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: #fff;
+  z-index: 2002; /* Выше чем все остальное */
+  transition: transform 0.2s ease;
+}
+
+.lightbox__close-button:hover {
+    transform: scale(1.1);
+}
+
+.lightbox__close-button:focus-visible {
+  outline: 2px solid var(--color-accent);
+  border-radius: 50%;
+}
+
+.lightbox__close-button svg {
+  width: 100%;
+  height: 100%;
+}
+
+
+/* --- АДАПТИВНЫЕ СТИЛИ --- */
+
+/* Планшеты */
+@media (max-width: 992px) {
+  .trust-me__about {
+    gap: 20px;
+  }
+  .trust-me__content {
+    padding: 30px;
+  }
+}
+
+/* Мобильные устройства */
+@media (max-width: 768px) {
+  .trust-me {
+    padding: 40px 0;
+  }
+  .trust-me__title {
+    font-size: 28px;
+    margin-bottom: 30px;
+  }
+  .trust-me__about {
+    grid-template-columns: 1fr; /* Перестраиваем в одну колонку */
+    margin-bottom: 40px;
+  }
+  .trust-me__content {
+    text-align: center;
+  }
+  .trust-me__list {
+    display: inline-block; /* Чтобы список не растягивался на всю ширину */
+    text-align: left;
+    padding-left: 25px;
+  }
+
+  .photo-gallery {
+    padding-bottom: 40px;
+  }
+
+  .photo-gallery__slide {
+    width: 60%; /* Показываем ~1.5 слайда */
+  }
+
+  /* Показываем блок с призывом к действию */
+  .trust-me__call-to-action {
+    display: block;
+  }
+}
+
+@media (max-width: 576px) {
+  .photo-gallery__slide {
+    width: 75%; /* Показываем ~1.2 слайда */
+  }
+}
+
+/* --- СТИЛИ БЛОКА WORRIES --- */
+.worries {
+}
+
+.worries__content-wrapper {
+  padding: 60px 0 0 60px;
+  background: url("../img/worries__ellipse.png"), #fff;
+  background-position: left 40%;
+  background-repeat: no-repeat;
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  /*Текстоваячастьшире,чемкартинка*/gap: 60px;
+  align-items: center;
+  border-radius: 30px;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  -ms-border-radius: 30px;
+  -o-border-radius: 30px;
+}
+
+.worries__title {
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: 40px;
+  line-height: 1.3;
+}
+
+/* --- СТИЛИ БЛОКА WORRIES-LIST --- */
+.worries-list {
+  list-style: none; /* Убираем стандартные маркеры */
+  padding: 0;
+  margin: 0 0 40px 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px 40px; /* Вертикальный и горизонтальный отступы */
+  counter-reset: worries-counter; /* Инициализируем CSS-счётчик */
+}
+
+.worries-list__item {
+  display: grid;
+  grid-template-columns: auto 1fr; /* Колонка для номера и колонка для текста */
+  gap: 15px;
+  align-items: baseline; /* Выравнивание по базовой линии текста */
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 15px;
+}
+
+/* Создаем кастомный номер с помощью псевдоэлемента */
+.worries-list__item::before {
+  counter-increment: worries-counter; /* Увеличиваем счётчик на 1 */
+  content: counter(worries-counter) "."; /* Отображаем значение счётчика */
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--color-accent);
+}
+
+.worries-list__question {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--color-text-dark);
+  margin: 0 0 5px 0;
+}
+
+.worries-list__answer {
+  font-size: 16px;
+  color: var(--color-text-light);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.worries__conclusion {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--color-primary);
+  margin-bottom: 30px;
+}
+
+.worries__cta-button {
+  display: inline-block;
+  background-color: var(--color-accent);
+  color: var(--color-background-light);
+  border: none;
+  border-radius: var(--border-radius-button);
+  padding: 15px 40px;
+  font-size: 18px;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.worries__cta-button:hover,
+.worries__cta-button:focus-visible {
+  background-color: var(--color-accent-dark);
+  transform: translateY(-2px);
+  outline: none;
+}
+
+.worries__image-wrapper {
+  align-self: flex-end; /* Чтобы картинка "стояла" на невидимом полу */
+}
+
+.worries__image {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* --- АДАПТИВНЫЕ СТИЛИ --- */
+
+/* Планшеты и большие ноутбуки */
+@media (max-width: 992px) {
+  .worries {
+    background: var(
+      --color-background-light
+    ); /* Убираем градиент на мобильных */
+    padding: 60px 0;
+  }
+
+  .worries__content-wrapper {
+    grid-template-columns: 1fr; /* Перестраиваем в одну колонку */
+  }
+
+  .worries__image-wrapper {
+    display: none; /* Прячем картинку, как в макете */
+  }
+
+  .worries__title,
+  .worries__conclusion {
+    text-align: center;
+  }
+
+  .worries__cta-wrapper {
+    text-align: center;
+  }
+}
+
+/* Мобильные устройства */
+@media (max-width: 576px) {
+  .worries {
+    padding: 40px 0;
+  }
+
+  .worries__title {
+    font-size: 28px;
+  }
+
+  .worries-list {
+    grid-template-columns: 1fr; /* Список вопросов в одну колонку */
+    gap: 20px;
+  }
+
+  .worries__title,
+  .worries__conclusion {
+    text-align: left; /* Возвращаем выравнивание по левому краю для компактного вида */
+  }
+
+  .worries__cta-wrapper {
+    text-align: left;
+  }
+
+  .worries__conclusion {
+    font-size: 18px;
   }
 }

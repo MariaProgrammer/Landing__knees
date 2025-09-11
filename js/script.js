@@ -77,7 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
             bgPosX -= screenWidth * 0.01; 
         } 
         else if (screenWidth > 769 && screenWidth <= 980) {
-            bgPosX -= screenWidth * 0.30;
+            bgPosX -= screenWidth * 0.10;
         }
 
         const backgroundSize = `${bgWidth}px ${bgHeight}px`;
@@ -376,5 +376,75 @@ document.addEventListener('DOMContentLoaded', () => {
             };
 
             const timerInterval = setInterval(updateTimer, 1000);
+
+             // --- ИНИЦИАЛИЗАЦИЯ ВТОРОГО СЛАЙДЕРА (PHOTO GALLERY) ---
+        // Используем новый, уникальный селектор, чтобы избежать конфликтов
+        const photoSwiper = new Swiper(".photo-gallery__slider", {
+          loop: true,
+          slidesPerView: "auto", // Автоматически определяет кол-во слайдов на основе их CSS-ширины
+          spaceBetween: 15,
+
+          autoplay: {
+            delay: 2500,
+            disableOnInteraction: true, // Отключает автопрокрутку после свайпа/клика
+            pauseOnMouseEnter: true, // Ставит на паузу при наведении мыши
+          },
+
+          // Адаптивность
+          breakpoints: {
+            768: {
+              spaceBetween: 30,
+            },
+          },
+        });
+
+        // --- ЛОГИКА ЛАЙТБОКСА ДЛЯ ФОТО ---
+        const lightbox = document.querySelector(".lightbox");
+        const lightboxImage = lightbox.querySelector(".lightbox__image");
+        const lightboxCloseButton = lightbox.querySelector(
+          ".lightbox__close-button"
+        );
+        const lightboxOverlay = lightbox.querySelector(".lightbox__overlay");
+        const photoSlides = document.querySelectorAll(".photo-gallery__slide");
+
+        const openLightbox = (imageElement) => {
+          const imgSrc = imageElement.src;
+          const imgAlt = imageElement.alt;
+
+          lightboxImage.src = imgSrc;
+          lightboxImage.alt = imgAlt;
+
+          lightbox.classList.remove("lightbox--hidden");
+          document.body.classList.add("body--modal-open");
+        };
+
+        const closeLightbox = () => {
+          lightbox.classList.add("lightbox--hidden");
+          document.body.classList.remove("body--modal-open");
+          // Очищаем src, чтобы избежать "мелькания" старого фото при следующем открытии
+          lightboxImage.src = "";
+        };
+
+        // Навешиваем обработчики на каждый слайд
+        photoSlides.forEach((slide) => {
+          slide.addEventListener("click", () => {
+            const imageInSlide = slide.querySelector(".photo-gallery__image");
+            if (imageInSlide) {
+              openLightbox(imageInSlide);
+            }
+          });
+        });
+
+        // Обработчики закрытия
+        lightboxCloseButton.addEventListener("click", closeLightbox);
+        lightboxOverlay.addEventListener("click", closeLightbox);
+        document.addEventListener("keydown", (e) => {
+          if (
+            e.key === "Escape" &&
+            !lightbox.classList.contains("lightbox--hidden")
+          ) {
+            closeLightbox();
+          }
+        });
         
 });

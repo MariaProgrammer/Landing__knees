@@ -35,7 +35,6 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
     />
-    
 
     <link
       rel="preload"
@@ -47,8 +46,9 @@
       rel="preload"
       href="css/media.css"
       as="style"
-      onload="this.onload=null;this.rel='stylesheet'" />
-  </head>    
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+  </head>
   <body class="page__body">
     <div class="popup">
       <div class="popup__cover"></div>
@@ -503,12 +503,20 @@
             </div>
           </div>
         </div>
+        <div class="special-offer__bonus--mob">
+          <p class="title-h3 bonus-text--top">
+            Bonus PDF mini-course<br />"CORE STRENGTH AND STABILITY”
+          </p>
+          <p class="title-h3 bonus-text--bottom">
+            Bonus PDF MINI-COURSE<br />"KNEE JOINT MOBILITY"
+          </p>
+        </div>
 
         <div class="video-slider swiper">
           <div class="video-slider__wrapper swiper-wrapper">
             <button
               class="video-slider__slide swiper-slide btn-reset"
-              data-video-src="https://www.w3schools.com/html/mov_bbb.mp4"
+              data-video-src="video/video-0.mp4"
               aria-label="Play video about fitness room"
             >
               <img
@@ -538,7 +546,7 @@
 
             <button
               class="video-slider__slide swiper-slide btn-reset"
-              data-video-src="https://www.w3schools.com/html/movie.mp4"
+              data-video-src="video/video-1.mp4"
               aria-label="Play video about leg exercises"
             >
               <img
@@ -548,15 +556,27 @@
                 loading="lazy"
               />
               <div class="video-slider__play-button">
-                <svg class="video-slider__play-icon" viewBox="0 0 24 24">
-                  <path d="M8 5v14l11-7z"></path>
+                <svg
+                  class="video-slider__play-icon"
+                  width="39"
+                  height="39"
+                  viewBox="0 0 39 39"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M0.204264 38.6024L0.197754 0.628906L38.427 19.6818L0.204264 38.6024V38.6024Z"
+                    fill="white"
+                  />
                 </svg>
               </div>
             </button>
 
             <button
               class="video-slider__slide swiper-slide btn-reset"
-              data-video-src="https://www.w3schools.com/html/mov_bbb.mp4"
+              data-video-src="video/video-2.mp4"
               aria-label="Play video about yoga practice"
             >
               <img
@@ -586,7 +606,7 @@
 
             <button
               class="video-slider__slide swiper-slide btn-reset"
-              data-video-src="https://www.w3schools.com/html/movie.mp4"
+              data-video-src="video/video-3.mp4"
               aria-label="Play video about stretching"
             >
               <img
@@ -615,7 +635,7 @@
             </button>
             <button
               class="video-slider__slide swiper-slide btn-reset"
-              data-video-src="https://www.w3schools.com/html/movie.mp4"
+              data-video-src="video/video-4.mp4"
               aria-label="Play video about stretching"
             >
               <img
@@ -644,7 +664,7 @@
             </button>
             <button
               class="video-slider__slide swiper-slide btn-reset"
-              data-video-src="https://www.w3schools.com/html/movie.mp4"
+              data-video-src="video/video-5.mp4"
               aria-label="Play video about stretching"
             >
               <img
@@ -673,7 +693,7 @@
             </button>
             <button
               class="video-slider__slide swiper-slide btn-reset"
-              data-video-src="https://www.w3schools.com/html/movie.mp4"
+              data-video-src="video/video-6.mp4"
               aria-label="Play video about stretching"
             >
               <img
@@ -702,7 +722,7 @@
             </button>
             <button
               class="video-slider__slide swiper-slide btn-reset"
-              data-video-src="https://www.w3schools.com/html/movie.mp4"
+              data-video-src="video/video-7.mp4"
               aria-label="Play video about stretching"
             >
               <img
@@ -731,57 +751,49 @@
             </button>
           </div>
         </div>
+        <div class="special-offer__container">
+          <div class="container">
+            <div class="special-offer">
+              <div class="special-offer__bonus">
+                <p class="title-h3 bonus-text--top">
+                  Bonus PDF mini-course<br />"CORE STRENGTH AND STABILITY”
+                </p>
+                <p class="title-h3 bonus-text--bottom">
+                  Bonus PDF MINI-COURSE<br />"KNEE JOINT MOBILITY"
+                </p>
+              </div>
+              <div class="special-offer__details">
+                <div class="price-block">
+                  <p class="price-block__title">ALL OF THIS — FOR JUST</p>
+                  <div class="price-block__prices">
+                    <div class="price-block__old-price">99€</div>
 
-        <div class="container">
-          <div class="special-offer">
-            <div class="special-offer__bonus">
-              <figure>
-                <img
-                  src="https://via.placeholder.com/500x350/0056b3/FFFFFF?text=Gift+Boxes"
-                  alt="Two blue gift boxes with orange ribbons."
-                  class="special-offer__gift-image"
-                  loading="lazy"
-                />
-                <figcaption>
-                  <p class="special-offer__bonus-text">
-                    BONUS PDF MINI-COURSE "CORE STRENGTH AND STABILITY"
-                  </p>
-                  <p class="special-offer__bonus-text">
-                    BONUS PDF MINI-COURSE "KNEE JOINT MOBILITY"
-                  </p>
-                </figcaption>
-              </figure>
-            </div>
-            <div class="special-offer__details">
-              <div class="price-block">
-                <p class="price-block__title">ALL OF THIS — FOR JUST</p>
-                <div class="price-block__prices">
-                  <span class="price-block__old-price">99€</span>
-                  <span class="price-block__new-price">€12.75</span>
-                </div>
-              </div>
-              <div class="countdown-timer">
-                <p class="countdown-timer__title">OFFER EXPIRES IN</p>
-                <div class="countdown-timer__wrapper">
-                  <div class="time-unit">
-                    <span class="time-unit__value" id="hours">12</span>
-                    <span class="time-unit__label">hour</span>
-                  </div>
-                  <span class="countdown-timer__separator">:</span>
-                  <div class="time-unit">
-                    <span class="time-unit__value" id="minutes">45</span>
-                    <span class="time-unit__label">min</span>
-                  </div>
-                  <span class="countdown-timer__separator">:</span>
-                  <div class="time-unit">
-                    <span class="time-unit__value" id="seconds">22</span>
-                    <span class="time-unit__label">sec</span>
+                    <div class="price-block__new-price">€12.75</div>
                   </div>
                 </div>
+                <div class="countdown-timer">
+                  <p class="countdown-timer__title">OFFER EXPIRES IN</p>
+                  <div class="countdown-timer__wrapper">
+                    <div class="time-unit">
+                      <span class="time-unit__value" id="hours">12</span>
+                      <span class="time-unit__label">hour</span>
+                    </div>
+                    <span class="countdown-timer__separator">:</span>
+                    <div class="time-unit">
+                      <span class="time-unit__value" id="minutes">45</span>
+                      <span class="time-unit__label">min</span>
+                    </div>
+                    <span class="countdown-timer__separator">:</span>
+                    <div class="time-unit">
+                      <span class="time-unit__value" id="seconds">22</span>
+                      <span class="time-unit__label">sec</span>
+                    </div>
+                  </div>
+                </div>
+                <button class="special-offer__btn btn btn-reset btn-open">
+                  <span>Start My Recovery Now</span>
+                </button>
               </div>
-              <a href="#" class="special-offer__cta-button"
-                >Start My Recovery Now</a
-              >
             </div>
           </div>
         </div>
@@ -800,6 +812,343 @@
           <div class="video-modal__video-wrapper"></div>
         </div>
       </div>
+
+      <section class="trust-me">
+        <div class="container">
+          <h2 class="trust-me__title--mob title-h2">WHY YOU CAN TRUST ME</h2>
+          <div class="trust-me__about">
+            <div class="trust-me__photo-wrapper">
+              <img
+                src="img/author.jpg"
+                alt="Portrait of Oleksandr Syrykh, a sports physiotherapist."
+                class="trust-me__photo"
+                loading="lazy"
+              />
+            </div>
+            <div class="trust-me__content">
+              <h2 class="trust-me__title title-h2">
+                WHY YOU<br />
+                CAN TRUST ME
+              </h2>
+              <p class="trust-me__intro">
+                Hi, I'm Oleksandr Syrykh, a sports physiotherapist with 10+
+                years of experience in injury recovery and knee rehabilitation.
+              </p>
+              <ul class="trust-me__list">
+                <li class="trust-me__list-item trust-me__intro">
+                  Worked with FC Shakhtar Donetsk participant Champions League &
+                  winner of UEFA Europa League.
+                </li>
+                <li class="trust-me__list-item trust-me__intro">
+                  Supported Ukrainian national football teams across age groups.
+                </li>
+                <li class="trust-me__list-item trust-me__intro">
+                  Currently a rehabilitation specialist at FC Riga, is a Europa
+                  League participant.
+                </li>
+                <li class="trust-me__list-item trust-me__intro">
+                  Collaborated with leading international experts in sports
+                  medicine
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="photo-gallery">
+          <div class="photo-gallery__slider swiper">
+            <div class="swiper-wrapper">
+              <button
+                class="photo-gallery__slide swiper-slide"
+                aria-label="Enlarge photo of Florian Pfab"
+              >
+                <figure>
+                  <div class="photo-gallery__image-wrapper">
+                    <img
+                      src="img/stars/img-1.jpg"
+                      alt="Dr. Florian Pfab with a colleague"
+                      class="photo-gallery__image"
+                      loading="lazy"
+                    />
+                  </div>
+                  <figcaption class="photo-gallery__caption">
+                    <strong>Dr. Florian Pfab</strong>
+                    Head of medical department Brighton and Hove Albion
+                  </figcaption>
+                </figure>
+              </button>
+
+              <button
+                class="photo-gallery__slide swiper-slide"
+                aria-label="Enlarge photo of Sergiy Kryvtsov"
+              >
+                <figure>
+                  <div class="photo-gallery__image-wrapper">
+                    <img
+                      src="img/stars/img-2.jpg"
+                      alt="Sergiy Kryvtsov at the gym"
+                      class="photo-gallery__image"
+                      loading="lazy"
+                    />
+                  </div>
+                  <figcaption class="photo-gallery__caption">
+                    <strong>Sergiy Kryvtsov</strong>
+                    Inter Miami CF (MLS)
+                  </figcaption>
+                </figure>
+              </button>
+
+              <button
+                class="photo-gallery__slide swiper-slide"
+                aria-label="Enlarge photo of a young generation of soccer players"
+              >
+                <figure>
+                  <div class="photo-gallery__image-wrapper">
+                    <img
+                      src="img/stars/img-3.jpg"
+                      alt="A group of young soccer players"
+                      class="photo-gallery__image"
+                      loading="lazy"
+                    />
+                  </div>
+                  <figcaption class="photo-gallery__caption">
+                    <strong>A young generation of soccer players</strong>
+                    Who are writing history in modern soccer
+                  </figcaption>
+                </figure>
+              </button>
+
+              <button
+                class="photo-gallery__slide swiper-slide"
+                aria-label="Enlarge another photo"
+              >
+                <figure>
+                  <div class="photo-gallery__image-wrapper">
+                    <img
+                      src="img/stars/img-4.jpg"
+                      alt="Another photo from practice"
+                      class="photo-gallery__image"
+                      loading="lazy"
+                    />
+                  </div>
+                  <figcaption class="photo-gallery__caption">
+                    <strong>Team Practice</strong>
+                    Daily rehabilitation work
+                  </figcaption>
+                </figure>
+              </button>
+
+              <button
+                class="photo-gallery__slide swiper-slide"
+                aria-label="Enlarge another photo"
+              >
+                <figure>
+                  <div class="photo-gallery__image-wrapper">
+                    <img
+                      src="img/stars/img-5.jpg"
+                      alt="Another photo from practice"
+                      class="photo-gallery__image"
+                      loading="lazy"
+                    />
+                  </div>
+                  <figcaption class="photo-gallery__caption">
+                    <strong>International Collaboration</strong>
+                    Sharing experience with colleagues
+                  </figcaption>
+                </figure>
+              </button>
+              <button
+                class="photo-gallery__slide swiper-slide"
+                aria-label="Enlarge another photo"
+              >
+                <figure>
+                  <div class="photo-gallery__image-wrapper">
+                    <img
+                      src="img/stars/img-6.jpg"
+                      alt="Another photo from practice"
+                      class="photo-gallery__image"
+                      loading="lazy"
+                    />
+                  </div>
+                  <figcaption class="photo-gallery__caption">
+                    <strong>International Collaboration</strong>
+                    Sharing experience with colleagues
+                  </figcaption>
+                </figure>
+              </button>
+              <button
+                class="photo-gallery__slide swiper-slide"
+                aria-label="Enlarge another photo"
+              >
+                <figure>
+                  <div class="photo-gallery__image-wrapper">
+                    <img
+                      src="img/stars/img-7.jpg"
+                      alt="Another photo from practice"
+                      class="photo-gallery__image"
+                      loading="lazy"
+                    />
+                  </div>
+                  <figcaption class="photo-gallery__caption">
+                    <strong>International Collaboration</strong>
+                    Sharing experience with colleagues
+                  </figcaption>
+                </figure>
+              </button>
+              <button
+                class="photo-gallery__slide swiper-slide"
+                aria-label="Enlarge another photo"
+              >
+                <figure>
+                  <div class="photo-gallery__image-wrapper">
+                    <img
+                      src="img/stars/img-8.jpg"
+                      alt="Another photo from practice"
+                      class="photo-gallery__image"
+                      loading="lazy"
+                    />
+                  </div>
+                  <figcaption class="photo-gallery__caption">
+                    <strong>International Collaboration</strong>
+                    Sharing experience with colleagues
+                  </figcaption>
+                </figure>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="trust-me__container">
+          <div class="trust-me__call-to-action">
+            <p class="trust-me__cta-text">
+              I CREATED THIS PROGRAM BECAUSE I'VE SEEN HOW KNEE PAIN LIMITS
+              PEOPLE'S LIVES — AND I KNOW HOW TO BRING BACK FREEDOM OF MOVEMENT
+              WITHOUT SURGERIES OR ENDLESS PILLS.
+            </p>
+            <a href="#" class="trust-me__cta-button"
+              >Yes, I Trust You — Let's Start</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <div class="lightbox lightbox--hidden">
+        <div class="lightbox__overlay" aria-label="Close image viewer"></div>
+        <div class="lightbox__content">
+          <button
+            class="lightbox__close-button"
+            aria-label="Close image viewer"
+          >
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+              ></path>
+            </svg>
+          </button>
+          <img src="" alt="Enlarged view" class="lightbox__image" />
+        </div>
+      </div>
+
+      <section class="worries">
+        <div class="container">
+          <div class="worries__content-wrapper">
+            <div class="worries__text-content">
+              <h2 class="worries__title">
+                WORRIED THIS PROGRAM MIGHT NOT WORK FOR YOU?
+              </h2>
+
+              <ol class="worries-list">
+                <li class="worries-list__item">
+                  <div>
+                    <h3 class="worries-list__question">IS IT FOR ME?</h3>
+                    <p class="worries-list__answer">Yes, any age/level</p>
+                  </div>
+                </li>
+                <li class="worries-list__item">
+                  <div>
+                    <h3 class="worries-list__question">
+                      WHAT IF I DO IT WRONG?
+                    </h3>
+                    <p class="worries-list__answer">
+                      Video + checklist, like I'm next to you
+                    </p>
+                  </div>
+                </li>
+                <li class="worries-list__item">
+                  <div>
+                    <h3 class="worries-list__question">WHAT IF IT HURTS?</h3>
+                    <p class="worries-list__answer">
+                      Progressive, safe, protects your joints
+                    </p>
+                  </div>
+                </li>
+                <li class="worries-list__item">
+                  <div>
+                    <h3 class="worries-list__question">I DON'T HAVE TIME</h3>
+                    <p class="worries-list__answer">15–20 min/day</p>
+                  </div>
+                </li>
+                <li class="worries-list__item">
+                  <div>
+                    <h3 class="worries-list__question">TOO OLD / NOT FIT</h3>
+                    <p class="worries-list__answer">Yes, any age/level</p>
+                  </div>
+                </li>
+                <li class="worries-list__item">
+                  <div>
+                    <h3 class="worries-list__question">IS IT FOR ME?</h3>
+                    <p class="worries-list__answer">
+                      Simple safe moves, even for beginners.
+                    </p>
+                  </div>
+                </li>
+                <li class="worries-list__item">
+                  <div>
+                    <h3 class="worries-list__question">AFTER SURGERY?</h3>
+                    <p class="worries-list__answer">
+                      Yes, with doctor's approval.
+                    </p>
+                  </div>
+                </li>
+                <li class="worries-list__item">
+                  <div>
+                    <h3 class="worries-list__question">EQUIPMENT?</h3>
+                    <p class="worries-list__answer">
+                      Just mat + mini-bands + loop band.
+                    </p>
+                  </div>
+                </li>
+                <li class="worries-list__item">
+                  <div>
+                    <h3 class="worries-list__question">RESULTS?</h3>
+                    <p class="worries-list__answer">
+                      First 7–14 days of noticeable relief.
+                    </p>
+                  </div>
+                </li>
+              </ol>
+
+              <p class="worries__conclusion">
+                THAT'S WHY MORE THAN 1 500 PEOPLE HAVE ALREADY TRUSTED THIS
+                PROGRAM AND GOT RESULTS. NOW IT'S YOUR TURN
+              </p>
+              <div class="worries__cta-wrapper">
+                <a href="#" class="worries__cta-button"
+                  >Start My Recovery Now</a
+                >
+              </div>
+            </div>
+            <div class="worries__image-wrapper">
+              <img
+                src="img/fooballman.png"
+                alt="A man in an orange jersey running, demonstrating physical fitness."
+                class="worries__image"
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
 
       <section class="testimonials" id="id-results">
         <h2 class="section__title">What Our Clients Say</h2>
