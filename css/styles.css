@@ -566,6 +566,7 @@ p {
 }
 /* PROGRAM */
 .program {
+  padding-top: 100px;
   text-align: center;
 }
 
@@ -959,12 +960,11 @@ input[type="email"]:focus {
 }
 
 .whats-inside__title {
-  font-size: 36px;
-  font-weight: 700;
-  text-align: center;
-  color: var(--color-text-dark);
+  background-image: var(--gradient-blue-color);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
   margin-bottom: 40px;
-  text-transform: uppercase;
 }
 
 /* --- СТИЛИ БЛОКА FEATURES-LIST --- */
@@ -1068,7 +1068,7 @@ input[type="email"]:focus {
   justify-content: center;
   transition: transform 0.3s ease, background-color 0.3s ease;
   pointer-events: none;
-  /*Чтобыкликпроходилнародителя*/:;
+  /*Чтобыкликпроходилнародителя*/
   -webkit-transform: translate(-50%, -50%) scale(1);
   -moz-transform: translate(-50%, -50%) scale(1);
   -ms-transform: translate(-50%, -50%) scale(1);
