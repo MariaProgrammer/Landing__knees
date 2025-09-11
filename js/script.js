@@ -247,4 +247,117 @@ document.addEventListener('DOMContentLoaded', () => {
             return regex.test(String(email).toLowerCase());
         }
     }
+
+
+     // --- ИНИЦИАЛИЗАЦИЯ СЛАЙДЕРА SWIPER ---
+            const swiper = new Swiper('.video-slider', {
+                // Опции
+                loop: true, // Бесконечная прокрутка
+                slidesPerView: 'auto', // Автоматическое определение количества видимых слайдов
+                centeredSlides: true, // Активный слайд всегда по центру
+                spaceBetween: 20, // Расстояние между слайдами
+
+                // Автопрокрутка
+                autoplay: {
+                    delay: 3000, // Задержка 3 секунды
+                    disableOnInteraction: false, // Не отключать после ручного переключения
+                    pauseOnMouseEnter: true, // Пауза при наведении мыши
+                },
+                
+                // Адаптивность
+                breakpoints: {
+                    768: {
+                        spaceBetween: 30,
+                    }
+                }
+            });
+
+
+            // --- ЛОГИКА МОДАЛЬНОГО ОКНА С ВИДЕО ---
+            const modal = document.querySelector('.video-modal');
+            const videoSlides = document.querySelectorAll('.video-slider__slide');
+            const modalVideoWrapper = document.querySelector('.video-modal__video-wrapper');
+            const closeModalButton = document.querySelector('.video-modal__close-button');
+            const modalOverlay = document.querySelector('.video-modal__overlay');
+
+            const openModal = (videoSrc) => {
+                // Очищаем контейнер от предыдущего видео
+                modalVideoWrapper.innerHTML = '';
+                
+                // Создаем элемент видео
+                const videoElement = document.createElement('video');
+                videoElement.src = videoSrc;
+                videoElement.controls = true;
+                videoElement.autoplay = true;
+                videoElement.classList.add('video-modal__video');
+
+                // Добавляем видео в контейнер
+                modalVideoWrapper.appendChild(videoElement);
+                
+                // Показываем модальное окно
+                modal.classList.remove('video-modal--hidden');
+                document.body.classList.add('body--modal-open'); // Блокируем скролл фона
+            };
+
+            const closeModal = () => {
+                // Скрываем модальное окно
+                modal.classList.add('video-modal--hidden');
+                document.body.classList.remove('body--modal-open');
+
+                // Останавливаем видео и очищаем контейнер
+                const video = modalVideoWrapper.querySelector('video');
+                if (video) {
+                    video.pause();
+                    modalVideoWrapper.innerHTML = '';
+                }
+            };
+
+            // Навешиваем обработчики кликов на каждый слайд
+            videoSlides.forEach(slide => {
+                slide.addEventListener('click', () => {
+                    const videoSrc = slide.dataset.videoSrc;
+                    if (videoSrc) {
+                        openModal(videoSrc);
+                    }
+                });
+            });
+
+            // Обработчики закрытия модального окна
+            closeModalButton.addEventListener('click', closeModal);
+            modalOverlay.addEventListener('click', closeModal);
+
+            // Закрытие по клавише Escape
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && !modal.classList.contains('video-modal--hidden')) {
+                    closeModal();
+                }
+            });
+
+            // --- ЛОГИКА ТАЙМЕРА (простой пример) ---
+            // Для реального проекта таймер должен синхронизироваться с сервером
+            const hoursEl = document.getElementById('hours');
+            const minutesEl = document.getElementById('minutes');
+            const secondsEl = document.getElementById('seconds');
+
+            let timeInSeconds = (12 * 3600) + (45 * 60) + 22;
+
+            const updateTimer = () => {
+                if (timeInSeconds <= 0) {
+                    clearInterval(timerInterval);
+                    return;
+                }
+
+                timeInSeconds--;
+                
+                const hours = Math.floor(timeInSeconds / 3600);
+                const minutes = Math.floor((timeInSeconds % 3600) / 60);
+                const seconds = timeInSeconds % 60;
+
+                hoursEl.textContent = String(hours).padStart(2, '0');
+                minutesEl.textContent = String(minutes).padStart(2, '0');
+                secondsEl.textContent = String(seconds).padStart(2, '0');
+            };
+
+            const timerInterval = setInterval(updateTimer, 1000);
+        
 });
