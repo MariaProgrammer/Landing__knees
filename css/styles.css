@@ -306,7 +306,7 @@ p {
 /* HERO */
 .hero {
   width: 100%;
-  min-height: 100vh;
+  height: 100vh;
   overflow: hidden;
   transition: height 0.3s ease;
   position: relative;
@@ -924,6 +924,7 @@ input[type="email"]:focus {
   -o-border-radius: 30px;
 }
 .trust__icon {
+  flex: 0 0 auto;
 }
 .trust__item--text {
 }
@@ -1026,6 +1027,7 @@ input[type="email"]:focus {
 
 .video-slider__slide {
   width: 65%; /* Ширина активного слайда */
+  
   aspect-ratio: 16 / 9;
   border-radius: 30px;
   overflow: hidden;
@@ -1052,6 +1054,7 @@ input[type="email"]:focus {
   object-fit: cover;
   display: block;
   filter: brightness(80%);
+  -webkit-filter: brightness(80%);
 }
 
 .video-slider__play-button {

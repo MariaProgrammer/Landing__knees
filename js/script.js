@@ -1,12 +1,14 @@
-document.addEventListener('DOMContentLoaded', () => {
-    
+document.addEventListener('DOMContentLoaded', () => { 
     const container = document.getElementById('hero-animation-container');
     const heroSection = document.querySelector('.hero');
-    const heroContent = document.querySelector('.hero__container'); 
+    const heroContent = document.querySelector('.hero__container');
+     const heroTitle = document.querySelector('.hero__title');
+    const heroSubtitle = document.querySelector('.hero__subtitle');
+ 
 
     function setupAdaptiveAnimation() {
         const screenWidth = window.innerWidth;
-        const isMobile = screenWidth <= 390;
+        const isMobile = screenWidth <= 768;
         
         // Ваши пути к файлам
         const desktopImage = 'img/hero__bg.webp'; 
@@ -21,10 +23,21 @@ document.addEventListener('DOMContentLoaded', () => {
         img.onload = () => {
             const imageRatio = img.naturalHeight / img.naturalWidth;
             const imageBasedHeight = screenWidth * imageRatio;
-            
             const contentHeight = heroContent.scrollHeight;
 
-            const finalHeroHeight = Math.max(imageBasedHeight, contentHeight);
+            let finalHeroHeight; // Объявляем переменную для итоговой высоты
+
+            // --- НОВАЯ ЛОГИКА: УСТАНОВКА ВЫСОТЫ В 60% ЭКРАНА ---
+            const isConstrainedHeight = screenWidth >= 320 && screenWidth <= 650;
+
+            if (isConstrainedHeight) {
+                // Для этого диапазона ширин, принудительно устанавливаем высоту в 60% от высоты видимой области.
+                finalHeroHeight = window.innerHeight * 0.80;
+            } else {
+                // Для всех остальных разрешений используем старую логику, чтобы вместить контент и картинку.
+                finalHeroHeight = Math.max(imageBasedHeight, contentHeight);
+            }
+            // --- КОНЕЦ НОВОЙ ЛОГИКИ ---
             
             heroSection.style.height = `${finalHeroHeight}px`;
 
@@ -60,23 +73,12 @@ document.addEventListener('DOMContentLoaded', () => {
             bgPosY = 0;
         }
         
-        // --- ОБНОВЛЕННЫЕ УСЛОВИЯ: ГРАДАЦИОННОЕ СМЕЩЕНИЕ ---
-        // Сначала проверяем самый узкий диапазон для максимального смещения
-        if (screenWidth >= 320 && screenWidth <= 390) {
-            // Итоговое смещение 10%
+        if (screenWidth >= 320 && screenWidth <= 768) {
             bgPosX -= screenWidth * 0.01; 
         } 
-        else if (screenWidth >= 391 && screenWidth <= 650) {
-            // Итоговое смещение 10%
-            bgPosX -= screenWidth * 0.50; 
-        } 
-        // Затем проверяем более широкий диапазон для стандартного смещения
-        else if (screenWidth > 650 && screenWidth <= 980) {
-            // Смещение 30%
+        else if (screenWidth > 769 && screenWidth <= 980) {
             bgPosX -= screenWidth * 0.30;
         }
-        // Для всех остальных разрешений (> 1200px) дополнительное смещение не применяется.
-        // --- ---------------------------------------------------
 
         const backgroundSize = `${bgWidth}px ${bgHeight}px`;
 
@@ -115,6 +117,19 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }, 100);
     }
+
+     // --- НОВЫЙ КОД: ЗАПУСК АНИМАЦИИ ТЕКСТА ПОСЛЕ АНИМАЦИИ ПЛИТОК ---
+        // Длительность анимации плиток = 1.8с. Запускаем текст примерно в это время.
+        setTimeout(() => {
+            if (window.innerWidth > 768) {
+                // ИЗМЕНЕНИЕ ЗДЕСЬ: Находим все элементы с классом-триггером и запускаем их анимацию
+                document.querySelectorAll('.animate-on-load').forEach(el => {
+                    el.classList.add('is-visible');
+                });
+            }
+        }, 1800);
+    
+    
     
     setupAdaptiveAnimation();
 
@@ -123,6 +138,8 @@ document.addEventListener('DOMContentLoaded', () => {
         clearTimeout(resizeTimeout);
         resizeTimeout = setTimeout(setupAdaptiveAnimation, 500);
     });
+
+
 
     // Плавный скролл
     const anchors = document.querySelectorAll('a[href*="#"]');
