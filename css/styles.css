@@ -1460,7 +1460,6 @@ section.trust-me {
 }
 .trust-me__title--mob {
   display: none;
-
 }
 
 /* Верхний блок: фото + текст */
@@ -1491,7 +1490,6 @@ section.trust-me {
 
 .trust-me__content {
   align-self: self-end;
- 
 }
 
 .trust-me__intro {
@@ -1512,7 +1510,7 @@ section.trust-me {
   font-family: var(--second-family);
   font-size: 16px;
   font-weight: 400;
-  color: var(--color-black);  
+  color: var(--color-black);
   line-height: 1.7;
   color: var(--color-text-light);
   position: relative;
@@ -1588,9 +1586,10 @@ section.trust-me {
 }
 
 .photo-gallery__caption {
-  font-size: 14px;
+  font-family: var(--second-family);
+  font-size: 15px;
   line-height: 1.4;
-  color: var(--color-text-dark);
+  color: var(--color-black);
 }
 
 .photo-gallery__caption strong {
@@ -1667,14 +1666,13 @@ section.trust-me {
 }
 
 .lightbox--hidden .lightbox__content {
-    transform: scale(0.95);
+  transform: scale(0.95);
 }
-
 
 /* --- ГЛАВНОЕ ИСПРАВЛЕНИЕ ЗДЕСЬ --- */
 .lightbox__image {
   display: block;
-  
+
   /* Прямо указываем изображению максимальные размеры. */
   /* Оно не может быть шире 90% экрана И не может быть выше 90% экрана. */
   /* Браузер сам выберет, какое ограничение сработает первым, и пропорционально уменьшит другую сторону. */
@@ -1684,11 +1682,10 @@ section.trust-me {
   /* Свойства ниже теперь просто помогают браузеру, но основную работу делают max-width/height */
   width: auto;
   height: auto;
-  object-fit: contain; 
+  object-fit: contain;
   border-radius: 10px;
 }
 /* --- КОНЕЦ ИСПРАВЛЕНИЯ --- */
-
 
 .lightbox__close-button {
   position: fixed; /* Позиционируем относительно окна браузера */
@@ -1705,7 +1702,7 @@ section.trust-me {
 }
 
 .lightbox__close-button:hover {
-    transform: scale(1.1);
+  transform: scale(1.1);
 }
 
 .lightbox__close-button:focus-visible {
@@ -1718,7 +1715,6 @@ section.trust-me {
   height: 100%;
 }
 
-
 /* --- АДАПТИВНЫЕ СТИЛИ --- */
 
 /* Планшеты */
@@ -1730,11 +1726,10 @@ section.trust-me {
     padding: 30px;
   }
   .trust-me__btn {
-  display: block;
-  width: 100%;
-  max-width: 100%;
-}
-
+    display: block;
+    width: 100%;
+    max-width: 100%;
+  }
 }
 
 /* Мобильные устройства */
@@ -1781,6 +1776,7 @@ section.trust-me {
 
 /* --- СТИЛИ БЛОКА WORRIES --- */
 .worries {
+  margin-bottom: 100px;
 }
 
 .worries__content-wrapper {
@@ -1790,7 +1786,8 @@ section.trust-me {
   background-repeat: no-repeat;
   display: grid;
   grid-template-columns: 1.3fr 0.7fr;
-  /*Текстоваячастьшире,чемкартинка*/gap: 60px;
+  /*Текстоваячастьшире,чемкартинка*/
+  gap: 60px;
   align-items: center;
   border-radius: 30px;
   -webkit-border-radius: 30px;
@@ -1827,7 +1824,7 @@ section.trust-me {
   grid-template-columns: auto 1fr; /* Колонка для номера и колонка для текста */
   gap: 15px;
   align-items: baseline; /* Выравнивание по базовой линии текста */
-  border-bottom: 1px solid #C4C9CC;
+  border-bottom: 1px solid #c4c9cc;
   padding-bottom: 5px;
 }
 
@@ -1851,7 +1848,7 @@ section.trust-me {
   margin: 0 0 5px 0;
 }
 
-.worries-list__answer {  
+.worries-list__answer {
   color: var(--color-black);
   line-height: 1.5;
   margin: 0;
@@ -1861,20 +1858,17 @@ section.trust-me {
   background-image: var(--gradient-blue-color);
   background-clip: text;
   -webkit-background-clip: text;
-  color: transparent;  
+  color: transparent;
   margin-bottom: 30px;
   max-width: 945px;
 }
 
 .worries__btn {
-    display: block;
-    margin-bottom: 40px;
-    width: 100%;
-    max-width: 564px;
-    
-  }
-
-
+  display: block;
+  margin-bottom: 40px;
+  width: 100%;
+  max-width: 564px;
+}
 
 .worries__image-wrapper {
   align-self: flex-end; /* Чтобы картинка "стояла" на невидимом полу */
@@ -1909,8 +1903,6 @@ section.trust-me {
   .worries__conclusion {
     text-align: center;
   }
-
-  
 }
 
 /* Мобильные устройства */
@@ -1940,4 +1932,512 @@ section.trust-me {
   .worries__conclusion {
     font-size: 18px;
   }
+}
+
+.results {
+  position: relative;
+
+  overflow: hidden;
+}
+.results__title-wrap {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+}
+
+.results__container {
+  display: flex;
+  
+
+}
+
+.results__header {
+  padding-left: 28%;
+  display: flex;
+  align-items: flex-end;
+}
+
+.results__title {
+  background-image: var(--gradient-blue-color);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  max-width: 567px;
+}
+
+.results__navigation {
+  display: flex;
+  gap: 15px;
+  margin-right: 50px;
+}
+
+.results__nav-button {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: none;
+ background: var(--gradient-orange-color);
+  
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
+}
+
+.results__nav-button:hover:not(:disabled) {
+  background-color: #e67e00;
+  transform: scale(1.05);
+}
+
+.results__nav-button:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
+}
+
+.results__nav-button:disabled,
+.results__nav-button.swiper-button-disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: scale(1);
+}
+
+.results__nav-button svg {
+  width: 24px;
+  height: 24px;
+}
+
+.results__nav-button--prev svg {
+  transform: rotate(180deg);
+}
+
+/* --- СТИЛИ БЛОКА RESULTS-SLIDER (SWIPER) --- */
+.results-slider {
+  width: 100%;
+  /* ИЗМЕНЕНО: overflow: hidden, чтобы боковые слайды аккуратно обрезались по краям контейнера */
+  overflow: hidden;
+  
+}
+
+.results-slider__slide {
+  
+  background-color: #fff;
+  border-radius: 30px;
+  padding: 20px 20px 30px 20px;  
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  -ms-border-radius: 30px;
+  -o-border-radius: 30px;
+}
+
+.results-slider__photo {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 16px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+
+.results-slider__review-text {
+  
+  color: var(--color-dark);
+  margin: 0 0 30px 0;
+  flex-grow: 1;
+}
+
+.results-slider__author {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.results-slider__author-name {
+  font-weight: 700;
+  color: var(--color-black);
+  margin-bottom: 4px;
+}
+
+.results-slider__author-icon {
+  width: 18px;
+  height: 18px;
+  color: var(--color-accent);
+}
+
+.results-slider__author-desc {
+  
+  color: var(--color-black);
+
+}
+
+/* Стили для пагинации (точек) */
+.results-slider__pagination {
+  margin-top: 30px;
+  position: static;
+  text-align: center;
+}
+
+.results-slider__pagination .swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+  background-color: #cce3fb;
+  opacity: 1;
+  transition: background-color 0.3s ease;
+}
+
+.results-slider__pagination .swiper-pagination-bullet-active {
+  background-color: var(--color-primary);
+}
+
+/* --- АДАПТИВНЫЕ СТИЛИ --- */
+@media (max-width: 768px) {
+  .results {
+    padding: 40px 0;
+  }
+  .results__header {
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  .results__title {
+    font-size: 28px;
+  }
+  .results__navigation {
+    display: none;
+  }
+
+  /* ДОБАВЛЕНО: Задаем ширину слайда для мобильной версии, чтобы `slidesPerView: 'auto'` сработало */
+  .results-slider__slide {
+    width: 85%;
+  }
+}
+
+.start {
+  padding: 0;
+  color: var(--color-text-dark); /* Темный текст по умолчанию */
+  text-align: left;
+  background: var(--color-background-light); /* Белый фон */
+}
+
+.start__container {
+  background: url('../img/start__bg.webp');
+  background-position: right center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  
+}
+
+.start__content {
+  padding: 80px 40px 80px 10%;
+}
+
+.start__title {
+  max-width: 771px;
+  background-image: var(--gradient-blue-color);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  margin-bottom: 40px;
+  
+}
+
+.start__features-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 40px 0;
+}
+
+.start__feature-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  
+}
+
+.start__feature-item:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.start__feature-icon {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+.start__price-block {
+  margin-bottom: 30px;
+}
+
+.start__price-intro {
+  background-image: var(--gradient-blue-color);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  margin-bottom: 24px;
+}
+
+.start__price-intro del {
+  text-decoration: line-through;
+  color: var(--dark-orange-color);
+ 
+}
+.start__price-info {
+  
+  display: flex;
+  margin-bottom: 30px;
+  
+}
+.start__price {
+  
+line-height: 0.8;
+  font-size: 100px;
+  font-weight: 700;  
+  color: var(--dark-orange-color);
+}
+
+.start__price-note {
+ align-self: flex-end;
+  font-size: 38px;
+  font-weight: 500;
+  color: var(--light-blue-color); 
+  margin-left: 10px;
+}
+
+
+.start__cta-button {
+  display: inline-block;
+  background-color: var(--color-accent);
+  color: var(--color-background-light);
+  border: none;
+  border-radius: var(--border-radius-button);
+  padding: 15px 40px;
+  font-size: 18px;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  min-width: 250px;
+}
+
+.start__cta-button:hover,
+.start__cta-button:focus-visible {
+  background-color: var(--color-accent-dark);
+  transform: translateY(-2px);
+  outline: none;
+}
+
+.start__reassurance {
+  font-family: var(--second-family);
+  color: var(--dark-blue-color);
+  font-style: italic;
+  font-size: 16px;
+  font-weight: 500;
+  
+}
+
+/* Контейнер для фонового изображения на десктопе */
+.start__image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: url("https://via.placeholder.com/800x800/cccccc/333333?text=Running+Man+BG")
+    no-repeat center center;
+  background-size: cover;
+}
+
+/* Градиент для "растворения" картинки */
+.start__image-wrapper::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -1px;
+  width: 200px;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    var(--color-background-light),
+    transparent
+  );
+}
+
+/* --- Адаптивные стили для планшетов и мобильных --- */
+@media (max-width: 991px) {
+  .start {
+    position: relative; /* Нужно для псевдоэлемента ::before */
+    padding: 60px 0;
+    color: var(--color-background-light); /* Меняем цвет текста на белый */
+    text-align: center;
+  }
+
+  /* Создаем мобильный фон с оверлеем */
+  .start::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(1, 46, 81, 0.7), rgba(1, 46, 81, 0.7)),
+      url("https://via.placeholder.com/800x1200/cccccc/333333?text=Running+Man+BG")
+        no-repeat center center;
+    background-size: cover;
+    z-index: -1;
+  }
+
+  .start__container {
+    display: block; /* Отменяем grid */
+    max-width: 1200px; /* Возвращаем стандартную ширину контейнера */
+    margin: 0 auto;
+    padding: 0 15px;
+  }
+
+  .start__content {
+    padding: 0; /* Сбрасываем десктопные отступы */
+  }
+
+  .start__title {
+    font-size: 28px;
+    margin: 0 auto 30px auto;
+    max-width: 500px;
+  }
+
+  .start__features-list {
+    display: inline-block;
+    text-align: left;
+    margin: 0 auto 40px auto;
+    max-width: 450px;
+  }
+
+  .start__price {
+    font-size: 52px;
+  }
+
+  /* Прячем десктопный блок с картинкой и его градиент */
+  .start__image-wrapper {
+    display: none;
+  }
+}
+
+/* --- СТИЛИ БЛОКА FAQ (Подход Desktop-First) --- */
+.faq {
+  padding: 80px 0;
+}
+
+.faq__title {
+  text-align: center;
+  color: var(--dark-blue-color);
+  margin-bottom: 60px;
+}
+
+.faq__list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto 1fr auto;
+  gap: 20px;
+  margin-bottom: 60px;
+}
+
+.faq__item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background-color: #fff;
+  border-radius: 20px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.05);
+  /* overflow: hidden; убираем, чтобы тень была видна */
+  padding: 20px;
+}
+
+.faq__question {
+  display: flex;
+  align-items: center;
+  gap: 35px;
+  width: 100%;
+  cursor: pointer;
+  list-style: none; /* Убираем стандартный маркер у <summary> */
+}
+
+/* Убираем стандартную стрелку в Chrome/Safari */
+.faq__question::-webkit-details-marker {
+  display: none;
+}
+
+.faq__question-number {
+  color: var(--color-black);
+}
+
+.faq__question-text {
+  color: var(--color-black);
+  margin-right: auto; /* Прижимает иконку вправо */
+}
+
+/* Стили для открытого состояния */
+.faq__item[open] > .faq__question .faq__question-text {
+  color: var(--dark-orange-color);
+}
+.faq__item[open] > .faq__question .faq__question-number {
+  color: var(--dark-orange-color);
+}
+
+.faq__icon {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  color: var(--dark-orange-color);
+  transition: transform 0.3s ease;
+}
+
+.faq__item[open] > .faq__question .faq__icon {
+  transform: rotate(-180deg);
+}
+
+.faq__answer {
+  padding: 0 0 0 65px; /* Отступ слева = отступ вопроса + ширина номера + гэп */
+  color: var(--color-black);
+}
+
+/* Стили для JS анимации */
+.faq__answer-content {
+  overflow: hidden;
+}
+
+.faq__btn {
+  display: block;
+  margin: 0 auto;
+  max-width: 350px;
+  width: 100%;
+}
+
+/* --- Адаптивные стили для планшетов и мобильных --- */
+@media (max-width: 991px) {
+  .faq {
+    padding: 40px 0;
+  }
+
+  .faq__title {
+    margin-bottom: 40px;
+  }
+
+  .faq__list {
+    grid-template-columns: 1fr; /* Перестраиваем в одну колонку */
+    gap: 15px;
+    margin-bottom: 40px;
+  }
+  .faq__btn {
+    display: block;
+    margin: 0;
+    max-width: 100%;
+    width: 100%;
+
+  
+}
 }

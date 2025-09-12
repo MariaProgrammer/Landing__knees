@@ -446,5 +446,90 @@ document.addEventListener('DOMContentLoaded', () => {
             closeLightbox();
           }
         });
+
+        // --- ИНИЦИАЛИЗАЦИЯ ТРЕТЬЕГО СЛАЙДЕРА (RESULTS) ---
+        const resultsSwiper = new Swiper(".results-slider", {
+          // --- НАСТРОЙКИ ПО УМОЛЧАНИЮ (ДЛЯ МОБИЛЬНЫХ) ---
+          slidesPerView: 1,
+          spaceBetween: 15,
+          loop: true,
+          autoplay: {
+            delay: 4000,
+            disableOnInteraction: true, // Отключает автопрокрутку после свайпа
+          },
+          pagination: {
+            el: ".results-slider__pagination",
+            clickable: true,
+          },
+
+          // --- НАСТРОЙКИ ДЛЯ РАЗНЫХ РАЗМЕРОВ ЭКРАНА ---
+          breakpoints: {
+            // когда ширина экрана >= 768px
+            768: {
+              slidesPerView: 3,
+              spaceBetween: 20,
+              loop: false, // Отключаем бесконечную прокрутку на десктопе
+              autoplay: false, // Отключаем автопрокрутку на десктопе
+
+              // Включаем внешние кнопки навигации
+              navigation: {
+                nextEl: ".results__nav-button--next",
+                prevEl: ".results__nav-button--prev",
+              },
+
+              // Отключаем пагинацию на десктопе
+              pagination: {
+                enabled: false,
+              },
+            },
+             
+          },
+        });
+
+        // --- СКРИПТ ДЛЯ ПЛАВНОЙ АНИМАЦИИ АККОРДЕОНА ---
+            // Этот скрипт является прогрессивным улучшением.
+            // Аккордеон будет работать и без него, но анимация будет резкой.
+
+            const detailsElements = document.querySelectorAll('.faq__item');
+
+            detailsElements.forEach(details => {
+                const summary = details.querySelector('.faq__question');
+                const content = details.querySelector('.faq__answer-content');
+
+                summary.addEventListener('click', (event) => {
+                    // Отменяем стандартное поведение (мгновенное открытие/закрытие)
+                    event.preventDefault();
+
+                    if (!details.open) {
+                        // --- Открываем элемент ---
+                        details.open = true;
+                        
+                        // Запускаем анимацию
+                        const animation = content.animate(
+                            { height: ['0px', `${content.scrollHeight}px`] },
+                            { duration: 300, easing: 'ease-out' }
+                        );
+
+                        // Когда анимация завершена, убираем фиксированную высоту,
+                        // чтобы контент мог адаптироваться, если изменится размер окна.
+                        animation.onfinish = () => {
+                            content.style.height = 'auto';
+                        };
+
+                    } else {
+                        // --- Закрываем элемент ---
+                        const animation = content.animate(
+                            { height: [`${content.scrollHeight}px`, '0px'] },
+                            { duration: 300, easing: 'ease-in' }
+                        );
+
+                        // Когда анимация завершена, закрываем <details>
+                        animation.onfinish = () => {
+                            details.open = false;
+                            content.style.height = 'auto'; // Сбрасываем высоту
+                        };
+                    }
+                });
+            });
         
 });
