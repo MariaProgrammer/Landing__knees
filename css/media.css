@@ -231,6 +231,9 @@
     background-position: left 70%;
     padding: 250px 0;
   }
+  .worries__btn {
+    max-width: 100%;
+  }
 }
 
 @media (max-width: 768px) {
