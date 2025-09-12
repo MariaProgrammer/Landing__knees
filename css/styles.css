@@ -216,6 +216,8 @@ p {
   font-size: clamp(2.1rem, 1rem + 5vw, 6.25rem);
   font-weight: 400;
   line-height: 1;
+   
+  letter-spacing: 0.5px;
 }
 .title-h3 {
   font-size: clamp(1.75rem, 1rem + 5vw, 3rem);
@@ -1948,8 +1950,6 @@ section.trust-me {
 
 .results__container {
   display: flex;
-  
-
 }
 
 .results__header {
@@ -1977,8 +1977,8 @@ section.trust-me {
   height: 60px;
   border-radius: 50%;
   border: none;
- background: var(--gradient-orange-color);
-  
+  background: var(--gradient-orange-color);
+
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -2017,14 +2017,12 @@ section.trust-me {
   width: 100%;
   /* ИЗМЕНЕНО: overflow: hidden, чтобы боковые слайды аккуратно обрезались по краям контейнера */
   overflow: hidden;
-  
 }
 
 .results-slider__slide {
-  
   background-color: #fff;
   border-radius: 30px;
-  padding: 20px 20px 30px 20px;  
+  padding: 20px 20px 30px 20px;
   display: flex;
   flex-direction: column;
   height: auto;
@@ -2048,7 +2046,6 @@ section.trust-me {
 }
 
 .results-slider__review-text {
-  
   color: var(--color-dark);
   margin: 0 0 30px 0;
   flex-grow: 1;
@@ -2073,9 +2070,7 @@ section.trust-me {
 }
 
 .results-slider__author-desc {
-  
   color: var(--color-black);
-
 }
 
 /* Стили для пагинации (точек) */
@@ -2129,11 +2124,10 @@ section.trust-me {
 }
 
 .start__container {
-  background: url('../img/start__bg.webp');
+  background: url("../img/start__bg.webp");
   background-position: right center;
   background-size: contain;
   background-repeat: no-repeat;
-  
 }
 
 .start__content {
@@ -2147,7 +2141,6 @@ section.trust-me {
   -webkit-background-clip: text;
   color: transparent;
   margin-bottom: 40px;
-  
 }
 
 .start__features-list {
@@ -2160,7 +2153,6 @@ section.trust-me {
   display: flex;
   align-items: center;
   gap: 10px;
-  
 }
 
 .start__feature-item:not(:last-child) {
@@ -2188,30 +2180,25 @@ section.trust-me {
 .start__price-intro del {
   text-decoration: line-through;
   color: var(--dark-orange-color);
- 
 }
 .start__price-info {
-  
   display: flex;
   margin-bottom: 30px;
-  
 }
 .start__price {
-  
-line-height: 0.8;
+  line-height: 0.8;
   font-size: 100px;
-  font-weight: 700;  
+  font-weight: 700;
   color: var(--dark-orange-color);
 }
 
 .start__price-note {
- align-self: flex-end;
+  align-self: flex-end;
   font-size: 38px;
   font-weight: 500;
-  color: var(--light-blue-color); 
+  color: var(--light-blue-color);
   margin-left: 10px;
 }
-
 
 .start__cta-button {
   display: inline-block;
@@ -2241,7 +2228,6 @@ line-height: 0.8;
   font-style: italic;
   font-size: 16px;
   font-weight: 500;
-  
 }
 
 /* Контейнер для фонового изображения на десктопе */
@@ -2437,7 +2423,82 @@ line-height: 0.8;
     margin: 0;
     max-width: 100%;
     width: 100%;
+  }
+}
 
+.site-footer {
+  
+  padding: 60px 0;
   
 }
+
+.site-footer__main {
+  display: flex;
+  justify-content: space-between;
+  gap: 150px;
+  padding-bottom: 40px;
+  margin-bottom: 30px;
+  border-bottom: 1px solid #dce1e4;
+}
+
+.site-footer__title {
+  background-image: var(--gradient-blue-color);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  margin-bottom: 20px;
+  letter-spacing: 0.5px;
+}
+
+.site-footer__email-link {
+  display: inline-block;
+  background: var(--gradient-orange-color);
+  color: #fff;
+  font-family: var(--second-family);
+  font-weight: 400;
+  font-size: 18px;
+  padding: 18px 40px;
+  border-radius: 30px;
+  transition: transform 0.3s ease;
+}
+
+.site-footer__email-link:hover {
+  transform: translateY(-2px);
+}
+
+.site-footer__disclaimer-title { 
+flex: 1 1 auto;
+  color: var(--color-black);  
+  letter-spacing: 0.5px;
+  margin-bottom: 38px;
+  line-height: 0.9;
+}
+
+.site-footer__disclaimer-text { 
+  color: var(--color-black);
+  line-height: 0.9;
+  letter-spacing: 0.5px;
+  max-width: 650px;
+  font-weight: 400;
+}
+
+.site-footer__legal-nav {
+  font-family: var(--font-family);
+  font-size: 16px;
+  letter-spacing: 0.5px;
+  color: var(--color-black);
+}
+
+.site-footer__legal-links {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.site-footer__legal-link a {
+  transition: color 0.3s ease;
+}
+
+.site-footer__legal-link a:hover {
+  color: var(--dark-orange-color);
 }

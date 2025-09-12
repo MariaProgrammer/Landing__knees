@@ -248,9 +248,8 @@
     text-align: center;
     margin-bottom: 30px;
   }
-  .results__title{
+  .results__title {
     max-width: 100%;
-    
   }
   .results__navigation {
     margin-right: 0;
@@ -453,6 +452,32 @@
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
+  }
+  .site-footer {
+    padding: 40px 0;
+  }
+
+  .site-footer__main {
+    flex-direction: column; /* Перестраиваем в одну колонку */
+    gap: 40px;
+    text-align: center;
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .site-footer__disclaimer {
+    margin-bottom: 30px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #dce1e4;
+  }
+
+  .site-footer__disclaimer-text {
+    margin: 0 auto;
+  }
+
+  .site-footer__legal-links {
+    flex-direction: column; /* Выстраиваем ссылки в столбец */
+    gap: 15px;
   }
 }
 
