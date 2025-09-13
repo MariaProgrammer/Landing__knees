@@ -1,5 +1,7 @@
-body,
 html {
+  box-sizing: border-box;
+}
+body {
   margin: 0;
   padding: 0;
   width: 100%;
@@ -7,9 +9,7 @@ html {
   overflow-x: hidden;
   background-color: #f1f3f4; /* Добавим фон на случай, если картинка грузится долго */
 }
-html {
-  box-sizing: border-box;
-}
+
 
 *,
 *::before,
@@ -56,8 +56,9 @@ p {
   );
   --light-orange-color: #f89c3c;
 
-  --font-family: "Bebas Neue", sans-serif;
-  --second-family: "Open Sans", sans-serif;
+   --font-family: 'Bebas Neue', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+
+   --second-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
   /* --third-family: "Poppins", sans-serif; */
 }
 
@@ -137,7 +138,7 @@ p {
 .container {
   max-width: 1720px;
   width: 100%;
-  padding: 0 15px;
+  padding: 0 100px;
   margin: 0 auto;
 }
 
@@ -348,7 +349,7 @@ p {
   height: 100%;
 }
 .hero__title {
-  padding-top: 10%;
+  padding-top: 15%;
   max-width: 860px;
   width: 100%;
   font-size: clamp(2.8rem, 1rem + 5vw, 8.75rem);
@@ -547,11 +548,23 @@ p {
 .video__item {
   background: #fff;
   padding: 30px;
+  transition: transform 0.4s ease;
   border-radius: 30px;
   -webkit-border-radius: 30px;
   -moz-border-radius: 30px;
   -ms-border-radius: 30px;
   -o-border-radius: 30px;
+  -webkit-transition: transform 0.4s ease;
+  -moz-transition: transform 0.4s ease;
+  -ms-transition: transform 0.4s ease;
+  -o-transition: transform 0.4s ease;
+}
+.video__item:hover {
+  transform: translateY(-6px);
+  -webkit-transform: translateY(-6px);
+  -moz-transform: translateY(-6px);
+  -ms-transform: translateY(-6px);
+  -o-transform: translateY(-6px);
 }
 .video__img {
   margin-bottom: 30px;
@@ -565,6 +578,9 @@ p {
   color: transparent;
   letter-spacing: 0.8px;
   line-height: 1;
+}
+.video__btn--mob {
+  display: none;
 }
 /* PROGRAM */
 .program {
@@ -593,6 +609,21 @@ p {
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, 1fr);
   gap: 20px;
+}
+.program__left-item {
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: relative;
+
+}
+.program__left-descr {
+  text-align: left;
+  color: #fff;
+  position: absolute;
+  left: 20px;
+  bottom: 30px;
+
 }
 .program__img {
   display: block;
@@ -1182,6 +1213,7 @@ input[type="email"]:focus {
 }
 
 .price-block__old-price {
+  align-self: flex-end;
   font-size: 80px;
   color: var(--light-blue-color);
   position: relative;
@@ -1199,6 +1231,7 @@ input[type="email"]:focus {
 
 .price-block__new-price {
   font-size: clamp(6.25rem, 1rem + 5vw, 8.75rem);
+  line-height: 0.8;
   font-weight: 700;
   background-image: var(--gradient-blue-color);
   background-clip: text;
@@ -1260,12 +1293,9 @@ input[type="email"]:focus {
 }
 
 .countdown-timer__separator {
-  font-size: 32px;
+  font-size: 60px;
   font-weight: 700;
-  background-image: var(--gradient-blue-color);
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
+  color: #fff;
   align-self: center;
   padding-bottom: 25px; /* Визуальная коррекция */
 }
@@ -1388,31 +1418,59 @@ input[type="email"]:focus {
 
 /* Мобильные устройства */
 @media (max-width: 768px) {
-  .whats-inside__title {
-    font-size: 28px;
-  }
+  
 
   .features-list {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
   }
-
+  .features-list__item {
+    padding: 15px;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    gap: 20px;
+  }
+  .features-pic {
+    margin-bottom: 0;
+  }
+  .features-list__text {
+    align-self: center;
+  }
+  .features-list__title {
+    font-size: 22px;
+    font-weight: 700;
+  }
+  .features-list__description {
+    font-size: 15px;
+    line-height: 1.25;
+  }
   .video-slider__slide {
     width: 80%;
   }
 
   .price-block__old-price {
-    font-size: 24px;
+    font-size: 45px;
   }
 
   .price-block__new-price {
-    font-size: 52px;
+    font-size: 100px;
+  }
+  .special-offer__details {
+    gap: 10px;
+  }
+  .countdown-timer__title {
+    font-size: 24px;
   }
 
   .time-unit__value {
-    font-size: 24px;
-    padding: 8px 15px;
-    min-width: 60px;
+    font-size: 42px;
+    font-weight: 600;
+    line-height: 1.25;
+    padding: 8px 23px;
+    box-shadow: 2px 2px 4px 0 rgba(0, 116, 183, 0.2);
+   
   }
+  
 }
 
 @media (max-width: 576px) {
@@ -1420,10 +1478,7 @@ input[type="email"]:focus {
     padding: 40px 0;
   }
 
-  .features-list {
-    grid-template-columns: 1fr;
-  }
-
+  
   .price-block__prices {
     flex-direction: column;
     gap: 5px;
@@ -1442,7 +1497,7 @@ input[type="email"]:focus {
 }
 
 /* --- СТИЛИ БЛОКА TRUST-ME --- */
-section.trust-me {
+.trust-me {
   width: 100%;
   height: 100%;
   background-image: url("../img/trust__ellipse-blue.png"),
@@ -1580,7 +1635,12 @@ section.trust-me {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: top center;  
   transition: transform 0.3s ease;
+}
+.gallery__image--center {
+  object-position: center center;
+
 }
 
 .photo-gallery__slide:hover .photo-gallery__image {
@@ -1721,11 +1781,32 @@ section.trust-me {
 
 /* Планшеты */
 @media (max-width: 992px) {
-  .trust-me__about {
-    gap: 20px;
+  .trust-me {
+    background: none;
+  }
+  .trust-me__about {    
+    grid-template-columns: 1fr; /* Перестраиваем в одну колонку */
+    margin-bottom: 40px;  
+    gap: 24px;
+  }
+  .trust-me__photo-wrapper {
+    max-width: 100%;
   }
   .trust-me__content {
-    padding: 30px;
+    padding: 0;
+  }
+  .trust-me__title {
+    display: none;
+  }
+  
+  .trust-me__title--mob {
+    display: block;
+    text-align: center;
+    margin-bottom: 32px;
+    background-image: var(--gradient-blue-color);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
   }
   .trust-me__btn {
     display: block;
@@ -1739,14 +1820,8 @@ section.trust-me {
   .trust-me {
     padding: 40px 0;
   }
-  .trust-me__title {
-    font-size: 28px;
-    margin-bottom: 30px;
-  }
-  .trust-me__about {
-    grid-template-columns: 1fr; /* Перестраиваем в одну колонку */
-    margin-bottom: 40px;
-  }
+  
+  
   .trust-me__content {
     text-align: center;
   }
@@ -1757,7 +1832,10 @@ section.trust-me {
   }
 
   .photo-gallery {
-    padding-bottom: 40px;
+    padding-bottom: 24px;
+  }
+  .photo-gallery__image-wrapper {
+    aspect-ratio: 1.25 / 1;
   }
 
   .photo-gallery__slide {
@@ -1886,16 +1964,8 @@ section.trust-me {
 
 /* Планшеты и большие ноутбуки */
 @media (max-width: 992px) {
-  .worries {
-    background: var(
-      --color-background-light
-    ); /* Убираем градиент на мобильных */
-    padding: 60px 0;
-  }
 
-  .worries__content-wrapper {
-    grid-template-columns: 1fr; /* Перестраиваем в одну колонку */
-  }
+  
 
   .worries__image-wrapper {
     display: none; /* Прячем картинку, как в макете */
@@ -1904,6 +1974,10 @@ section.trust-me {
   .worries__title,
   .worries__conclusion {
     text-align: center;
+  }
+  .worries-list {
+    grid-template-columns: 1fr; /* Список вопросов в одну колонку */
+    gap: 20px;
   }
 }
 
@@ -1917,10 +1991,7 @@ section.trust-me {
     font-size: 28px;
   }
 
-  .worries-list {
-    grid-template-columns: 1fr; /* Список вопросов в одну колонку */
-    gap: 20px;
-  }
+  
 
   .worries__title,
   .worries__conclusion {
@@ -2131,11 +2202,13 @@ section.trust-me {
 }
 
 .start__content {
-  padding: 80px 40px 80px 10%;
+  max-width: 780px;
+  width: 100%;
+  padding: 100px 0 65px 0;
 }
 
 .start__title {
-  max-width: 771px;
+  width: 100%;
   background-image: var(--gradient-blue-color);
   background-clip: text;
   -webkit-background-clip: text;
@@ -2199,27 +2272,17 @@ section.trust-me {
   color: var(--light-blue-color);
   margin-left: 10px;
 }
-
-.start__cta-button {
-  display: inline-block;
-  background-color: var(--color-accent);
-  color: var(--color-background-light);
-  border: none;
-  border-radius: var(--border-radius-button);
-  padding: 15px 40px;
-  font-size: 18px;
-  font-weight: 700;
-  text-decoration: none;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-  min-width: 250px;
+.start__btn-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
-
-.start__cta-button:hover,
-.start__cta-button:focus-visible {
-  background-color: var(--color-accent-dark);
-  transform: translateY(-2px);
-  outline: none;
+.start__btn {
+  display: block;
+  width: 100%;
+  margin-bottom: 12px;
 }
 
 .start__reassurance {
@@ -2315,7 +2378,7 @@ section.trust-me {
 
 /* --- СТИЛИ БЛОКА FAQ (Подход Desktop-First) --- */
 .faq {
-  padding: 80px 0;
+  padding: 100px 0;
 }
 
 .faq__title {

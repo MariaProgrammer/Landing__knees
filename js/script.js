@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (screenWidth >= 320 && screenWidth <= 768) {
             bgPosX -= screenWidth * 0.01; 
         } 
-        else if (screenWidth > 769 && screenWidth <= 980) {
+        else if (screenWidth > 769 && screenWidth <= 992) {
             bgPosX -= screenWidth * 0.10;
         }
 
@@ -272,7 +272,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 loop: true, // Бесконечная прокрутка
                 slidesPerView: 'auto', // Автоматическое определение количества видимых слайдов
                 centeredSlides: true, // Активный слайд всегда по центру
-                spaceBetween: 20, // Расстояние между слайдами
+                spaceBetween: 10, // Расстояние между слайдами
 
                 // Автопрокрутка
                 autoplay: {
@@ -284,7 +284,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Адаптивность
                 breakpoints: {
                     768: {
-                        spaceBetween: 30,
+                        spaceBetween: 20,
                     }
                 }
             });
@@ -382,7 +382,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const photoSwiper = new Swiper(".photo-gallery__slider", {
           loop: true,
           slidesPerView: "auto", // Автоматически определяет кол-во слайдов на основе их CSS-ширины
-          spaceBetween: 15,
+          spaceBetween: 11,
 
           autoplay: {
             delay: 2500,
@@ -393,7 +393,7 @@ document.addEventListener('DOMContentLoaded', () => {
           // Адаптивность
           breakpoints: {
             768: {
-              spaceBetween: 30,
+              spaceBetween: 20,
             },
           },
         });
