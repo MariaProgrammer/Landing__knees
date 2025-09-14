@@ -524,6 +524,7 @@
     flex-direction: column; /* Выстраиваем ссылки в столбец */
     gap: 15px;
   }
+  
 }
 
 @media (max-width: 390px) {

@@ -2237,6 +2237,11 @@ input[type="email"]:focus {
   align-items: center;
   gap: 10px;
 }
+.start__feature-item svg {
+  flex: 0 0 auto;
+  width: 24px;
+  height: 24px;
+}
 
 .start__feature-item:not(:last-child) {
   margin-bottom: 20px;
@@ -2253,6 +2258,7 @@ input[type="email"]:focus {
 }
 
 .start__price-intro {
+  text-align: left;
   background-image: var(--gradient-blue-color);
   background-clip: text;
   -webkit-background-clip: text;
@@ -2338,42 +2344,29 @@ input[type="email"]:focus {
   }
 
   /* Создаем мобильный фон с оверлеем */
-  .start::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(rgba(1, 46, 81, 0.7), rgba(1, 46, 81, 0.7)),
-      url("https://via.placeholder.com/800x1200/cccccc/333333?text=Running+Man+BG")
-        no-repeat center center;
-    background-size: cover;
-    z-index: -1;
-  }
+  
 
   .start__container {
     display: block; /* Отменяем grid */
     max-width: 1200px; /* Возвращаем стандартную ширину контейнера */
     margin: 0 auto;
-    padding: 0 15px;
+    padding: 0;
+    background: url("../img/start__bg--mob.png");
+  background-position: 60% center;
+  background-size: cover;
+  background-repeat: no-repeat;
   }
 
   .start__content {
     padding: 0; /* Сбрасываем десктопные отступы */
   }
 
-  .start__title {
-    font-size: 28px;
-    margin: 0 auto 30px auto;
-    max-width: 500px;
-  }
-
   .start__features-list {
     display: inline-block;
     text-align: left;
-    margin: 0 auto 40px auto;
-    max-width: 450px;
+    padding-bottom: 700px;
+    max-width: 100%;
+    width: 100%;
   }
 
   .start__price {
