@@ -271,12 +271,7 @@
     grid-template-columns: 1fr; /* Перестраиваем в одну колонку */
     padding: 0;
   }
-  .results-slider__pagination {
-    margin-top: 0;
-  }
-  .results__container {
-    gap: 24;
-  }
+  
 }
 
 @media (max-width: 768px) {

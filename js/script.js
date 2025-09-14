@@ -448,42 +448,45 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         // --- ИНИЦИАЛИЗАЦИЯ ТРЕТЬЕГО СЛАЙДЕРА (RESULTS) ---
-        const resultsSwiper = new Swiper(".results-slider", {
-          // --- НАСТРОЙКИ ПО УМОЛЧАНИЮ (ДЛЯ МОБИЛЬНЫХ) ---
-          slidesPerView: 1,
-          spaceBetween: 15,
-          loop: true,
-          autoplay: {
-            delay: 4000,
-            disableOnInteraction: true, // Отключает автопрокрутку после свайпа
-          },
-          pagination: {
-            el: ".results-slider__pagination",
-            clickable: true,
-          },
+       const resultSlider = new Swiper('.result__slider', {
+            loop: true,
+            slidesPerGroup: 1, 
+            spaceBetween: 20,
 
-          // --- НАСТРОЙКИ ДЛЯ РАЗНЫХ РАЗМЕРОВ ЭКРАНА ---
-          breakpoints: {
-            // когда ширина экрана >= 768px
-            768: {
-              slidesPerView: 3,
-              spaceBetween: 20,
-              loop: false, // Отключаем бесконечную прокрутку на десктопе
-              autoplay: false, // Отключаем автопрокрутку на десктопе
-
-              // Включаем внешние кнопки навигации
-              navigation: {
-                nextEl: ".results__nav-button--next",
-                prevEl: ".results__nav-button--prev",
-              },
-
-              // Отключаем пагинацию на десктопе
-              pagination: {
-                enabled: false,
-              },
+            // Настройки по умолчанию (для мобильных)
+            slidesPerView: 1, 
+            centeredSlides: true, 
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+                pauseOnMouseEnter: true,
             },
-             
-          },
+            
+            // Навигация и пагинация
+            navigation: {
+                nextEl: '.result__slider-button-next',
+                prevEl: '.result__slider-button-prev',
+            },
+            pagination: {
+                el: '.result__slider-pagination',
+                clickable: true,
+            },
+            
+            // Переопределение для десктопа
+            breakpoints: {
+                769: {
+                    slidesPerView: 'auto',
+                    centeredSlides: false,
+                    autoplay: false,
+                }
+            },
+
+            // Доступность
+            a11y: {
+                prevSlideMessage: 'Предыдущий отзыв',
+                nextSlideMessage: 'Следующий отзыв',
+                paginationBulletMessage: 'Перейти к отзыву {{index}}',
+            },
         });
 
         // --- СКРИПТ ДЛЯ ПЛАВНОЙ АНИМАЦИИ АККОРДЕОНА ---

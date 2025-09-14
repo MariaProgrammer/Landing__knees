@@ -10,7 +10,6 @@ body {
   background-color: #f1f3f4; /* Добавим фон на случай, если картинка грузится долго */
 }
 
-
 *,
 *::before,
 *::after {
@@ -56,9 +55,11 @@ p {
   );
   --light-orange-color: #f89c3c;
 
-   --font-family: 'Bebas Neue', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+  --font-family: "Bebas Neue", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    "Helvetica Neue", Arial, sans-serif;
 
-   --second-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+  --second-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    "Helvetica Neue", Arial, sans-serif;
   /* --third-family: "Poppins", sans-serif; */
 }
 
@@ -217,7 +218,7 @@ p {
   font-size: clamp(2.1rem, 1rem + 5vw, 6.25rem);
   font-weight: 400;
   line-height: 1;
-   
+
   letter-spacing: 0.5px;
 }
 .title-h3 {
@@ -239,6 +240,8 @@ p {
   font-size: 18px;
   line-height: 1.25;
 }
+
+
 /* HEADER */
 .header {
   position: absolute;
@@ -401,7 +404,6 @@ p {
   -webkit-background-clip: text;
   color: transparent;
   letter-spacing: 0px;
-  
 }
 .hero__label {
   font-family: var(--second-family);
@@ -615,7 +617,6 @@ p {
   height: 100%;
   display: block;
   position: relative;
-
 }
 .program__left-descr {
   text-align: left;
@@ -623,7 +624,6 @@ p {
   position: absolute;
   left: 20px;
   bottom: 30px;
-
 }
 .program__img {
   display: block;
@@ -1423,8 +1423,6 @@ input[type="email"]:focus {
 
 /* Мобильные устройства */
 @media (max-width: 768px) {
-  
-
   .features-list {
     grid-template-columns: 1fr;
   }
@@ -1460,7 +1458,7 @@ input[type="email"]:focus {
     -moz-transform: translateY(-8px);
     -ms-transform: translateY(-8px);
     -o-transform: translateY(-8px);
-}
+  }
 
   .price-block__new-price {
     font-size: 100px;
@@ -1483,9 +1481,7 @@ input[type="email"]:focus {
     line-height: 1.25;
     padding: 8px 23px;
     box-shadow: 2px 2px 4px 0 rgba(0, 116, 183, 0.2);
-   
   }
-  
 }
 
 @media (max-width: 576px) {
@@ -1493,9 +1489,7 @@ input[type="email"]:focus {
     padding: 40px 0;
   }
 
-  
   .price-block__prices {
-    
     gap: 5px;
   }
 
@@ -1650,12 +1644,11 @@ input[type="email"]:focus {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: top center;  
+  object-position: top center;
   transition: transform 0.3s ease;
 }
 .gallery__image--center {
   object-position: center center;
-
 }
 
 .photo-gallery__slide:hover .photo-gallery__image {
@@ -1799,9 +1792,9 @@ input[type="email"]:focus {
   .trust-me {
     background: none;
   }
-  .trust-me__about {    
+  .trust-me__about {
     grid-template-columns: 1fr; /* Перестраиваем в одну колонку */
-    margin-bottom: 40px;  
+    margin-bottom: 40px;
     gap: 24px;
   }
   .trust-me__photo-wrapper {
@@ -1813,7 +1806,7 @@ input[type="email"]:focus {
   .trust-me__title {
     display: none;
   }
-  
+
   .trust-me__title--mob {
     display: block;
     text-align: center;
@@ -1835,8 +1828,7 @@ input[type="email"]:focus {
   .trust-me {
     padding: 40px 0;
   }
-  
-  
+
   .trust-me__content {
     text-align: center;
   }
@@ -1979,9 +1971,6 @@ input[type="email"]:focus {
 
 /* Планшеты и большие ноутбуки */
 @media (max-width: 992px) {
-
-  
-
   .worries__image-wrapper {
     display: none; /* Прячем картинку, как в макете */
   }
@@ -2006,8 +1995,6 @@ input[type="email"]:focus {
     font-size: 28px;
   }
 
-  
-
   .worries__title {
     text-align: left; /* Возвращаем выравнивание по левому краю для компактного вида */
   }
@@ -2015,110 +2002,96 @@ input[type="email"]:focus {
   .worries__cta-wrapper {
     text-align: left;
   }
-
-  
 }
 
-.results {
-  position: relative;
-
-  overflow: hidden;
+.result__container {
+  margin: 0 auto;
 }
-.results__title-wrap {
-  position: absolute;
-  left: 0;
-  top: 0;
+
+/* ОСНОВНЫЕ СТИЛИ СЕКЦИИ RESULT */
+.result {
+  padding: 60px 0;
+  /* Используем clip для лучшей производительности, чем hidden */
+  overflow-x: clip;
+}
+
+.result__wrapper {
   width: 100%;
+  height: 100%;
+  display: flex;
+  gap: 40px;
 }
 
-.results__container {
-  display: flex;
-}
+.result__info {
+  align-self: stretch;
 
-.results__header {
-  padding-left: 28%;
+  flex: 0 0 40%;
+}
+.result__info-container {
+  height: 100%;
   display: flex;
+  flex-direction: column;
   align-items: flex-end;
+  justify-content: space-between;
+
+  flex-basis: auto;
+  text-align: center;
 }
 
-.results__title {
+.result__title {
   background-image: var(--gradient-blue-color);
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
-  max-width: 567px;
+  text-align: left;
+  margin-bottom: 40px;
 }
 
-.results__navigation {
-  display: flex;
-  gap: 15px;
-  margin-right: 50px;
-}
-
-.results__nav-button {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  border: none;
-  background: var(--gradient-orange-color);
-
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background-color 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
-}
-
-.results__nav-button:hover:not(:disabled) {
-  background-color: #e67e00;
-  transform: scale(1.05);
-}
-
-.results__nav-button:focus-visible {
-  outline: 2px solid var(--color-primary);
-  outline-offset: 3px;
-}
-
-.results__nav-button:disabled,
-.results__nav-button.swiper-button-disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-  transform: scale(1);
-}
-
-.results__nav-button svg {
-  width: 24px;
-  height: 24px;
-}
-
-.results__nav-button--prev svg {
-  transform: rotate(180deg);
-}
-
-/* --- СТИЛИ БЛОКА RESULTS-SLIDER (SWIPER) --- */
-.results-slider {
-  width: 100%;
-  /* ИЗМЕНЕНО: overflow: hidden, чтобы боковые слайды аккуратно обрезались по краям контейнера */
+.result__slider-wrapper {
+  flex: 1;
+  min-width: 0;
+  /* Этот контейнер работает как маска */
   overflow: hidden;
 }
 
-.results-slider__slide {
-  background-color: #fff;
-  border-radius: 30px;
-  padding: 20px 20px 30px 20px;
+/* --- ИЗМЕНЕНИЕ ЗДЕСЬ --- */
+.result__slider {
+  /* Мы делаем сам слайдер шире его маски-родителя.
+               Это дает Swiper'у больше пространства для рендеринга слайдов,
+               и часть третьего слайда становится видимой.
+               padding-right компенсирует отступ контейнера, чтобы слайды
+               доходили до самого края экрана. */
+  padding-right: var(--container-padding);
+}
+/* --- КОНЕЦ ИЗМЕНЕНИЯ --- */
+
+.result .swiper-slide {
+  width: 444px;
+  height: auto;
   display: flex;
   flex-direction: column;
-  height: auto;
+}
+
+/* Стили карточки внутри слайда */
+.result-card {
+  background-color: #fff;
+  border-radius: 30px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  padding: 30px 30px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+ 
   -webkit-border-radius: 30px;
   -moz-border-radius: 30px;
   -ms-border-radius: 30px;
   -o-border-radius: 30px;
 }
 
-.results-slider__photo {
+.result-card__image {
   width: 100%;
-  height: auto;
-  aspect-ratio: 4 / 3;
+  min-height: 275px;
+  height: 382px;
   object-fit: cover;
   border-radius: 10px;
   margin-bottom: 16px;
@@ -2128,75 +2101,189 @@ input[type="email"]:focus {
   -o-border-radius: 10px;
 }
 
-.results-slider__review-text {
-  color: var(--color-dark);
+.result-card__text {
+  font-family: var(--second-family);
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.6;
   margin: 0 0 30px 0;
   flex-grow: 1;
+  color: var(--color-black);
 }
 
-.results-slider__author {
+.result-card__author {
+  font-family: var(--second-family);
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.6;
+  margin: 0 0 4px 0;
+  color: var(--color-black);
+  display: flex;
+  gap: 4px;
+}
+
+
+
+.result-card__author-role {
+  font-family: var(--second-family);
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--color-black);
+  
+}
+
+/* Стили навигации (кнопки) */
+.result__slider-navigation {
+  display: flex;
+  gap: 16px;
+}
+.result__slider-buttons-wrap {
+  display: flex;
+  justify-content: flex-end;
+  gap: 20px;
+}
+
+.result__slider-button {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: var(--gradient-orange-color);
+ 
   display: flex;
   align-items: center;
-  gap: 10px;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s, border-color 0.3s;
 }
 
-.results-slider__author-name {
-  font-weight: 700;
-  color: var(--color-black);
-  margin-bottom: 4px;
+.result__slider-button:hover,
+.result__slider-button:focus-visible {
+  background-color: var(--color-accent);
+  border-color: var(--color-accent);
 }
 
-.results-slider__author-icon {
-  width: 18px;
-  height: 18px;
-  color: var(--color-accent);
+.result__slider-button:hover .result__slider-arrow,
+.result__slider-button:focus-visible .result__slider-arrow {
+  stroke: #fff;
 }
 
-.results-slider__author-desc {
-  color: var(--color-black);
+.result__slider-button.swiper-button-disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background-color: #e9ecef;
+  border-color: #ddd;
 }
 
-/* Стили для пагинации (точек) */
-.results-slider__pagination {
-  margin-top: 30px;
-  position: static;
-  text-align: center;
+.result__slider-button.swiper-button-disabled .result__slider-arrow {
+  stroke: #6c757d;
 }
 
-.results-slider__pagination .swiper-pagination-bullet {
-  width: 10px;
-  height: 10px;
-  background-color: #cce3fb;
-  opacity: 1;
-  transition: background-color 0.3s ease;
+.result__slider-arrow {
+  stroke: var(--color-accent);
+  transition: stroke 0.3s;
+}
+.result__slider-button-next {
+  position: relative;
+}
+.arrow-next {
+  position: absolute;
+  z-index: 1000;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
 }
 
-.results-slider__pagination .swiper-pagination-bullet-active {
-  background-color: var(--color-primary);
+/* Стили пагинации (точки) */
+.result__slider-pagination {
+  display: none;
 }
 
-/* --- АДАПТИВНЫЕ СТИЛИ --- */
-@media (max-width: 768px) {
-  .results {
-    padding: 40px 0;
+/* --- АДАПТИВНАЯ ВЕРСТКА --- */
+@media (max-width: 1200px) {
+  .result__container {
+    padding: 0 100px;
   }
-  .results__header {
+  .result__info-container {
+    align-items: center;
+    justify-content: flex-start;
+  }
+  .result__wrapper {
     flex-direction: column;
-    gap: 10px;
-    margin-bottom: 20px;
+    align-items: stretch;
+    gap: 20px;
+  }
+  .result .swiper-slide {
+    width: 380px;
+  }
+  .result__title {
     text-align: center;
   }
+}
+
+@media (max-width: 992px) {
+  .result__container {
+    padding: 0 50px;
+  }
   
-  .results__navigation {
+}
+
+@media (max-width: 768px) {
+  .result {
+    padding: 40px 0;
+  }
+
+  .result__title {
+    margin-bottom: 0;
+  }
+
+  .result__container {
+    padding: 0 30px;
+  }
+  .result__slider-buttons-wrap {
     display: none;
   }
 
-  /* ДОБАВЛЕНО: Задаем ширину слайда для мобильной версии, чтобы `slidesPerView: 'auto'` сработало */
-  .results-slider__slide {
-    width: 85%;
+  .result__slider-wrapper {
+    width: 100%;
+    margin-top: 20px;
+    overflow: visible; /* На мобильных маска не нужна */
+  }
+
+  .result__slider {
+    padding-right: 0; /* Сбрасываем хак для десктопа */
+  }
+
+  .result .swiper-slide {
+    width: 335px;
+  }
+
+  .result__slider-navigation {
+    display: none;
+  }
+
+  .result__slider-pagination {
+    display: block;
+    position: static;
+    margin-top: 30px;
+  }
+
+  .result .swiper-pagination-bullet {
+    width: 10px;
+    height: 10px;
+    background-color: #ccc;
+    opacity: 1;
+    transition: background-color 0.3s;
+  }
+
+  .result .swiper-pagination-bullet-active {
+    background-color: var(--color-primary);
   }
 }
-
+/* Start section */
 .start {
   padding: 0;
   color: var(--color-text-dark); /* Темный текст по умолчанию */
@@ -2344,7 +2431,6 @@ input[type="email"]:focus {
   }
 
   /* Создаем мобильный фон с оверлеем */
-  
 
   .start__container {
     display: block; /* Отменяем grid */
@@ -2352,9 +2438,9 @@ input[type="email"]:focus {
     margin: 0 auto;
     padding: 0;
     background: url("../img/start__bg--mob.png");
-  background-position: 60% center;
-  background-size: cover;
-  background-repeat: no-repeat;
+    background-position: 60% center;
+    background-size: cover;
+    background-repeat: no-repeat;
   }
 
   .start__content {
@@ -2493,9 +2579,7 @@ input[type="email"]:focus {
 }
 
 .site-footer {
-  
   padding: 60px 0;
-  
 }
 
 .site-footer__main {
@@ -2532,15 +2616,15 @@ input[type="email"]:focus {
   transform: translateY(-2px);
 }
 
-.site-footer__disclaimer-title { 
-flex: 1 1 auto;
-  color: var(--color-black);  
+.site-footer__disclaimer-title {
+  flex: 1 1 auto;
+  color: var(--color-black);
   letter-spacing: 0.5px;
   margin-bottom: 38px;
   line-height: 0.9;
 }
 
-.site-footer__disclaimer-text { 
+.site-footer__disclaimer-text {
   color: var(--color-black);
   line-height: 0.9;
   letter-spacing: 0.5px;
