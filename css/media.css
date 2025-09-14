@@ -487,6 +487,7 @@
   }
   .worries {
     padding: 40px 0;
+    margin-bottom: 0;
   }
   .worries-list {
     margin-bottom: 24px;

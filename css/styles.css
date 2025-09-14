@@ -1927,7 +1927,7 @@ input[type="email"]:focus {
 .worries-list__item::before {
   counter-increment: worries-counter; /* Увеличиваем счётчик на 1 */
   content: counter(worries-counter) "."; /* Отображаем значение счётчика */
-  font-size: 48px;
+  font-size: clamp(1.75rem, 1rem + 5vw, 3rem);
   font-weight: 400;
   background-image: var(--gradient-orange-color);
   background-clip: text;
@@ -2008,8 +2008,7 @@ input[type="email"]:focus {
 
   
 
-  .worries__title,
-  .worries__conclusion {
+  .worries__title {
     text-align: left; /* Возвращаем выравнивание по левому краю для компактного вида */
   }
 
@@ -2017,9 +2016,7 @@ input[type="email"]:focus {
     text-align: left;
   }
 
-  .worries__conclusion {
-    font-size: 18px;
-  }
+  
 }
 
 .results {
@@ -2189,9 +2186,7 @@ input[type="email"]:focus {
     margin-bottom: 20px;
     text-align: center;
   }
-  .results__title {
-    font-size: 28px;
-  }
+  
   .results__navigation {
     display: none;
   }
