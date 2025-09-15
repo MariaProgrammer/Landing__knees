@@ -2033,7 +2033,7 @@ input[type="email"]:focus {
   flex-direction: column;
   align-items: flex-end;
   justify-content: space-between;
-
+padding-left: 100px;
   flex-basis: auto;
   text-align: center;
 }
@@ -2206,6 +2206,9 @@ input[type="email"]:focus {
 @media (max-width: 1200px) {
   .result__container {
     padding: 0 100px;
+  }
+  .result__info-container {
+    padding-left: 0;
   }
   .result__info-container {
     align-items: center;
@@ -2455,13 +2458,14 @@ input[type="email"]:focus {
     width: 100%;
   }
 
-  .start__price {
-    font-size: 52px;
-  }
-
-  /* Прячем десктопный блок с картинкой и его градиент */
+    /* Прячем десктопный блок с картинкой и его градиент */
   .start__image-wrapper {
     display: none;
+  }
+}
+@media (max-width: 768px) {
+  .start__features-list {    
+    padding-bottom: 500px;
   }
 }
 
