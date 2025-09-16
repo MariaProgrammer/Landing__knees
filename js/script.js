@@ -1,22 +1,22 @@
-document.addEventListener('DOMContentLoaded', () => { 
+document.addEventListener('DOMContentLoaded', () => {
     const container = document.getElementById('hero-animation-container');
     const heroSection = document.querySelector('.hero');
     const heroContent = document.querySelector('.hero__container');
-     const heroTitle = document.querySelector('.hero__title');
+    const heroTitle = document.querySelector('.hero__title');
     const heroSubtitle = document.querySelector('.hero__subtitle');
- 
+
 
     function setupAdaptiveAnimation() {
         const screenWidth = window.innerWidth;
         const isMobile = screenWidth <= 768;
-        
+
         // Ваши пути к файлам
-        const desktopImage = 'img/hero__bg.webp'; 
+        const desktopImage = 'img/hero__bg.webp';
         const mobileImage = 'img/hero__bg--mob.webp';
 
         const imageSrc = isMobile ? mobileImage : desktopImage;
         const tileSize = isMobile ? 25 : 100;
-        
+
         const img = new Image();
         img.src = imageSrc;
 
@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 finalHeroHeight = Math.max(imageBasedHeight, contentHeight);
             }
             // --- КОНЕЦ НОВОЙ ЛОГИКИ ---
-            
+
             heroSection.style.height = `${finalHeroHeight}px`;
 
             createGrid(img.naturalWidth, img.naturalHeight, tileSize, imageSrc, finalHeroHeight);
@@ -52,12 +52,12 @@ document.addEventListener('DOMContentLoaded', () => {
         container.innerHTML = '';
 
         const screenWidth = window.innerWidth;
-        
+
         const cols = Math.ceil(screenWidth / tileSize);
         const rows = Math.ceil(screenHeight / tileSize);
 
-        let bgWidth, bgHeight, bgPosX, bgPosY; 
-        
+        let bgWidth, bgHeight, bgPosX, bgPosY;
+
         const containerRatio = screenWidth / screenHeight;
         const imageRatio = imageNaturalWidth / imageNaturalHeight;
 
@@ -72,10 +72,10 @@ document.addEventListener('DOMContentLoaded', () => {
             bgPosX = (screenWidth - bgWidth) / 2;
             bgPosY = 0;
         }
-        
+
         if (screenWidth >= 320 && screenWidth <= 768) {
-            bgPosX -= screenWidth * 0.01; 
-        } 
+            bgPosX -= screenWidth * 0.01;
+        }
         else if (screenWidth > 769 && screenWidth <= 992) {
             bgPosX -= screenWidth * 0.10;
         }
@@ -89,7 +89,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 const tileLeft = j * tileSize;
                 const tileTop = i * tileSize;
-                
+
                 tile.style.width = `${tileSize}px`;
                 tile.style.height = `${tileSize}px`;
                 tile.style.backgroundImage = `url('${imageSrc}')`;
@@ -118,19 +118,19 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 100);
     }
 
-     // --- НОВЫЙ КОД: ЗАПУСК АНИМАЦИИ ТЕКСТА ПОСЛЕ АНИМАЦИИ ПЛИТОК ---
-        // Длительность анимации плиток = 1.8с. Запускаем текст примерно в это время.
-        setTimeout(() => {
-            if (window.innerWidth > 768) {
-                // ИЗМЕНЕНИЕ ЗДЕСЬ: Находим все элементы с классом-триггером и запускаем их анимацию
-                document.querySelectorAll('.animate-on-load').forEach(el => {
-                    el.classList.add('is-visible');
-                });
-            }
-        }, 1800);
-    
-    
-    
+    // --- НОВЫЙ КОД: ЗАПУСК АНИМАЦИИ ТЕКСТА ПОСЛЕ АНИМАЦИИ ПЛИТОК ---
+    // Длительность анимации плиток = 1.8с. Запускаем текст примерно в это время.
+    setTimeout(() => {
+        if (window.innerWidth > 768) {
+            // ИЗМЕНЕНИЕ ЗДЕСЬ: Находим все элементы с классом-триггером и запускаем их анимацию
+            document.querySelectorAll('.animate-on-load').forEach(el => {
+                el.classList.add('is-visible');
+            });
+        }
+    }, 1800);
+
+
+
     setupAdaptiveAnimation();
 
     let resizeTimeout;
@@ -179,7 +179,7 @@ document.addEventListener('DOMContentLoaded', () => {
         playPauseBtn.addEventListener('click', handleCustomButtonFirstPlay);
         video.addEventListener('ended', handleVideoEnded);
     }
-    
+
     // --------------- Модальное окно (Popup) -----------------------
     const openPopupButtons = document.querySelectorAll('.btn-open, .header__email');
     const popup = document.querySelector('.popup');
@@ -266,273 +266,287 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 
-     // --- ИНИЦИАЛИЗАЦИЯ СЛАЙДЕРА SWIPER ---
-            const swiper = new Swiper('.video-slider', {
-                // Опции
-                loop: true, // Бесконечная прокрутка
-                slidesPerView: 'auto', // Автоматическое определение количества видимых слайдов
-                centeredSlides: true, // Активный слайд всегда по центру
-                spaceBetween: 10, // Расстояние между слайдами
+    // --- ИНИЦИАЛИЗАЦИЯ СЛАЙДЕРА SWIPER ---
+    const swiper = new Swiper('.video-slider', {
+        // Опции
+        loop: true, // Бесконечная прокрутка
+        slidesPerView: 'auto', // Автоматическое определение количества видимых слайдов
+        centeredSlides: true, // Активный слайд всегда по центру
+        spaceBetween: 10, // Расстояние между слайдами
 
-                // Автопрокрутка
-                autoplay: {
-                    delay: 3000, // Задержка 3 секунды
-                    disableOnInteraction: false, // Не отключать после ручного переключения
-                    pauseOnMouseEnter: true, // Пауза при наведении мыши
-                },
-                
-                // Адаптивность
-                breakpoints: {
-                    768: {
-                        spaceBetween: 20,
-                    }
-                }
+        // Автопрокрутка
+        autoplay: {
+            delay: 3000, // Задержка 3 секунды
+            disableOnInteraction: false, // Не отключать после ручного переключения
+            pauseOnMouseEnter: true, // Пауза при наведении мыши
+        },
+
+        // Адаптивность
+        breakpoints: {
+            768: {
+                spaceBetween: 20,
+            }
+        }
+    });
+
+
+    // --- ЛОГИКА МОДАЛЬНОГО ОКНА С ВИДЕО ---
+    const modal = document.querySelector('.video-modal');
+    const videoSlides = document.querySelectorAll('.video-slider__slide');
+    const modalVideoWrapper = document.querySelector('.video-modal__video-wrapper');
+    const closeModalButton = document.querySelector('.video-modal__close-button');
+    const modalOverlay = document.querySelector('.video-modal__overlay');
+
+    // ИСПРАВЛЕНО: Обновленная функция открытия модального окна
+    const openModal = (videoSrc) => {
+        // Очищаем контейнер от предыдущего видео
+        modalVideoWrapper.innerHTML = '';
+
+        // Создаем элемент видео
+        const videoElement = document.createElement('video');
+        videoElement.src = videoSrc;
+        videoElement.controls = true; // ДОБАВЛЕНО: Элементы управления включены
+        videoElement.autoplay = true; // Оставляем для совместимости
+        videoElement.muted = true;    // ДОБАВЛЕНО: Запускаем видео без звука (ключевой момент для автозапуска)
+        videoElement.playsInline = true; // Улучшает воспроизведение на iOS
+        videoElement.classList.add('video-modal__video');
+
+        // Добавляем видео в контейнер
+        modalVideoWrapper.appendChild(videoElement);
+
+        // Программно запускаем воспроизведение. Это более надежно, чем просто autoplay.
+        const playPromise = videoElement.play();
+
+        if (playPromise !== undefined) {
+            playPromise.catch(error => {
+                // Воспроизведение было заблокировано браузером.
+                // Ничего страшного, у пользователя есть кнопка play.
+                console.error("Autoplay was prevented: ", error);
             });
+        }
 
+        // Показываем модальное окно
+        modal.classList.remove('video-modal--hidden');
+        document.body.classList.add('body--modal-open'); // Блокируем скролл фона
+    };
 
-            // --- ЛОГИКА МОДАЛЬНОГО ОКНА С ВИДЕО ---
-            const modal = document.querySelector('.video-modal');
-            const videoSlides = document.querySelectorAll('.video-slider__slide');
-            const modalVideoWrapper = document.querySelector('.video-modal__video-wrapper');
-            const closeModalButton = document.querySelector('.video-modal__close-button');
-            const modalOverlay = document.querySelector('.video-modal__overlay');
+    const closeModal = () => {
+        // Скрываем модальное окно
+        modal.classList.add('video-modal--hidden');
+        document.body.classList.remove('body--modal-open');
 
-            const openModal = (videoSrc) => {
-                // Очищаем контейнер от предыдущего видео
-                modalVideoWrapper.innerHTML = '';
-                
-                // Создаем элемент видео
-                const videoElement = document.createElement('video');
-                videoElement.src = videoSrc;
-                videoElement.controls = true;
-                videoElement.autoplay = true;
-                videoElement.classList.add('video-modal__video');
+        // Останавливаем видео и очищаем контейнер
+        const video = modalVideoWrapper.querySelector('video');
+        if (video) {
+            video.pause();
+            modalVideoWrapper.innerHTML = '';
+        }
+    };
 
-                // Добавляем видео в контейнер
-                modalVideoWrapper.appendChild(videoElement);
-                
-                // Показываем модальное окно
-                modal.classList.remove('video-modal--hidden');
-                document.body.classList.add('body--modal-open'); // Блокируем скролл фона
-            };
+    // Навешиваем обработчики кликов на каждый слайд (остается без изменений)
+    videoSlides.forEach(slide => {
+        slide.addEventListener('click', () => {
+            const videoSrc = slide.dataset.videoSrc;
+            if (videoSrc) {
+                openModal(videoSrc);
+            }
+        });
+    });
 
-            const closeModal = () => {
-                // Скрываем модальное окно
-                modal.classList.add('video-modal--hidden');
-                document.body.classList.remove('body--modal-open');
+    // Обработчики закрытия модального окна (остается без изменений)
+    closeModalButton.addEventListener('click', closeModal);
+    modalOverlay.addEventListener('click', closeModal);
 
-                // Останавливаем видео и очищаем контейнер
-                const video = modalVideoWrapper.querySelector('video');
-                if (video) {
-                    video.pause();
-                    modalVideoWrapper.innerHTML = '';
-                }
-            };
+    // Закрытие по клавише Escape (остается без изменений)
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !modal.classList.contains('video-modal--hidden')) {
+            closeModal();
+        }
+    });
 
-            // Навешиваем обработчики кликов на каждый слайд
-            videoSlides.forEach(slide => {
-                slide.addEventListener('click', () => {
-                    const videoSrc = slide.dataset.videoSrc;
-                    if (videoSrc) {
-                        openModal(videoSrc);
-                    }
-                });
-            });
+    // --- ЛОГИКА ТАЙМЕРА (простой пример) ---
+    // Для реального проекта таймер должен синхронизироваться с сервером
+    const hoursEl = document.getElementById('hours');
+    const minutesEl = document.getElementById('minutes');
+    const secondsEl = document.getElementById('seconds');
 
-            // Обработчики закрытия модального окна
-            closeModalButton.addEventListener('click', closeModal);
-            modalOverlay.addEventListener('click', closeModal);
+    let timeInSeconds = (12 * 3600) + (45 * 60) + 22;
 
-            // Закрытие по клавише Escape
-            document.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape' && !modal.classList.contains('video-modal--hidden')) {
-                    closeModal();
-                }
-            });
+    const updateTimer = () => {
+        if (timeInSeconds <= 0) {
+            clearInterval(timerInterval);
+            return;
+        }
 
-            // --- ЛОГИКА ТАЙМЕРА (простой пример) ---
-            // Для реального проекта таймер должен синхронизироваться с сервером
-            const hoursEl = document.getElementById('hours');
-            const minutesEl = document.getElementById('minutes');
-            const secondsEl = document.getElementById('seconds');
+        timeInSeconds--;
 
-            let timeInSeconds = (12 * 3600) + (45 * 60) + 22;
+        const hours = Math.floor(timeInSeconds / 3600);
+        const minutes = Math.floor((timeInSeconds % 3600) / 60);
+        const seconds = timeInSeconds % 60;
 
-            const updateTimer = () => {
-                if (timeInSeconds <= 0) {
-                    clearInterval(timerInterval);
-                    return;
-                }
+        hoursEl.textContent = String(hours).padStart(2, '0');
+        minutesEl.textContent = String(minutes).padStart(2, '0');
+        secondsEl.textContent = String(seconds).padStart(2, '0');
+    };
 
-                timeInSeconds--;
-                
-                const hours = Math.floor(timeInSeconds / 3600);
-                const minutes = Math.floor((timeInSeconds % 3600) / 60);
-                const seconds = timeInSeconds % 60;
+    const timerInterval = setInterval(updateTimer, 1000);
 
-                hoursEl.textContent = String(hours).padStart(2, '0');
-                minutesEl.textContent = String(minutes).padStart(2, '0');
-                secondsEl.textContent = String(seconds).padStart(2, '0');
-            };
+    // --- ИНИЦИАЛИЗАЦИЯ ВТОРОГО СЛАЙДЕРА (PHOTO GALLERY) ---
+    // Используем новый, уникальный селектор, чтобы избежать конфликтов
+    const photoSwiper = new Swiper(".photo-gallery__slider", {
+        loop: true,
+        slidesPerView: "auto", // Автоматически определяет кол-во слайдов на основе их CSS-ширины
+        spaceBetween: 11,
 
-            const timerInterval = setInterval(updateTimer, 1000);
-
-             // --- ИНИЦИАЛИЗАЦИЯ ВТОРОГО СЛАЙДЕРА (PHOTO GALLERY) ---
-        // Используем новый, уникальный селектор, чтобы избежать конфликтов
-        const photoSwiper = new Swiper(".photo-gallery__slider", {
-          loop: true,
-          slidesPerView: "auto", // Автоматически определяет кол-во слайдов на основе их CSS-ширины
-          spaceBetween: 11,
-
-          autoplay: {
+        autoplay: {
             delay: 2500,
             disableOnInteraction: true, // Отключает автопрокрутку после свайпа/клика
             pauseOnMouseEnter: true, // Ставит на паузу при наведении мыши
-          },
+        },
 
-          // Адаптивность
-          breakpoints: {
+        // Адаптивность
+        breakpoints: {
             768: {
-              spaceBetween: 20,
+                spaceBetween: 20,
             },
-          },
-        });
+        },
+    });
 
-        // --- ЛОГИКА ЛАЙТБОКСА ДЛЯ ФОТО ---
-        const lightbox = document.querySelector(".lightbox");
-        const lightboxImage = lightbox.querySelector(".lightbox__image");
-        const lightboxCloseButton = lightbox.querySelector(
-          ".lightbox__close-button"
-        );
-        const lightboxOverlay = lightbox.querySelector(".lightbox__overlay");
-        const photoSlides = document.querySelectorAll(".photo-gallery__slide");
+    // --- ЛОГИКА ЛАЙТБОКСА ДЛЯ ФОТО ---
+    const lightbox = document.querySelector(".lightbox");
+    const lightboxImage = lightbox.querySelector(".lightbox__image");
+    const lightboxCloseButton = lightbox.querySelector(
+        ".lightbox__close-button"
+    );
+    const lightboxOverlay = lightbox.querySelector(".lightbox__overlay");
+    const photoSlides = document.querySelectorAll(".photo-gallery__slide");
 
-        const openLightbox = (imageElement) => {
-          const imgSrc = imageElement.src;
-          const imgAlt = imageElement.alt;
+    const openLightbox = (imageElement) => {
+        const imgSrc = imageElement.src;
+        const imgAlt = imageElement.alt;
 
-          lightboxImage.src = imgSrc;
-          lightboxImage.alt = imgAlt;
+        lightboxImage.src = imgSrc;
+        lightboxImage.alt = imgAlt;
 
-          lightbox.classList.remove("lightbox--hidden");
-          document.body.classList.add("body--modal-open");
-        };
+        lightbox.classList.remove("lightbox--hidden");
+        document.body.classList.add("body--modal-open");
+    };
 
-        const closeLightbox = () => {
-          lightbox.classList.add("lightbox--hidden");
-          document.body.classList.remove("body--modal-open");
-          // Очищаем src, чтобы избежать "мелькания" старого фото при следующем открытии
-          lightboxImage.src = "";
-        };
+    const closeLightbox = () => {
+        lightbox.classList.add("lightbox--hidden");
+        document.body.classList.remove("body--modal-open");
+        // Очищаем src, чтобы избежать "мелькания" старого фото при следующем открытии
+        lightboxImage.src = "";
+    };
 
-        // Навешиваем обработчики на каждый слайд
-        photoSlides.forEach((slide) => {
-          slide.addEventListener("click", () => {
+    // Навешиваем обработчики на каждый слайд
+    photoSlides.forEach((slide) => {
+        slide.addEventListener("click", () => {
             const imageInSlide = slide.querySelector(".photo-gallery__image");
             if (imageInSlide) {
-              openLightbox(imageInSlide);
+                openLightbox(imageInSlide);
             }
-          });
         });
+    });
 
-        // Обработчики закрытия
-        lightboxCloseButton.addEventListener("click", closeLightbox);
-        lightboxOverlay.addEventListener("click", closeLightbox);
-        document.addEventListener("keydown", (e) => {
-          if (
+    // Обработчики закрытия
+    lightboxCloseButton.addEventListener("click", closeLightbox);
+    lightboxOverlay.addEventListener("click", closeLightbox);
+    document.addEventListener("keydown", (e) => {
+        if (
             e.key === "Escape" &&
             !lightbox.classList.contains("lightbox--hidden")
-          ) {
+        ) {
             closeLightbox();
-          }
+        }
+    });
+
+    // --- ИНИЦИАЛИЗАЦИЯ ТРЕТЬЕГО СЛАЙДЕРА (RESULTS) ---
+    const resultSlider = new Swiper('.result__slider', {
+        loop: true,
+        slidesPerGroup: 1,
+        spaceBetween: 20,
+
+        // Настройки по умолчанию (для мобильных)
+        slidesPerView: 1,
+        centeredSlides: true,
+        autoplay: {
+            delay: 3000,
+            disableOnInteraction: false,
+            pauseOnMouseEnter: true,
+        },
+
+        // Навигация и пагинация
+        navigation: {
+            nextEl: '.result__slider-button-next',
+            prevEl: '.result__slider-button-prev',
+        },
+        pagination: {
+            el: '.result__slider-pagination',
+            clickable: true,
+        },
+
+        // Переопределение для десктопа
+        breakpoints: {
+            769: {
+                slidesPerView: 'auto',
+                centeredSlides: false,
+                autoplay: false,
+            }
+        },
+
+        // Доступность
+        a11y: {
+            prevSlideMessage: 'Предыдущий отзыв',
+            nextSlideMessage: 'Следующий отзыв',
+            paginationBulletMessage: 'Перейти к отзыву {{index}}',
+        },
+    });
+
+    // --- СКРИПТ ДЛЯ ПЛАВНОЙ АНИМАЦИИ АККОРДЕОНА ---
+    // Этот скрипт является прогрессивным улучшением.
+    // Аккордеон будет работать и без него, но анимация будет резкой.
+
+    const detailsElements = document.querySelectorAll('.faq__item');
+
+    detailsElements.forEach(details => {
+        const summary = details.querySelector('.faq__question');
+        const content = details.querySelector('.faq__answer-content');
+
+        summary.addEventListener('click', (event) => {
+            // Отменяем стандартное поведение (мгновенное открытие/закрытие)
+            event.preventDefault();
+
+            if (!details.open) {
+                // --- Открываем элемент ---
+                details.open = true;
+
+                // Запускаем анимацию
+                const animation = content.animate(
+                    { height: ['0px', `${content.scrollHeight}px`] },
+                    { duration: 300, easing: 'ease-out' }
+                );
+
+                // Когда анимация завершена, убираем фиксированную высоту,
+                // чтобы контент мог адаптироваться, если изменится размер окна.
+                animation.onfinish = () => {
+                    content.style.height = 'auto';
+                };
+
+            } else {
+                // --- Закрываем элемент ---
+                const animation = content.animate(
+                    { height: [`${content.scrollHeight}px`, '0px'] },
+                    { duration: 300, easing: 'ease-in' }
+                );
+
+                // Когда анимация завершена, закрываем <details>
+                animation.onfinish = () => {
+                    details.open = false;
+                    content.style.height = 'auto'; // Сбрасываем высоту
+                };
+            }
         });
+    });
 
-        // --- ИНИЦИАЛИЗАЦИЯ ТРЕТЬЕГО СЛАЙДЕРА (RESULTS) ---
-       const resultSlider = new Swiper('.result__slider', {
-            loop: true,
-            slidesPerGroup: 1, 
-            spaceBetween: 20,
-
-            // Настройки по умолчанию (для мобильных)
-            slidesPerView: 1, 
-            centeredSlides: true, 
-            autoplay: {
-                delay: 3000,
-                disableOnInteraction: false,
-                pauseOnMouseEnter: true,
-            },
-            
-            // Навигация и пагинация
-            navigation: {
-                nextEl: '.result__slider-button-next',
-                prevEl: '.result__slider-button-prev',
-            },
-            pagination: {
-                el: '.result__slider-pagination',
-                clickable: true,
-            },
-            
-            // Переопределение для десктопа
-            breakpoints: {
-                769: {
-                    slidesPerView: 'auto',
-                    centeredSlides: false,
-                    autoplay: false,
-                }
-            },
-
-            // Доступность
-            a11y: {
-                prevSlideMessage: 'Предыдущий отзыв',
-                nextSlideMessage: 'Следующий отзыв',
-                paginationBulletMessage: 'Перейти к отзыву {{index}}',
-            },
-        });
-
-        // --- СКРИПТ ДЛЯ ПЛАВНОЙ АНИМАЦИИ АККОРДЕОНА ---
-            // Этот скрипт является прогрессивным улучшением.
-            // Аккордеон будет работать и без него, но анимация будет резкой.
-
-            const detailsElements = document.querySelectorAll('.faq__item');
-
-            detailsElements.forEach(details => {
-                const summary = details.querySelector('.faq__question');
-                const content = details.querySelector('.faq__answer-content');
-
-                summary.addEventListener('click', (event) => {
-                    // Отменяем стандартное поведение (мгновенное открытие/закрытие)
-                    event.preventDefault();
-
-                    if (!details.open) {
-                        // --- Открываем элемент ---
-                        details.open = true;
-                        
-                        // Запускаем анимацию
-                        const animation = content.animate(
-                            { height: ['0px', `${content.scrollHeight}px`] },
-                            { duration: 300, easing: 'ease-out' }
-                        );
-
-                        // Когда анимация завершена, убираем фиксированную высоту,
-                        // чтобы контент мог адаптироваться, если изменится размер окна.
-                        animation.onfinish = () => {
-                            content.style.height = 'auto';
-                        };
-
-                    } else {
-                        // --- Закрываем элемент ---
-                        const animation = content.animate(
-                            { height: [`${content.scrollHeight}px`, '0px'] },
-                            { duration: 300, easing: 'ease-in' }
-                        );
-
-                        // Когда анимация завершена, закрываем <details>
-                        animation.onfinish = () => {
-                            details.open = false;
-                            content.style.height = 'auto'; // Сбрасываем высоту
-                        };
-                    }
-                });
-            });
-        
 });
