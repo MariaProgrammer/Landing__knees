@@ -1149,8 +1149,8 @@ input[type="email"]:focus {
 }
 
 .video-slider__play-icon {
-  width: 30px;
-  height: 30px;
+  width: clamp(14px, 5vw, 46px);
+  height: clamp(14px, 3vw, 46px);
   fill: var(--color-white);
   margin-left: 5px; /* Коррекция для визуального центрирования треугольника */
 }
