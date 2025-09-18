@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (isConstrainedHeight) {
                 // Для этого диапазона ширин, принудительно устанавливаем высоту в 60% от высоты видимой области.
-                finalHeroHeight = window.innerHeight * 0.80;
+                finalHeroHeight = window.innerHeight * 0.50;
             } else {
                 // Для всех остальных разрешений используем старую логику, чтобы вместить контент и картинку.
                 finalHeroHeight = Math.max(imageBasedHeight, contentHeight);
