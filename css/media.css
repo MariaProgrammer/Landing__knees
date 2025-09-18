@@ -360,7 +360,8 @@
   .title-h2 {
     font-size: 34px;
   }
-  .video__title, .program__subtitle {
+  .video__title,
+  .program__subtitle {
     font-size: 28px;
     font-weight: 400;
   }
@@ -416,7 +417,7 @@
   .about__img img {
     object-position: 0 -40px;
   }
-  
+
   .about__title,
   .video__title {
     margin-bottom: 32px;
@@ -453,7 +454,7 @@
     padding: 80px 0;
   }
   .program__item {
-    font-size: 16px;    
+    font-size: 16px;
   }
   .program__item:not(:last-child) {
     margin-bottom: 12px;
@@ -500,10 +501,21 @@
     padding-top: 0;
   }
   .trust__title {
+    display: none;
+  }
+  .trust__title--mob {
+    display: block;
+    background-image: var(--gradient-orange-color);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
     max-width: 100%;
     width: 100%;
     text-align: center;
     margin-bottom: 20px;
+  }
+  .trust__title--mob span {
+    color: var(--light-blue-color);
   }
   .trust__desc {
     font-size: 17px;
@@ -516,10 +528,31 @@
     position: relative;
     top: -5px;
   }
+  .trust {
+    background-position: center -30%;
+    object-fit: contain;
+
+  }
 
   .trust__subtitle--mob {
-    max-width: 70%;
-    padding-bottom: 500px;
+    text-align: center;
+    font-size: 28px;
+    font-weight: 400;
+    max-width: 100%;
+    padding-bottom: 384px;
+    
+  }
+  .trust__icon {
+    width: 40px;
+    height: auto;
+  }
+  .trust-h3 {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+  .trust-text {
+    font-size: 16px;
   }
 
   .whats-inside {
@@ -579,7 +612,7 @@
   }
 }
 .trust {
-  background-image: url("../img/trust__bg--mob.webp");
+  /* background-image: url("../img/trust__bg--mob.webp"); */
   background-position: bottom center;
   background-size: contain;
   background-repeat: no-repeat;

@@ -912,6 +912,9 @@ input[type="email"]:focus {
   margin-bottom: 30px;
   align-self: flex-end;
 }
+.trust__title--mob {
+  display: none;
+}
 
 .trust__title span {
   color: var(--light-blue-color);
