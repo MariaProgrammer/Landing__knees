@@ -364,6 +364,7 @@
   .program__subtitle {
     font-size: 28px;
     font-weight: 400;
+    margin-bottom: 20px;
   }
   .btn {
     font-size: 16px;
