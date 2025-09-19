@@ -884,7 +884,7 @@ input[type="email"]:focus {
   width: 100%;
   height: 100%;
   display: block;
-  background-image: url("../img/trust__bg.webp"),
+  background: url("../img/trust__bg.webp"),
     url("../img/trust__ellipse2.png"), url("../img/trust__ellipse1.png");
   background-position: right center, left top, center top;
   background-size: contain, 80%, 80%;
