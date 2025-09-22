@@ -410,25 +410,28 @@ document.addEventListener('DOMContentLoaded', () => {
     const timerInterval = setInterval(updateTimer, 1000);
 
     // --- ИНИЦИАЛИЗАЦИЯ ВТОРОГО СЛАЙДЕРА (PHOTO GALLERY) ---
-    // Используем новый, уникальный селектор, чтобы избежать конфликтов
-    const photoSwiper = new Swiper(".photo-gallery__slider", {
-        loop: true,
-        slidesPerView: "auto", // Автоматически определяет кол-во слайдов на основе их CSS-ширины
-        spaceBetween: 11,
+const photoSwiper = new Swiper(".photo-gallery__slider", {
+    // Базовые настройки (для мобильных)
+    loop: true,
+    slidesPerView: "auto", // Оставляем 'auto', это критически важно
+    spaceBetween: 11,
+    centeredSlides: true, // <-- НОВОЕ: Активный слайд всегда будет в центре
 
-        autoplay: {
-            delay: 2500,
-            disableOnInteraction: true, // Отключает автопрокрутку после свайпа/клика
-            pauseOnMouseEnter: true, // Ставит на паузу при наведении мыши
-        },
+    autoplay: {
+        delay: 2500,
+        disableOnInteraction: true,
+        pauseOnMouseEnter: true,
+    },
 
-        // Адаптивность
-        breakpoints: {
-            768: {
-                spaceBetween: 20,
-            },
+    // Адаптивность для экранов от 768px и выше
+    breakpoints: {
+        768: {
+            spaceBetween: 20,
+            centeredSlides: false, // <-- НОВОЕ: Отключаем центрирование на десктопе
         },
-    });
+    },
+});
+
 
     // --- ЛОГИКА ЛАЙТБОКСА ДЛЯ ФОТО ---
     const lightbox = document.querySelector(".lightbox");
