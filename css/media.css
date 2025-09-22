@@ -613,16 +613,31 @@
     flex-direction: column; /* Выстраиваем ссылки в столбец */
     gap: 15px;
   }
-}
+
 
 .btn {
   padding: 20px;
 }
 .special-offer__bonus--mob {
   background-image: url("../img/present__img.png");
-  background-size: 80vw;
-  background-position: left 70%;
-  padding: 250px 0;
+  background-size: 65vw;
+  background-position: -30% 70%;
+  padding: 150px 0 150px 0;
+  margin-bottom: 32px;
+}
+.bonus-text--top {
+  font-size: 24px; 
+  top: 2%;
+  left: 21%;
+  
+}
+.bonus-text--bottom {
+  font-size: 24px; 
+  top: 20%;
+  right: 10%;
+ 
+}
+
 }
 
 @media (max-width: 360px) {

@@ -1068,9 +1068,14 @@ input[type="email"]:focus {
   color: transparent;
 }
 .features-pic {
-  width: 61px;
-  height: auto;
+  width: 70px;
+  height: 70px;
   margin-bottom: 44px;
+}
+.features-pic--mob {
+  display: none;
+  
+  
 }
 
 /* --- СТИЛИ БЛОКА VIDEO-SLIDER (SWIPER) --- */
@@ -1474,7 +1479,17 @@ input[type="email"]:focus {
     gap: 20px;
   }
   .features-pic {
+    width: 50px;
+    height: 50px;
     margin-bottom: 0;
+  }
+  .pic-reabilitation {
+    display: none;
+  }
+  .features-pic--mob {
+    display: block;
+    width: 50px;
+    height: 50px;
   }
   .features-list__text {
     align-self: center;

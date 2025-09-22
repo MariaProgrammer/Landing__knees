@@ -220,21 +220,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // 1. Валидация поля "Name"
             if (nameInput.value.trim() === '') {
-                showError(nameInput, nameError, 'Это поле обязательно для заполнения');
+                showError(nameInput, nameError, 'This field is required');
                 isValid = false;
             }
 
             // 2. Валидация поля "E-mail"
             if (emailInput.value.trim() === '') {
-                showError(emailInput, emailError, 'Это поле обязательно для заполнения');
+                showError(emailInput, emailError, 'This field is required');
                 isValid = false;
             } else if (!isValidEmail(emailInput.value.trim())) {
-                showError(emailInput, emailError, 'Пожалуйста, введите корректный E-mail');
+                showError(emailInput, emailError, 'Please enter a valid email address');
                 isValid = false;
             }
 
             if (isValid) {
-                alert('Форма успешно отправлена!');
+                alert('Form submitted successfully!');
                 form.reset();
                 // опционально - закрыть попап после успешной отправки
                 if (popup) {
