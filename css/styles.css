@@ -1231,7 +1231,7 @@ input[type="email"]:focus {
 }
 
 .special-offer__details {
-  justify-self: end;
+  justify-self: flex-end;
   max-width: 652px;
   display: flex;
   flex-direction: column;
@@ -1262,7 +1262,7 @@ input[type="email"]:focus {
   justify-content: center;
   align-items: center;
   gap: 20px;
-  margin-bottom: 30px;
+  /* margin-bottom: 30px; */
 }
 
 .price-block__old-price {
@@ -1319,7 +1319,7 @@ input[type="email"]:focus {
   display: flex;
   justify-content: center;
   gap: 15px;
-  margin-bottom: 30px;
+  /* margin-bottom: 30px; */
 }
 
 .time-unit {
@@ -1459,9 +1459,7 @@ input[type="email"]:focus {
 
 /* Планшеты */
 @media (max-width: 992px) {
-  .features-list {
-    grid-template-columns: repeat(3, 1fr);
-  }
+  
 
   .special-offer {
     grid-template-columns: 1fr;
@@ -1476,21 +1474,7 @@ input[type="email"]:focus {
 
 /* Мобильные устройства */
 @media (max-width: 768px) {
-  .features-list {
-    grid-template-columns: 1fr;
-  }
-  .features-list__item {
-    padding: 15px;
-    flex-direction: row;
-    justify-content: start;
-    align-items: center;
-    gap: 20px;
-  }
-  .features-pic {
-    width: 50px;
-    height: 50px;
-    margin-bottom: 0;
-  }
+  
   .pic-reabilitation {
     display: none;
   }
@@ -1532,7 +1516,7 @@ input[type="email"]:focus {
     width: 100%;
   }
   .countdown-timer {
-    padding: 20px 24px;
+    padding: 8px;
   }
   .countdown-timer__title {
     font-size: 24px;

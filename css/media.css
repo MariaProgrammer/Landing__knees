@@ -51,6 +51,10 @@
   .whats-inside {
     background: none;
   }
+  .features-list {
+    align-content: center;
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 @media (max-width: 1200px) {
   .worries__content-wrapper {
@@ -221,6 +225,21 @@
   }
   .hero__number {
     font-weight: 700;
+  }
+  .features-list {
+    grid-template-columns: 1fr;
+  }
+  .features-list__item {
+    padding: 15px;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    gap: 20px;
+  }
+  .features-pic {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 0;
   }
   .trust__subtitle--mob {
     max-width: 50%;
@@ -500,13 +519,13 @@
     width: 100%;
   }
   .trust {
-  padding-top: 0;
-  /* background-image: url("../img/trust__bg--mob.webp"); */
-  background-position: bottom center;
-  background-size: contain;
-  background-repeat: no-repeat;
-}
-  
+    padding-top: 0;
+    /* background-image: url("../img/trust__bg--mob.webp"); */
+    background-position: bottom center;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+
   .trust__title {
     display: none;
   }
@@ -535,7 +554,6 @@
     position: relative;
     top: -5px;
   }
-  
 
   .trust__subtitle--mob {
     text-align: center;
@@ -543,7 +561,6 @@
     font-weight: 400;
     max-width: 100%;
     padding-bottom: 384px;
-    
   }
   .trust__icon {
     width: 40px;
@@ -557,13 +574,14 @@
   .trust-text {
     font-size: 16px;
   }
-  
+
   .whats-inside {
     padding: 80px 0 40px 0;
   }
   .whats-inside__title {
     margin-bottom: 32px;
   }
+  
   .video-slider {
     margin-bottom: 32px;
   }
@@ -614,33 +632,29 @@
     gap: 15px;
   }
 
-
-.btn {
-  padding: 20px;
-}
-.special-offer__bonus--mob {
-  background-image: url("../img/present__img.png");
-  background-size: 65vw;
-  background-position: -37% 70%;
-  padding: 150px 0 150px 0;
-  margin-bottom: 32px;
-}
-.bonus-text--top {
-  font-size: 24px; 
-  top: 2%;
-  left: 21%;
-  
-}
-.bonus-text--bottom {
-  font-size: 24px; 
-  top: 22%;
-  right: 8%;
- 
-}
-.video-player {
-  aspect-ratio: 1.45 / 1;
-}
-
+  .btn {
+    padding: 20px;
+  }
+  .special-offer__bonus--mob {
+    background-image: url("../img/present__img.png");
+    background-size: 65vw;
+    background-position: -37% 70%;
+    padding: 150px 0 150px 0;
+    margin-bottom: 32px;
+  }
+  .bonus-text--top {
+    font-size: 24px;
+    top: 2%;
+    left: 21%;
+  }
+  .bonus-text--bottom {
+    font-size: 24px;
+    top: 22%;
+    right: 8%;
+  }
+  .video-player {
+    aspect-ratio: 1.45 / 1;
+  }
 }
 
 @media (max-width: 360px) {
