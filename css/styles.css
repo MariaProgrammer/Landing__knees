@@ -1210,6 +1210,9 @@ input[type="email"]:focus {
 .special-offer__bonus--mob {
   display: none;
 }
+.bonus__img {
+  display: none;
+}
 
 .bonus-text--top {
   position: absolute;
@@ -1600,7 +1603,9 @@ input[type="email"]:focus {
   height: auto;
   object-fit: cover;
 }
-
+.trust-me__photo--mob {
+  display: none;
+}
 .trust-me__content {
   align-self: self-end;
 }
