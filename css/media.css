@@ -637,6 +637,9 @@
   right: 8%;
  
 }
+.video-player {
+  aspect-ratio: 1.45 / 1;
+}
 
 }
 

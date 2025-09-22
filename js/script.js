@@ -162,22 +162,38 @@ document.addEventListener('DOMContentLoaded', () => {
         const playPauseBtn = videoWrapper.querySelector('.play-pause-button');
 
         const handleCustomButtonFirstPlay = () => {
-            videoWrapper.classList.add('video-started');
-            const playPromise = video.play();
-            if (playPromise !== undefined) {
-                playPromise.catch(error => {
-                    console.error("Не удалось запустить видео:", error);
-                    videoWrapper.classList.remove('video-started');
-                });
-            }
-        };
+        // 1. Показываем стандартные элементы управления
+        video.controls = true;
+        
+        // 2. Добавляем класс, который скроет нашу кастомную кнопку через CSS
+        videoWrapper.classList.add('video-started');
+        
+        // 3. Запускаем воспроизведение
+        const playPromise = video.play();
 
-        const handleVideoEnded = () => {
-            video.currentTime = 0;
-        };
+        // 4. Обрабатываем возможные ошибки (например, автоплей заблокирован браузером)
+        if (playPromise !== undefined) {
+            playPromise.catch(error => {
+                console.error("Не удалось запустить видео:", error);
+                // Если запуск не удался, возвращаем все как было
+                video.controls = false;
+                videoWrapper.classList.remove('video-started');
+            });
+        }
+    };
 
-        playPauseBtn.addEventListener('click', handleCustomButtonFirstPlay);
-        video.addEventListener('ended', handleVideoEnded);
+    const handleVideoEnded = () => {
+        video.currentTime = 0;
+        // По желанию, можно вернуть все в исходное состояние, когда видео закончилось:
+        // video.controls = false;
+        // videoWrapper.classList.remove('video-started');
+    };
+
+    // Вешаем обработчик на кнопку. Опция { once: true } гарантирует,
+    // что этот обработчик сработает только один раз, что нам и нужно.
+    playPauseBtn.addEventListener('click', handleCustomButtonFirstPlay, { once: true });
+    
+    video.addEventListener('ended', handleVideoEnded);
     }
 
     // --------------- Модальное окно (Popup) -----------------------
@@ -273,7 +289,9 @@ document.addEventListener('DOMContentLoaded', () => {
         slidesPerView: 'auto', // Автоматическое определение количества видимых слайдов
         centeredSlides: true, // Активный слайд всегда по центру
         spaceBetween: 10, // Расстояние между слайдами
-
+        pagination: {
+            el: '.swiper-pagination-video',
+        },
         // Автопрокрутка
         autoplay: {
             delay: 3000, // Задержка 3 секунды
