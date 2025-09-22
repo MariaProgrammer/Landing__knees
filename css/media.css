@@ -621,7 +621,7 @@
 .special-offer__bonus--mob {
   background-image: url("../img/present__img.png");
   background-size: 65vw;
-  background-position: -30% 70%;
+  background-position: -37% 70%;
   padding: 150px 0 150px 0;
   margin-bottom: 32px;
 }
@@ -633,8 +633,8 @@
 }
 .bonus-text--bottom {
   font-size: 24px; 
-  top: 20%;
-  right: 10%;
+  top: 22%;
+  right: 8%;
  
 }
 
