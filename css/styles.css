@@ -2698,6 +2698,9 @@ input[type="email"]:focus {
   .faq__list {
     margin-bottom: 32px;
   }
+  .faq__question {
+    gap: 15px;
+  }
   .faq__question-text, .faq__question-number {
     font-size: 28px;
   }
