@@ -774,6 +774,9 @@ p {
   font-size: 36px;
   line-height: 32px;
   text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
   transition: background 0.7s ease;
   -webkit-transition: background 0.7s ease;
