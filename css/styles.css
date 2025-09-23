@@ -2341,7 +2341,7 @@ input[type="email"]:focus {
 }
 .start__price-info {
   display: flex;
-  margin-bottom: 30px;
+  margin-bottom: 32px;
 }
 .start__price {
   line-height: 0.8;
@@ -2402,20 +2402,7 @@ input[type="email"]:focus {
     transparent
   );
 }
-body.is-tablet .start__container {
- background: url('../img/start__bg--mob.png');
-    background-position: 0% -20%;
-    background-size: 100% auto;
-    background-repeat: no-repeat;
-}
-body.is-phone .start__container {
-  .start__container {
-    background: url('../img/start__bg--mob2.png');
-    background-position: 0% 0%;
-    background-size: 100% auto;
-    background-repeat: no-repeat;
-  }
-}
+
 
 /* --- Адаптивные стили для планшетов и мобильных --- */
 @media (max-width: 991px) {
@@ -2424,6 +2411,7 @@ body.is-phone .start__container {
     padding: 60px 0;
     color: var(--color-black); /* Меняем цвет текста на белый */
     text-align: center;
+    overflow-x: hidden;
   }
 
   /* Создаем мобильный фон с оверлеем */
@@ -2511,6 +2499,12 @@ body.is-phone .start__container {
   .start {
     padding: 40px 0;
   }
+  .start__container {
+ background: url('../img/start__img--mob.png');
+    background-position: right -20%;
+    background-size: auto 80%;
+    background-repeat: no-repeat;
+}
   
   .start__title {
     
@@ -2533,10 +2527,17 @@ body.is-phone .start__container {
 .start__price-intro {
   font-size: 28px;
   font-weight: 400;
+  margin-bottom: 16px;
   
 }
 .start__price-intro del {
   font-weight: 700;
+}
+.start__price {
+  font-size: 60px;
+}
+.start__price-note {
+  font-size: 34px;
 }
 
 
@@ -2572,11 +2573,23 @@ body.is-phone .start__container {
   gap: 20px;
   margin-bottom: 60px;
 }
+.faq__list-left {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  
+}
+.faq__list-right {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+}
 
 .faq__item {
   display: flex;
-  flex-direction: column;
-  gap: 8px;
+  flex-direction: column;  
   background-color: #fff;
   border-radius: 20px;
   box-shadow: 0 5px 25px rgba(0, 0, 0, 0.05);
@@ -2620,7 +2633,12 @@ body.is-phone .start__container {
   width: 24px;
   height: 24px;
   color: var(--dark-orange-color);
+  transform: rotate(-90deg);
   transition: transform 0.3s ease;
+  -webkit-transform: rotate(-90deg);
+  -moz-transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
+  -o-transform: rotate(-90deg);
 }
 
 .faq__item[open] > .faq__question .faq__icon {
@@ -2628,7 +2646,7 @@ body.is-phone .start__container {
 }
 
 .faq__answer {
-  padding: 0 0 0 65px; /* Отступ слева = отступ вопроса + ширина номера + гэп */
+  padding: 8px 0 0 65px; /* Отступ слева = отступ вопроса + ширина номера + гэп */
   color: var(--color-black);
 }
 
@@ -2645,7 +2663,7 @@ body.is-phone .start__container {
 }
 
 /* --- Адаптивные стили для планшетов и мобильных --- */
-@media (max-width: 991px) {
+@media (max-width: 1200px) {
   .faq {
     padding: 40px 0;
   }
@@ -2656,8 +2674,14 @@ body.is-phone .start__container {
 
   .faq__list {
     grid-template-columns: 1fr; /* Перестраиваем в одну колонку */
-    gap: 15px;
+    gap: 11px;
     margin-bottom: 40px;
+  }
+  .faq__list-left {
+    gap: 11px;
+  }
+  .faq__list-right {
+    gap: 11px;
   }
   .faq__btn {
     display: block;
@@ -2667,6 +2691,23 @@ body.is-phone .start__container {
   }
 }
 
+@media (max-width: 768px) {
+  .faq__title {
+    margin-bottom: 32px;
+  }
+  .faq__list {
+    margin-bottom: 32px;
+  }
+  .faq__question-text, .faq__question-number {
+    font-size: 28px;
+  }
+  .faq__answer {
+    padding-left: 50px;
+    font-size: 16px;
+  }
+
+}
+/*---------- footer------------ */
 .site-footer {
   padding: 60px 0;
 }

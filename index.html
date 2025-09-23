@@ -48,29 +48,6 @@
       as="style"
       onload="this.onload=null;this.rel='stylesheet'"
     />
-    <script>
-      (function () {
-        const ua = navigator.userAgent.toLowerCase();
-        const body = document.body || document.documentElement;
-
-        const isTablet =
-          /(ipad|tablet|(android(?!.*mobile))|windows(?!.*phone)|touch)/.test(
-            ua
-          );
-        const isPhone =
-          /(iphone|ipod|((android|webos|blackberry|windows).*(mobile))|opera mini|iemobile)/.test(
-            ua
-          );
-
-        if (isTablet) {
-          body.classList.add("is-tablet");
-        } else if (isPhone) {
-          body.classList.add("is-phone");
-        } else {
-          body.classList.add("is-desktop");
-        }
-      })();
-    </script>
   </head>
   <body class="page__body">
     <svg
@@ -2267,257 +2244,290 @@
           <h2 class="faq__title title-h2">FAQ: YOUR QUESTIONS ANSWERED</h2>
 
           <div class="faq__list">
-            <details class="faq__item">
-              <summary class="faq__question">
-                <span class="faq__question-number title-h3">1.</span>
-                <span class="faq__question-text title-h3"
-                  >WHO IS THIS FOR?</span
-                >
-                <svg
-                  class="faq__icon"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  aria-hidden="true"
-                >
-                  <polyline points="6 9 12 15 18 9"></polyline>
-                </svg>
-              </summary>
-              <div class="faq__answer">
-                <div class="faq__answer-content text">
-                  Anyone with knee pain, stiffness, or instability — not only
-                  athletes. Even beginners can follow safely.
+            <div class="faq__list-left">
+              <details class="faq__item">
+                <summary class="faq__question">
+                  <span class="faq__question-number title-h3">1.</span>
+                  <span class="faq__question-text title-h3"
+                    >WHO IS THIS FOR?</span
+                  >
+                  <svg
+                    class="faq__icon"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </summary>
+                <div class="faq__answer">
+                  <div class="faq__answer-content text">
+                    <p>
+                      &#128073; Anyone with knee pain, stiffness, or instability
+                      — not only athletes.
+                    </p>
+                    <p>&#9989; Even beginners can follow safely.</p>
+                  </div>
                 </div>
-              </div>
-            </details>
-
-            <details class="faq__item">
-              <summary class="faq__question">
-                <span class="faq__question-number title-h3">6.</span>
-                <span class="faq__question-text title-h3">IS IT SAFE?</span>
-                <svg
-                  class="faq__icon"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  aria-hidden="true"
-                >
-                  <polyline points="6 9 12 15 18 9"></polyline>
-                </svg>
-              </summary>
-              <div class="faq__answer">
-                <div class="faq__answer-content text">
-                  Yes, the program is designed by a physiotherapist to be safe
-                  and progressive. However, if you have a serious medical
-                  condition, it's always best to consult your doctor first.
+              </details>
+              <details class="faq__item">
+                <summary class="faq__question">
+                  <span class="faq__question-number title-h3">2.</span>
+                  <span class="faq__question-text title-h3"
+                    >⏱ How long is each session?</span
+                  >
+                  <svg
+                    class="faq__icon"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </summary>
+                <div class="faq__answer">
+                  <div class="faq__answer-content text">
+                    You can complete a workout in just 15–20 minutes.
+                  </div>
                 </div>
-              </div>
-            </details>
-
-            <details class="faq__item">
-              <summary class="faq__question">
-                <span class="faq__question-number title-h3">2.</span>
-                <span class="faq__question-text title-h3">AFTER SURGERY?</span>
-                <svg
-                  class="faq__icon"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  aria-hidden="true"
-                >
-                  <polyline points="6 9 12 15 18 9"></polyline>
-                </svg>
-              </summary>
-              <div class="faq__answer">
-                <div class="faq__answer-content text">
-                  Content for "AFTER SURGERY?".
+              </details>
+              <details class="faq__item">
+                <summary class="faq__question">
+                  <span class="faq__question-number title-h3">3.</span>
+                  <span class="faq__question-text title-h3"
+                    >Do I need a gym?</span
+                  >
+                  <svg
+                    class="faq__icon"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </summary>
+                <div class="faq__answer">
+                  <div class="faq__answer-content text">
+                    <p>
+                      &#128073; No! Just mini-bands, a loop band, and a yoga
+                      mat.
+                    </p>
+                    <p>&#x26A1; Train at home, anytime.</p>
+                  </div>
                 </div>
-              </div>
-            </details>
-            <details class="faq__item">
-              <summary class="faq__question">
-                <span class="faq__question-number title-h3">7.</span>
-                <span class="faq__question-text title-h3"
-                  >HOW MUCH TIME PER DAY?</span
-                >
-                <svg
-                  class="faq__icon"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  aria-hidden="true"
-                >
-                  <polyline points="6 9 12 15 18 9"></polyline>
-                </svg>
-              </summary>
-              <div class="faq__answer">
-                <div class="faq__answer-content text">
-                  Content for "HOW MUCH TIME PER DAY?".
+              </details>
+              <details class="faq__item">
+                <summary class="faq__question">
+                  <span class="faq__question-number title-h3">4.</span>
+                  <span class="faq__question-text title-h3"
+                    >Why is the program price so affordable?</span
+                  >
+                  <svg
+                    class="faq__icon"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </summary>
+                <div class="faq__answer">
+                  <div class="faq__answer-content text">
+                    <p>
+                      1️⃣ My mission is to help as many people as possible get
+                      rid of knee pain and restore healthy movement.
+                    </p>
+                    <p>
+                      2️⃣ I create everything myself — from the exercises and
+                      videos to the website and course materials. That’s why I
+                      can keep the price accessible.
+                    </p>
+                  </div>
                 </div>
-              </div>
-            </details>
-            <details class="faq__item">
-              <summary class="faq__question">
-                <span class="faq__question-number title-h3">3.</span>
-                <span class="faq__question-text title-h3"
-                  >HOW DO I TRACK PROGRESS?</span
-                >
-                <svg
-                  class="faq__icon"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  aria-hidden="true"
-                >
-                  <polyline points="6 9 12 15 18 9"></polyline>
-                </svg>
-              </summary>
-              <div class="faq__answer">
-                <div class="faq__answer-content text">
-                  Content for "HOW DO I TRACK PROGRESS?".
+              </details>
+              <details class="faq__item">
+                <summary class="faq__question">
+                  <span class="faq__question-number title-h3">5.</span>
+                  <span class="faq__question-text title-h3"
+                    >Are there health restrictions?</span
+                  >
+                  <svg
+                    class="faq__icon"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </summary>
+                <div class="faq__answer">
+                  <div class="faq__answer-content text">
+                    <p>
+                      The program is built in the format of therapeutic exercise
+                      — it strengthens joints and muscles and supports recovery.
+                    </p>
+                    <p>
+                      ❌ I do not recommend starting if you currently have an acute
+                      injury or inflammation. After surgery? Yes, safe (with
+                      doctor’s approval). Many people used it after surgery and
+                      recovered faster.
+                    </p>
+                  </div>
                 </div>
-              </div>
-            </details>
-            <details class="faq__item">
-              <summary class="faq__question">
-                <span class="faq__question-number title-h3">8.</span>
-                <span class="faq__question-text title-h3"
-                  >WHEN WILL I FEEL RESULTS?</span
-                >
-                <svg
-                  class="faq__icon"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  aria-hidden="true"
-                >
-                  <polyline points="6 9 12 15 18 9"></polyline>
-                </svg>
-              </summary>
-              <div class="faq__answer">
-                <div class="faq__answer-content text">
-                  Content for "WHEN WILL I FEEL RESULTS?".
+              </details>
+            </div>
+            <div class="faq__list-right">
+              <details class="faq__item">
+                <summary class="faq__question">
+                  <span class="faq__question-number title-h3">6.</span>
+                  <span class="faq__question-text title-h3">What if I don’t have time every day?</span>
+                  <svg
+                    class="faq__icon"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </summary>
+                <div class="faq__answer">
+                  <div class="faq__answer-content text">
+                    You can train whenever it’s convenient for you. The goal is to complete the session within 24 hours. If you miss a day, you can simply continue later.
+                  </div>
                 </div>
-              </div>
-            </details>
-            <details class="faq__item">
-              <summary class="faq__question">
-                <span class="faq__question-number title-h3">4.</span>
-                <span class="faq__question-text title-h3"
-                  >WHEN WILL I FEEL RESULTS?</span
-                >
-                <svg
-                  class="faq__icon"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  aria-hidden="true"
-                >
-                  <polyline points="6 9 12 15 18 9"></polyline>
-                </svg>
-              </summary>
-              <div class="faq__answer">
-                <div class="faq__answer-content text">
-                  Content for "WHEN WILL I FEEL RESULTS?".
+              </details>
+              <details class="faq__item">
+                <summary class="faq__question">
+                  <span class="faq__question-number title-h3">7.</span>
+                  <span class="faq__question-text title-h3"
+                    >Do I keep access to the materials?</span
+                  >
+                  <svg
+                    class="faq__icon"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </summary>
+                <div class="faq__answer">
+                  <div class="faq__answer-content text">
+                    Yes! You’ll get lifetime access to the Iron Knees program and all materials.
+                  </div>
                 </div>
-              </div>
-            </details>
-            <details class="faq__item">
-              <summary class="faq__question">
-                <span class="faq__question-number title-h3">9.</span>
-                <span class="faq__question-text title-h3"
-                  >WHEN WILL I FEEL RESULTS?</span
-                >
-                <svg
-                  class="faq__icon"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  aria-hidden="true"
-                >
-                  <polyline points="6 9 12 15 18 9"></polyline>
-                </svg>
-              </summary>
-              <div class="faq__answer">
-                <div class="faq__answer-content text">
-                  Content for "WHEN WILL I FEEL RESULTS?".
+              </details>
+              <details class="faq__item">
+                <summary class="faq__question">
+                  <span class="faq__question-number title-h3">8.</span>
+                  <span class="faq__question-text title-h3"
+                    >What are the payment methods?</span
+                  >
+                  <svg
+                    class="faq__icon"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </summary>
+                <div class="faq__answer">
+                  <div class="faq__answer-content text">
+                    <p>1️⃣ Payment is made in your local currency (the price is shown in euros for convenience).</p>
+                    <p>2️⃣ We accept Visa / MasterCard, Apple Pay, Google Pay.
+</p>
+                    <p>3️⃣ You can also make a direct transfer — just write to me on Instagram 👉 @alex_fisio</p>
+                  </div>
                 </div>
-              </div>
-            </details>
-            <details class="faq__item">
-              <summary class="faq__question">
-                <span class="faq__question-number title-h3">5.</span>
-                <span class="faq__question-text title-h3"
-                  >WHEN WILL I FEEL RESULTS?</span
-                >
-                <svg
-                  class="faq__icon"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  aria-hidden="true"
-                >
-                  <polyline points="6 9 12 15 18 9"></polyline>
-                </svg>
-              </summary>
-              <div class="faq__answer">
-                <div class="faq__answer-content text">
-                  Content for "WHEN WILL I FEEL RESULTS?".
+              </details>
+              <details class="faq__item">
+                <summary class="faq__question">
+                  <span class="faq__question-number title-h3">9.</span>
+                  <span class="faq__question-text title-h3"
+                    >When can I start?</span
+                  >
+                  <svg
+                    class="faq__icon"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </summary>
+                <div class="faq__answer">
+                  <div class="faq__answer-content text">
+                    <p>Right after payment! You’ll instantly receive access to your first training session and can start whenever you’re ready.</p>
+                    <p>Lifetime access online. PDF with videos & checklists — one-time payment €12.75.</p>
+                    <p>Start today from anywhere in the world.</p>
+                  </div>
                 </div>
-              </div>
-            </details>
-            <details class="faq__item">
-              <summary class="faq__question">
-                <span class="faq__question-number title-h3">10.</span>
-                <span class="faq__question-text title-h3"
-                  >WHEN WILL I FEEL RESULTS?</span
-                >
-                <svg
-                  class="faq__icon"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  aria-hidden="true"
-                >
-                  <polyline points="6 9 12 15 18 9"></polyline>
-                </svg>
-              </summary>
-              <div class="faq__answer">
-                <div class="faq__answer-content text">
-                  Content for "WHEN WILL I FEEL RESULTS?".
+              </details>
+              <details class="faq__item">
+                <summary class="faq__question">
+                  <span class="faq__question-number title-h3">10.</span>
+                  <span class="faq__question-text title-h3"
+                    >Can I really see results in 14 days?</span
+                  >
+                  <svg
+                    class="faq__icon"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </summary>
+                <div class="faq__answer">
+                  <div class="faq__answer-content text">
+                    <p>Yes! While I can’t promise the exact same outcome for everyone, doing the program consistently will definitely bring progress: less pain, easier walking, stronger legs.
+</p>
+                    <p>The program includes over 100 exercises that gradually progress from easy to more advanced.</p>
+                  </div>
                 </div>
-              </div>
-            </details>
+              </details>
+            </div>
           </div>
 
           <button class="faq__btn btn btn-reset btn-open">
@@ -2540,9 +2550,11 @@
           <div class="site-footer__disclaimer">
             <h3 class="site-footer__disclaimer-title title-h3">DISCLAIMER:</h3>
             <h4 class="site-footer__disclaimer-text title-h4">
-              THE EXERCISES IN THIS PROGRAM ARE FOR RECOMMENDATION PURPOSES
-              ONLY. THE BUYER IS RESPONSIBLE FOR THEIR OWN USE. CONSULT YOUR
-              HEALTHCARE PROVIDER BEFORE STARTING.
+              The information on this site is not intended or implied to be a
+              substitute for professional medical advice, diagnosis or
+              treatment. All content, including text, graphics, images and
+              information, contained on or available through this web site is
+              for general information purposes only.
             </h4>
           </div>
         </div>
@@ -2550,13 +2562,13 @@
           <nav class="site-footer__legal-nav" aria-label="Legal">
             <ul class="site-footer__legal-links list-reset">
               <li class="site-footer__legal-link">
-                <a href="#">LEGAL NOTICE</a>
+                <p>&copy; 2025 Iron Knees</p>
               </li>
               <li class="site-footer__legal-link">
-                <a href="#">GENERAL TERMS AND CONDITIONS OF SALE</a>
+                <a href="privacy-policy.html">Privacy Policy</a>
               </li>
               <li class="site-footer__legal-link">
-                <a href="#">PRIVACY POLICY</a>
+                <a href="terms.html">Terms of Service</a>
               </li>
             </ul>
           </nav>
