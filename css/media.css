@@ -714,6 +714,17 @@
     font-size: 28px;
     margin-bottom: 24px;
   }
+  .result-card {
+    padding: 20px;
+  }
+  .result-card__image {
+    aspect-ratio: 1.07 / 1;
+    margin-bottom: 20px;
+  }
+  .result-card__text {
+    font-size: 16px;
+    line-height: 1.25;
+  }
 }
 
 @media (max-width: 360px) {
