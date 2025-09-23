@@ -12,7 +12,7 @@ body {
 * {
   -webkit-tap-highlight-color: transparent;
 }
- 
+
 *,
 *::before,
 *::after {
@@ -244,7 +244,6 @@ p {
   line-height: 1.25;
 }
 
-
 /* HEADER */
 .header {
   position: absolute;
@@ -285,7 +284,6 @@ p {
   width: 60px;
   height: 60px;
 }
-
 
 .nav__list {
   display: flex;
@@ -450,7 +448,6 @@ p {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  
 }
 .about__subtitle {
   max-width: 350px;
@@ -885,8 +882,8 @@ input[type="email"]:focus {
   width: 100%;
   height: 100%;
   display: block;
-  background: url("../img/trust__bg.webp"),
-    url("../img/trust__ellipse2.png"), url("../img/trust__ellipse1.png");
+  background: url("../img/trust__bg.webp"), url("../img/trust__ellipse2.png"),
+    url("../img/trust__ellipse1.png");
   background-position: right center, left top, center top;
   background-size: contain, 80%, 80%;
   background-repeat: no-repeat;
@@ -1075,8 +1072,6 @@ input[type="email"]:focus {
 }
 .features-pic--mob {
   display: none;
-  
-  
 }
 
 /* --- СТИЛИ БЛОКА VIDEO-SLIDER (SWIPER) --- */
@@ -1090,7 +1085,6 @@ input[type="email"]:focus {
   display: flex;
   align-items: center;
   justify-content: center;
- 
 }
 
 .video-slider__slide {
@@ -1462,8 +1456,6 @@ input[type="email"]:focus {
 
 /* Планшеты */
 @media (max-width: 992px) {
-  
-
   .special-offer {
     grid-template-columns: 1fr;
     text-align: center;
@@ -1477,7 +1469,6 @@ input[type="email"]:focus {
 
 /* Мобильные устройства */
 @media (max-width: 768px) {
-  
   .pic-reabilitation {
     display: none;
   }
@@ -2085,7 +2076,7 @@ input[type="email"]:focus {
   flex-direction: column;
   align-items: flex-end;
   justify-content: space-between;
-padding-left: 100px;
+  padding-left: 100px;
   flex-basis: auto;
   text-align: center;
 }
@@ -2133,7 +2124,7 @@ padding-left: 100px;
   display: flex;
   flex-direction: column;
   height: 100%;
- 
+
   -webkit-border-radius: 30px;
   -moz-border-radius: 30px;
   -ms-border-radius: 30px;
@@ -2141,7 +2132,7 @@ padding-left: 100px;
 }
 
 .result-card__image {
-  width: 100%;  
+  width: 100%;
   height: auto;
   aspect-ratio: 1.06 / 1;
   object-fit: cover;
@@ -2174,14 +2165,11 @@ padding-left: 100px;
   gap: 4px;
 }
 
-
-
 .result-card__author-role {
   font-family: var(--second-family);
   font-size: 14px;
   font-weight: 400;
   color: var(--color-black);
-  
 }
 
 /* Стили навигации (кнопки) */
@@ -2200,7 +2188,7 @@ padding-left: 100px;
   height: 60px;
   border-radius: 50%;
   background: var(--gradient-orange-color);
- 
+
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2283,60 +2271,6 @@ padding-left: 100px;
   .result__container {
     padding: 0 50px;
   }
-  
-}
-
-@media (max-width: 768px) {
-  .result {
-    padding: 40px 0;
-  }
-
-  .result__title {
-    margin-bottom: 0;
-  }
-
-  .result__container {
-    padding: 0 30px;
-  }
-  .result__slider-buttons-wrap {
-    display: none;
-  }
-
-  .result__slider-wrapper {
-    width: 100%;
-    margin-top: 20px;
-    overflow: visible; /* На мобильных маска не нужна */
-  }
-
-  .result__slider {
-    padding-right: 0; /* Сбрасываем хак для десктопа */
-  }
-
-  .result .swiper-slide {
-    width: 335px;
-  }
-
-  .result__slider-navigation {
-    display: none;
-  }
-
-  .result__slider-pagination {
-    display: block;
-    position: static;
-    margin-top: 30px;
-  }
-
-  .result .swiper-pagination-bullet {
-    width: 10px;
-    height: 10px;
-    background-color: #ccc;
-    opacity: 1;
-    transition: background-color 0.3s;
-  }
-
-  .result .swiper-pagination-bullet-active {
-    background-color: var(--color-primary);
-  }
 }
 /* Start section */
 .start {
@@ -2348,7 +2282,7 @@ padding-left: 100px;
 
 .start__container {
   background: url("../img/start__bg.webp");
-  background-position: right center;
+  background-position: right 20%;
   background-size: contain;
   background-repeat: no-repeat;
 }
@@ -2367,17 +2301,18 @@ padding-left: 100px;
   color: transparent;
   margin-bottom: 40px;
 }
-
+ 
 .start__features-list {
   list-style: none;
   padding: 0;
   margin: 0 0 40px 0;
+  
 }
 
 .start__feature-item {
   display: flex;
-  align-items: center;
   gap: 10px;
+  margin-bottom: 20px;
 }
 .start__feature-item svg {
   flex: 0 0 auto;
@@ -2385,15 +2320,7 @@ padding-left: 100px;
   height: 24px;
 }
 
-.start__feature-item:not(:last-child) {
-  margin-bottom: 20px;
-}
 
-.start__feature-icon {
-  width: 24px;
-  height: 24px;
-  flex-shrink: 0;
-}
 
 .start__price-block {
   margin-bottom: 30px;
@@ -2475,13 +2402,12 @@ padding-left: 100px;
     transparent
   );
 }
-
 /* --- Адаптивные стили для планшетов и мобильных --- */
 @media (max-width: 991px) {
   .start {
     position: relative; /* Нужно для псевдоэлемента ::before */
     padding: 60px 0;
-    color: var(--color-background-light); /* Меняем цвет текста на белый */
+    color: var(--color-black); /* Меняем цвет текста на белый */
     text-align: center;
   }
 
@@ -2510,16 +2436,113 @@ padding-left: 100px;
     width: 100%;
   }
 
-    /* Прячем десктопный блок с картинкой и его градиент */
+  /* Прячем десктопный блок с картинкой и его градиент */
   .start__image-wrapper {
     display: none;
   }
 }
+
 @media (max-width: 768px) {
-  .start__features-list {    
-    padding-bottom: 500px;
+  .result {
+    padding: 40px 0;
   }
+
+  .result__title {
+    margin-bottom: 0;
+  }
+
+  .result__container {
+    padding: 0 30px;
+  }
+  .result__slider-buttons-wrap {
+    display: none;
+  }
+
+  .result__slider-wrapper {
+    width: 100%;
+    margin-top: 20px;
+    overflow: visible; /* На мобильных маска не нужна */
+  }
+
+  .result__slider {
+    padding-right: 0; /* Сбрасываем хак для десктопа */
+  }
+
+  .result .swiper-slide {
+    width: 335px;
+  }
+
+  .result__slider-navigation {
+    display: none;
+  }
+
+  .result__slider-pagination {
+    display: block;
+    position: static;
+    margin-top: 30px;
+  }
+
+  .result .swiper-pagination-bullet {
+    width: 10px;
+    height: 10px;
+    background-color: #ccc;
+    opacity: 1;
+    transition: background-color 0.3s;
+  }
+
+  .result .swiper-pagination-bullet-active {
+    background-color: var(--color-primary);
+  }
+  .start {
+    padding: 40px 0;
+  }
+  .start__container {
+    background: url('../img/start__bg--mob.png');
+    background-position: 0% 80%;
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+  }
+  .start__title {
+    
+    margin: 0 auto;
+    margin-bottom: 32px;
+  }
+  .start__features-list {
+    padding-bottom: 340px;
+  }
+  .start__feature-item span {
+  font-size: 24px;
 }
+.start__feature-item:last-of-type span {
+  max-width: 207px;
+}
+
+.start__feature-item:not(:last-child) {
+  margin-bottom: 20px;
+}
+.start__price-intro {
+  font-size: 28px;
+  font-weight: 400;
+  
+}
+.start__price-intro del {
+  font-weight: 700;
+}
+
+
+
+}
+@media (max-width: 768px) and (pointer: coarse) and (hover: none) and (min-aspect-ratio: 9/16) {
+  .start__container {
+    background: url('../img/start__bg--mob2.png');
+    background-position: 0% 0%;
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+  }
+
+}
+
+
 
 /* --- СТИЛИ БЛОКА FAQ (Подход Desktop-First) --- */
 .faq {

@@ -297,6 +297,7 @@
     padding: 0 20px;
   }
   .title-h2 {
+    font-size: 34px;
     font-weight: 700;
   }
   .close-btn {
@@ -376,9 +377,7 @@
     font-weight: 600;
     margin-bottom: 30px;
   }
-  .title-h2 {
-    font-size: 34px;
-  }
+  
   .video__title,
   .program__subtitle {
     font-size: 28px;
@@ -605,6 +604,10 @@
     line-height: 1.25;
     margin-bottom: 8px;
   }
+  .trust-me__cta-text {
+    font-size: 28px;
+    letter-spacing: 1px;
+  }
   .trust-me__list-item {
     color: var(--color-black);
     line-height: 1.2;
@@ -725,6 +728,13 @@
     font-size: 16px;
     line-height: 1.25;
   }
+  .result .swiper-pagination-bullet-active {
+    background: #00588C !important;
+  }
+  .video-slider .swiper-pagination-bullet-active {
+    background: #00588C !important;
+  }
+  
 }
 
 @media (max-width: 360px) {
