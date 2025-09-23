@@ -48,6 +48,29 @@
       as="style"
       onload="this.onload=null;this.rel='stylesheet'"
     />
+    <script>
+      (function () {
+        const ua = navigator.userAgent.toLowerCase();
+        const body = document.body || document.documentElement;
+
+        const isTablet =
+          /(ipad|tablet|(android(?!.*mobile))|windows(?!.*phone)|touch)/.test(
+            ua
+          );
+        const isPhone =
+          /(iphone|ipod|((android|webos|blackberry|windows).*(mobile))|opera mini|iemobile)/.test(
+            ua
+          );
+
+        if (isTablet) {
+          body.classList.add("is-tablet");
+        } else if (isPhone) {
+          body.classList.add("is-phone");
+        } else {
+          body.classList.add("is-desktop");
+        }
+      })();
+    </script>
   </head>
   <body class="page__body">
     <svg
@@ -1930,13 +1953,19 @@
                         class="result-card__image res-img4"
                       />
                       <p class="result-card__text">
-                        During the match I got an injury to my calf muscle and there was a risk that I would miss the rest of the season. After working with Oleksandr, I managed not only to finish the season, but also to play with the national team. I liked that the work was not only effective, but also adapted to the sport — exactly what I needed as a professional.
+                        During the match I got an injury to my calf muscle and
+                        there was a risk that I would miss the rest of the
+                        season. After working with Oleksandr, I managed not only
+                        to finish the season, but also to play with the national
+                        team. I liked that the work was not only effective, but
+                        also adapted to the sport — exactly what I needed as a
+                        professional.
                       </p>
                       <div class="result-card__author">
                         <span>Antonijs Černomordijs</span>
                         <svg width="18" height="19">
                           <use xlink:href="#camera"></use>
-                        </svg>                        
+                        </svg>
                       </div>
                       <div class="result-card__author-role">
                         Latvian national team player and captain
@@ -1960,7 +1989,7 @@
                         <span>Dinu Graur</span>
                         <svg width="18" height="19">
                           <use xlink:href="#camera"></use>
-                        </svg> 
+                        </svg>
                       </div>
                       <div class="result-card__author-role">
                         Moldovan national team player
@@ -1983,7 +2012,7 @@
                         <span>Aimen Anwar</span>
                         <svg width="18" height="19">
                           <use xlink:href="#camera"></use>
-                        </svg> 
+                        </svg>
                       </div>
                       <div class="result-card__author-role">
                         Pakistan women's croquet team player
@@ -2050,7 +2079,6 @@
                       </div>
                     </article>
                   </div>
-                  
                 </div>
               </div>
               <div class="swiper-pagination result__slider-pagination"></div>
@@ -2064,7 +2092,8 @@
           <div class="container">
             <div class="start__content">
               <h2 class="start__title title-h2">
-                START TODAY — REGAIN <br> FREEDOM IN JUST 14 DAYS
+                START TODAY — REGAIN <br />
+                FREEDOM IN JUST 14 DAYS
               </h2>
               <ul class="start__features-list">
                 <li class="start__feature-item">

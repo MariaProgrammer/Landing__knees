@@ -2402,6 +2402,21 @@ input[type="email"]:focus {
     transparent
   );
 }
+body.is-tablet .start__container {
+ background: url('../img/start__bg--mob.png');
+    background-position: 0% -20%;
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+}
+body.is-phone .start__container {
+  .start__container {
+    background: url('../img/start__bg--mob2.png');
+    background-position: 0% 0%;
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+  }
+}
+
 /* --- Адаптивные стили для планшетов и мобильных --- */
 @media (max-width: 991px) {
   .start {
@@ -2496,12 +2511,7 @@ input[type="email"]:focus {
   .start {
     padding: 40px 0;
   }
-  .start__container {
-    background: url('../img/start__bg--mob.png');
-    background-position: 0% 80%;
-    background-size: 100% auto;
-    background-repeat: no-repeat;
-  }
+  
   .start__title {
     
     margin: 0 auto;
