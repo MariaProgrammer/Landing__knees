@@ -624,16 +624,7 @@
     font-size: 34px;
     font-weight: 700;
   }
-  .worries {
-    padding: 40px 0;
-    margin-bottom: 0;
-  }
-  .worries-list {
-    margin-bottom: 24px;
-  }
-  .worries__content-wrapper {
-    padding: 0;
-  }
+  
   .trust-me__about {
     margin-bottom: 24px;
   }
@@ -692,6 +683,36 @@
   }
   .video-player {
     aspect-ratio: 1.45 / 1;
+  }
+  .worries {
+    padding: 40px 0;
+    margin-bottom: 0;
+  }
+  .worries__title {
+    text-align: center;
+    margin-bottom: 32px;
+  }
+  .worries-list {
+    margin-bottom: 24px;
+    gap: 11px;
+  }
+  .worries__content-wrapper {
+    padding: 0;
+  }
+  .worries-list__question {
+    font-size: 28px;
+    margin-bottom: 8px;
+  }
+  .worries-list__answer {
+    line-height: 1.2;
+    font-size: 16px;
+  }
+  .worries-list__item::before {
+    font-size: 28px;
+  }
+  .worries__conclusion {
+    font-size: 28px;
+    margin-bottom: 24px;
   }
 }
 

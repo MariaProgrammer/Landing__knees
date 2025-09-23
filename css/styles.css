@@ -1964,7 +1964,7 @@ input[type="email"]:focus {
   gap: 15px;
   align-items: baseline; /* Выравнивание по базовой линии текста */
   border-bottom: 1px solid #c4c9cc;
-  padding-bottom: 5px;
+  padding-bottom: 8px;
 }
 
 /* Создаем кастомный номер с помощью псевдоэлемента */
@@ -2141,9 +2141,9 @@ padding-left: 100px;
 }
 
 .result-card__image {
-  width: 100%;
-  min-height: 275px;
-  height: 382px;
+  width: 100%;  
+  height: auto;
+  aspect-ratio: 1.06 / 1;
   object-fit: cover;
   border-radius: 10px;
   margin-bottom: 16px;
