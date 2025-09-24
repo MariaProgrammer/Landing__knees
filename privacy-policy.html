@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Privacy Policy</title>
+    <meta
+      name="description"
+      content="Краткое описание вашей страницы, включающее ключевые слова."
+    />
+    <meta
+      name="keywords"
+      content="ключевое слово 1, ключевое слово 2, ключевое слово 3"
+    />
+    <meta name="robots" content="index, follow" />
+    <meta property="og:title" content="Название вашей страницы" />
+    <meta property="og:description" content="Краткое описание для соцсетей" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://вашсайт.ру/страница" />
+    <meta
+      property="og:image"
+      content="https://вашсайт.ру/images/имя_изображения.jpg"
+    />
+    <link
+      href="
+    https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+    />
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+
+    <link
+      rel="preload"
+      href="css/styles.css"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <link
+      rel="preload"
+      href="css/page.css"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <link
+      rel="preload"
+      href="css/media.css"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+  </head>
+  <body class="page__body">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+      style="position: absolute; width: 0; height: 0; overflow: hidden"
+      aria-hidden="true"
+    >
+      <symbol id="email-icon" viewBox="0 0 32 26">
+        <path
+          fill-rule="evenodd"
+          clip-rule="evenodd"
+          d="M3.33317.334106H28.6665c1.749 0 3.1667 1.417764 3.1667 3.166664V22.5008c0 1.7489-1.4177 3.1666-3.1667 3.1666H3.33317c-1.7489 0-3.166666-1.4177-3.166666-3.1666V3.50077c0-1.7489 1.417766-3.166664 3.166666-3.166664ZM18.6123 18.4633l10.0542-7.0459V8.09244L17.029 16.2466c-.6189.4296-1.4394.4296-2.0583 0L3.33317 8.09244v3.32496l10.05413 7.0459c1.5691 1.0967 3.656 1.0967 5.225 0Z"
+          fill="#fff"
+        />
+      </symbol>
+    </svg>
+
+    <div class="popup">
+      <div class="popup__cover"></div>
+      <div class="popup__inner">
+        <div class="form-wrapper">
+          <button class="close-btn">&times;</button>
+          <h1 class="title-h2 form-title">SUBMIT YOUR<br />REQUEST</h1>
+
+          <form id="requestForm" novalidate>
+            <div class="form-group">
+              <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Name*"
+                required
+              />
+              <div class="error-message" id="name-error"></div>
+            </div>
+
+            <div class="form-group">
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="E-mail*"
+                required
+              />
+              <div class="error-message" id="email-error"></div>
+            </div>
+
+            <button type="submit" class="submit-btn btn btn-reset">
+              <span>Start My Recovery Now</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <header class="header">
+      <div class="header__inner">
+        <div class="container">
+          <div class="header__container">
+            <a href="/" class="header__logo-link">
+              <img src="icons/logo.svg" alt="Logo" class="header__logo" />
+            </a>
+
+            <nav class="nav">
+              <ul class="nav__list list-reset">
+                <li class="nav__item">
+                  <a href="index.html#program" class="nav__link">Our Program</a>
+                </li>
+                <li class="nav__item">
+                  <a href="index.html#trust-me" class="nav__link"
+                    >Why Trust Us</a
+                  >
+                </li>
+                <li class="nav__item">
+                  <a href="index.html#results" class="nav__link">Results</a>
+                </li>
+                <li class="nav__item">
+                  <a href="index.html#faq" class="nav__link">FAQ</a>
+                </li>
+                <li class="nav__item">
+                  <a href="index.html#contacts" class="nav__link">Contact</a>
+                </li>
+              </ul>
+            </nav>
+            <button class="header__email btn-reset btn-open">
+              <svg class="header__email-pic" width="31" height="25">
+                <use xlink:href="#email-icon"></use>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main>
+      <section class="hero-policy">
+        <div class="container">
+          <h1 class="hero-policy__title title-h1">Privacy Policy</h1>
+          <ul class="hero-policy__list">
+            <li class="hero-policy__item">
+              <h2 class="hero-policy__subtitle">1. Introduction</h2>
+              <p class="hero-policy__text text">
+                Iron Knees (“we,” “us,” “our”) is committed to protecting the
+                privacy and security of your personal data. This Privacy Policy
+                (“Policy”) explains what data we collect, why we collect it, how
+                it is processed, and your rights under the General Data
+                Protection Regulation (EU) 2016/679 (“GDPR”).
+              </p>
+              <p class="hero-policy__text text">
+                By using our website or enrolling in our course, you agree to
+                this Policy.
+              </p>
+            </li>
+            <li class="hero-policy__item">
+              <h2 class="hero-policy__subtitle">2. What Data Do We Collect?</h2>
+              <p class="hero-policy__text text">
+                We act as a “data controller” under GDPR. Depending on your interaction with us, we may collect:
+
+              </p>
+              <p class="hero-policy__text text">
+                Your full name
+              </p>
+              <p class="hero-policy__text text">
+                Date of birth (if required for invoicing or verification)
+              </p>
+              <p class="hero-policy__text text">
+                Email address and phone number
+              </p>
+              <p class="hero-policy__text text">
+               Billing details (processed via payment providers, we do not store card data)
+
+              </p>
+              <p class="hero-policy__text text">
+                Course activity (login history, lessons completed, progress)
+
+              </p>
+              <p class="hero-policy__text text">
+               Technical data (IP address, device type, browser, cookies)
+              </p>
+            </li>
+            <li class="hero-policy__item">
+              <h2 class="hero-policy__subtitle">3. How We Collect Data</h2>
+              <p class="hero-policy__text text">
+                Directly from you: when you register, purchase a course, or contact us by email.
+
+              </p>
+              <p class="hero-policy__text text">
+                Automatically: when you visit our website (cookies, analytics).
+
+              </p>
+              <p class="hero-policy__text text">
+                Third parties: for example, payment processors (Stripe, PayPal).
+              </p>
+              <p class="hero-policy__text text">
+                We require third parties to ensure that you have given consent before sharing your data with us.
+              </p>              
+            </li>
+            <li class="hero-policy__item">
+              <h2 class="hero-policy__subtitle">4. Why We Collect Data</h2>
+              <p class="hero-policy__text text">
+                We process your personal data for the following reasons:
+
+              </p>
+              <p class="hero-policy__text text">
+               Contractual obligations: to provide course access and support.
+              </p>
+              <p class="hero-policy__text text">
+                Consent: when you opt-in to receive newsletters or marketing.
+              </p>
+              <p class="hero-policy__text text">
+                Legal obligations: to comply with accounting, tax, or fraud-prevention laws.
+              </p>              
+              <p class="hero-policy__text text">
+                Legitimate interests: to improve course content, resolve complaints, and enhance user experience.
+              </p>
+            </li>
+            <li class="hero-policy__item">
+              <h2 class="hero-policy__subtitle">5. Who We Share Data With                
+              </h2>
+              <p class="hero-policy__text text">
+                We may share your personal data with:
+
+              </p>
+              <p class="hero-policy__text text">
+               Payment providers (Stripe, PayPal)
+              </p>
+              <p class="hero-policy__text text">
+                Hosting and IT service providers (website, email, learning platform)
+              </p>
+              <p class="hero-policy__text text">
+                Communication tools (e.g., email, phone)
+
+              </p>              
+              <p class="hero-policy__text text">
+                Professional consultants (accounting, legal)
+
+              </p>
+              <p class="hero-policy__text text">
+                Law enforcement if legally required
+              </p>
+              <p class="hero-policy__text text">
+               If we transfer data outside the EU/EEA, we ensure GDPR-level safeguards are applied.
+              </p>
+            </li>
+            <li class="hero-policy__item">
+              <h2 class="hero-policy__subtitle">6. Cookies                
+              </h2>
+              <p class="hero-policy__text text">
+                Cookies are small text files stored on your device. <br>
+We use cookies for:
+              </p>
+              <p class="hero-policy__text text">
+               Session control and login security
+
+              </p>
+              <p class="hero-policy__text text">
+                Analytics to improve our website
+
+              </p>
+              <p class="hero-policy__text text">
+                Remembering user preferences
+              </p>              
+              <p class="hero-policy__text text">
+               You can manage or disable cookies in your browser settings.
+              </p>              
+            </li>
+            <li class="hero-policy__item">
+              <h2 class="hero-policy__subtitle">7. Data Security                
+              </h2>
+              <p class="hero-policy__text text">
+                We apply technical and organizational measures (SSL encryption, access restrictions, secure hosting) to protect your data from unauthorized access, loss, or misuse.
+              </p>
+              <p class="hero-policy__text text">
+               Please note that if you voluntarily share personal information in public spaces (e.g., forums, chat), we cannot control how it is used by others.
+              </p>                       
+            </li>
+            <li class="hero-policy__item">
+              <h2 class="hero-policy__subtitle">8. Data Retention                
+              </h2>
+              <p class="hero-policy__text text">
+                We keep your data only as long as necessary:
+
+              </p>
+              <p class="hero-policy__text text">
+              For course access and support
+              </p>                       
+              <p class="hero-policy__text text">
+              To comply with legal, accounting, and tax obligations
+              </p>                       
+              <p class="hero-policy__text text">
+              For resolving disputes, complaints, or audits
+              </p>                       
+              <p class="hero-policy__text text">
+              When no longer needed, your data will be securely deleted or anonymized.
+              </p>                       
+            </li>
+            <li class="hero-policy__item">
+              <h2 class="hero-policy__subtitle">9. Your Rights (GDPR)                
+              </h2>
+              <p class="hero-policy__text text">
+                You have the following rights:
+              </p>
+              <p class="hero-policy__text text">
+                Right to be informed (about how we use your data)
+              </p>                       
+              <p class="hero-policy__text text">
+              Right of access (to request a copy of your data)
+              </p>                       
+              <p class="hero-policy__text text">
+              Right to rectification (to correct inaccurate or incomplete data)
+              </p>                       
+              <p class="hero-policy__text text">
+              Right to erasure (“right to be forgotten”)
+              </p>                       
+              <p class="hero-policy__text text">
+              Right to restrict processing
+              </p>                       
+              <p class="hero-policy__text text">
+              Right to data portability
+              </p>                       
+              <p class="hero-policy__text text">
+              Right to object (to certain processing activities)
+              </p>                       
+              <p class="hero-policy__text text">
+              Right to withdraw consent (e.g., unsubscribe from emails)
+              </p>                       
+              <p class="hero-policy__text text">
+              To exercise your rights, email us at [your email].
+              </p>                       
+            </li>
+            <li class="hero-policy__item">
+              <h2 class="hero-policy__subtitle">10. Changes to This Policy               
+              </h2>
+              <p class="hero-policy__text text">
+                We may update this Privacy Policy to reflect changes in law or our practices. <br>Updates will be posted on this page with a new “Effective date.”
+              </p>                                
+            </li>
+            <li class="hero-policy__item">
+              <h2 class="hero-policy__subtitle">12. Contact Us               
+              </h2>
+              <p class="hero-policy__text text">
+                If you have any questions or concerns about this Policy or your data, contact us:
+              </p>                                
+              <p class="hero-policy__text text">
+                📧 Email: physiogide72@gmail.com
+              </p>                                
+            </li>
+          </ul>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer" id="contacts">
+      <div class="container">
+        <div class="site-footer__main">
+          <div class="site-footer__contact">
+            <h2 class="site-footer__title title-h2">CONTACT ME</h2>
+            <a
+              href="mailto:physioguide72@gmail.com"
+              class="site-footer__email-link"
+              >physioguide72@gmail.com</a
+            >
+          </div>
+          <div class="site-footer__disclaimer">
+            <h3 class="site-footer__disclaimer-title title-h3">DISCLAIMER:</h3>
+            <h4 class="site-footer__disclaimer-text title-h4">
+              The information on this site is not intended or implied to be a
+              substitute for professional medical advice, diagnosis or
+              treatment. All content, including text, graphics, images and
+              information, contained on or available through this web site is
+              for general information purposes only.
+            </h4>
+          </div>
+        </div>
+        <div class="site-footer__bottom">
+          <nav class="site-footer__legal-nav" aria-label="Legal">
+            <ul class="site-footer__legal-links list-reset">
+              <li class="site-footer__legal-link">
+                <p>&copy; 2025 Iron Knees</p>
+              </li>
+              <li class="site-footer__legal-link">
+                <a href="privacy-policy.html">Privacy Policy</a>
+              </li>
+              <li class="site-footer__legal-link">
+                <a href="terms.html">Terms of Service</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </footer>
+    <script src="js/page.js"></script>
+  </body>
+</html>

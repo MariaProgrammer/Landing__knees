@@ -1,0 +1,53 @@
+.hero-policy {
+  padding: 200px 0 0 0;
+}
+
+.hero-policy__title {  
+  margin-bottom: 40px;
+}
+.title-h1 {
+  font-size: 60px;
+  font-weight: 700;
+  color: var(--color-black);
+  
+}
+.hero-policy__list {
+}
+.hero-policy__item {
+  padding-bottom: 32px;
+  border-bottom: 1px solid #C4C9CC;
+  margin-bottom: 40px;
+}
+.hero-policy__subtitle {
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--color-black);
+  margin-bottom: 24px;
+}
+
+.hero-policy__text {
+  width: 100%;
+  max-width: 1000px;
+  margin-bottom: 12px;
+  line-height: 1.5;
+  font-weight: 700;
+}
+.hero-policy__border {
+   padding-bottom: 32px;
+  border-bottom: 1px solid #C4C9CC;
+  margin-bottom: 40px;
+
+}
+.hero-policy__inner-list {
+  margin-left: 50px;
+  list-style-type: disc;
+ 
+
+}
+.hero-policy__inner-item {
+  font-weight: 700;
+  margin-bottom: 8px;
+   width: 100%;
+  max-width: 1000px; 
+
+}
