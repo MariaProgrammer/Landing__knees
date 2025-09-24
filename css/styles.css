@@ -2546,18 +2546,6 @@ input[type="email"]:focus {
 
 
 }
-@media (max-width: 768px) and (pointer: coarse) and (hover: none) and (min-aspect-ratio: 9/16) {
-  .start__container {
-    background: url('../img/start__bg--mob2.png');
-    background-position: 0% 0%;
-    background-size: 100% auto;
-    background-repeat: no-repeat;
-  }
-
-}
-
-
-
 /* --- СТИЛИ БЛОКА FAQ (Подход Desktop-First) --- */
 .faq {
   padding: 100px 0;
