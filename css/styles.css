@@ -124,7 +124,8 @@ p {
   font-weight: 400;
   margin: 0;
   padding: 0;
-  position: relative;
+  position: relative;  
+  overflow-x: hidden;
 }
 
 .stop-scroll {
@@ -164,6 +165,7 @@ p {
 
 .btn {
   position: relative;
+  z-index: 1000;
   background: linear-gradient(
     180deg,
     rgba(243, 112, 33, 1) 0%,
@@ -279,6 +281,7 @@ p {
   z-index: 500;
 }
 .header__container {
+  box-sizing: border-box;
   padding: 0 15px;
   display: flex;
   align-items: center;
@@ -707,22 +710,22 @@ p {
 
 /* POPUP */
 .popup {
+  
   opacity: 0;
   position: fixed;
   left: 0;
   right: 0;
   top: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: -1;
-  transition: all 1s ease-in;
-  -webkit-transition: all 0.5s ease-in;
-  -moz-transition: all 0.5s ease-in;
-  -ms-transition: all 0.5s ease-in;
-  -o-transition: all 0.5s ease-in;
+  width: 100%;
+  height: 100%;
+  transition: opacity 0.5s ease-in;
+  -webkit-transition: opacity 0.5s ease-in;
+  -moz-transition: opacity 0.5s ease-in;
+  -ms-transition: opacity 0.5s ease-in;
+  -o-transition: opacity 0.5s ease-in;
 }
 .popup.active {
-  display: block;
+  
   opacity: 1;
   z-index: 1000;
 }
