@@ -167,38 +167,38 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     // --- СУПЕР-ОТЛАДОЧНАЯ ВЕРСИЯ ФУНКЦИИ ---
-const handleCtaButtonVisibility = () => {
-  // Код для мобильной версии не меняем, т.к. он работает
-  if (window.innerWidth < 768) {
-    let shouldBeVisible = window.scrollY > 300;
-    for (const btn of openButtons) {
-      if (isElementInViewport(btn)) {
-        shouldBeVisible = false;
-        break;
-      }
-    }
-    ctaButton.classList.toggle('is-visible', shouldBeVisible);
-    return;
-  }
+    const handleCtaButtonVisibility = () => {
+        // Код для мобильной версии не меняем, т.к. он работает
+        if (window.innerWidth < 768) {
+            let shouldBeVisible = window.scrollY > 300;
+            for (const btn of openButtons) {
+                if (isElementInViewport(btn)) {
+                    shouldBeVisible = false;
+                    break;
+                }
+            }
+            ctaButton.classList.toggle('is-visible', shouldBeVisible);
+            return;
+        }
 
-  // --- Детальная отладка для ДЕСКТОПА ---
-  const scrollY = window.scrollY;
-  const scrollTrigger = window.innerHeight * 0.90;
-  let shouldBeVisible = scrollY > scrollTrigger;
+        // --- Детальная отладка для ДЕСКТОПА ---
+        const scrollY = window.scrollY;
+        const scrollTrigger = window.innerHeight * 0.90;
+        let shouldBeVisible = scrollY > scrollTrigger;
 
-  // Проверяем каждую кнопку .btn-open
-  for (const btn of openButtons) {
-    if (isElementInViewport(btn)) {
-      
-      // Отменяем показ основной кнопки и выходим из цикла
-      shouldBeVisible = false; 
-      break; 
-    }
-  }
+        // Проверяем каждую кнопку .btn-open
+        for (const btn of openButtons) {
+            if (isElementInViewport(btn)) {
 
-  // Применяем финальное решение
-  ctaButton.classList.toggle('is-visible', shouldBeVisible);
-};
+                // Отменяем показ основной кнопки и выходим из цикла
+                shouldBeVisible = false;
+                break;
+            }
+        }
+
+        // Применяем финальное решение
+        ctaButton.classList.toggle('is-visible', shouldBeVisible);
+    };
 
 
 
