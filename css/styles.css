@@ -1143,29 +1143,7 @@ input[type="email"]:focus {
   -webkit-border-radius: 15%/35%;
   -moz-border-radius: 15%/35%;
   -ms-border-radius: 15%/35%;
-  -o-border-radius: 15%/35%;
-  /* position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) scale(1);
-  width: 140px;
-  height: 97px;
-  background-color: var(--dark-orange-color);
-  border-radius: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: transform 0.3s ease, background-color 0.3s ease;
-  pointer-events: none;
-  Чтобыкликпроходилнародителя
-  -webkit-transform: translate(-50%, -50%) scale(1);
-  -moz-transform: translate(-50%, -50%) scale(1);
-  -ms-transform: translate(-50%, -50%) scale(1);
-  -o-transform: translate(-50%, -50%) scale(1);
-  -webkit-border-radius: 30px;
-  -moz-border-radius: 30px;
-  -ms-border-radius: 30px;
-  -o-border-radius: 30px; */
+  -o-border-radius: 15%/35%;  
 }
 
 .video-slider__slide:hover .video-slider__play-button {
@@ -2390,9 +2368,7 @@ input[type="email"]:focus {
   position: relative;
   width: 100%;
   height: 100%;
-  background: url("https://via.placeholder.com/800x800/cccccc/333333?text=Running+Man+BG")
-    no-repeat center center;
-  background-size: cover;
+  background: #F1F3F4;
 }
 
 /* Градиент для "растворения" картинки */
