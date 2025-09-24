@@ -190,19 +190,6 @@ const handleCtaButtonVisibility = () => {
   for (const btn of openButtons) {
     if (isElementInViewport(btn)) {
       
-      // Если функция считает кнопку видимой, выводим всю информацию о ней!
-      console.warn('--- ОБНАРУЖЕНА ПРОБЛЕМА ---');
-      console.log('Эта кнопка считается видимой и блокирует появление CTA-кнопки:');
-      
-      // Выводим саму кнопку (можно будет проинспектировать)
-      console.log(btn); 
-      
-      // Выводим ее родителя (как вы и просили)
-      console.log('Ее родительский элемент:', btn.parentElement);
-      
-      // Выводим ее размеры и позицию. Обратите внимание на width и height!
-      console.log('Ее геометрия (getBoundingClientRect):', btn.getBoundingClientRect());
-      
       // Отменяем показ основной кнопки и выходим из цикла
       shouldBeVisible = false; 
       break; 
