@@ -139,77 +139,108 @@ document.addEventListener('DOMContentLoaded', () => {
         resizeTimeout = setTimeout(setupAdaptiveAnimation, 500);
     });
 
-    //-------------Логика показа основной ста-кнопки---------------
+    // --- НАЧАЛО БЛОКА ЛОГИКИ ДЛЯ CTA-КНОПКИ (ОПТИМИЗИРОВАННАЯ ВЕРСИЯ) ---
+
     // --- 1. Находим все нужные элементы на странице ---
     const ctaButton = document.querySelector('.button--cta');
     const openButtons = document.querySelectorAll('.btn-open:not(.hero__btn), .start__btn');
-    const footer = document.querySelector('footer'); // Предполагаем, что у вас есть тег <footer>
-
+    const footer = document.querySelector('footer');
 
     // Проверяем, нашлись ли все элементы, чтобы избежать ошибок
-    if (!ctaButton) {
-        console.error("Элемент с классом .button--cta не найден!");
-        return;
+    if (!ctaButton || !footer) {
+        console.error("Не найден элемент .button--cta или <footer>!");
+        return; // Выходим, если чего-то не хватает
     }
 
-    // --- 2. Вспомогательная функция для проверки видимости элемента ---
-    /**
-     * Проверяет, виден ли хотя бы частично элемент в окне браузера.
-     * @param {HTMLElement} el - Элемент для проверки.
-     * @returns {boolean} - true, если элемент виден.
-     */
-    const isElementInViewport = (el) => {
-        if (!el) return false;
-        const rect = el.getBoundingClientRect();
-        return (
-            rect.top < window.innerHeight && rect.bottom >= 0
-        );
+    // --- 2. Создаем хранилище для координат элементов ---
+    let elementPositions = {
+        buttons: [],
+        footerTop: 0
     };
 
-    // --- СУПЕР-ОТЛАДОЧНАЯ ВЕРСИЯ ФУНКЦИИ ---
-    const handleCtaButtonVisibility = () => {
-        // Код для мобильной версии не меняем, т.к. он работает
-        if (window.innerWidth < 768) {
-            let shouldBeVisible = window.scrollY > 300;
-            for (const btn of openButtons) {
-                if (isElementInViewport(btn)) {
-                    shouldBeVisible = false;
-                    break;
-                }
-            }
-            ctaButton.classList.toggle('is-visible', shouldBeVisible);
-            return;
-        }
-
-        // --- Детальная отладка для ДЕСКТОПА ---
+    // --- 3. Функция для вычисления и сохранения координат ---
+    // Эта "дорогая" функция будет вызываться только один раз при загрузке и при ресайзе.
+    function calculateElementPositions() {
+        elementPositions.buttons = []; // Очищаем массив перед пересчетом
         const scrollY = window.scrollY;
-        const scrollTrigger = window.innerHeight * 0.90;
-        let shouldBeVisible = scrollY > scrollTrigger;
 
-        // Проверяем каждую кнопку .btn-open
-        for (const btn of openButtons) {
-            if (isElementInViewport(btn)) {
+        // Вычисляем позиции для кнопок
+        openButtons.forEach(btn => {
+            const rect = btn.getBoundingClientRect();
+            // Сохраняем абсолютную позицию от верха документа
+            elementPositions.buttons.push({
+                top: rect.top + scrollY,
+                bottom: rect.bottom + scrollY
+            });
+        });
 
-                // Отменяем показ основной кнопки и выходим из цикла
-                shouldBeVisible = false;
-                break;
+        // Вычисляем позицию для футера
+        const footerRect = footer.getBoundingClientRect();
+        elementPositions.footerTop = footerRect.top + scrollY;
+    }
+
+    // --- 4. "Легкая" и быстрая функция, которая будет работать на каждый скролл ---
+    const handleCtaButtonVisibility = () => {
+        const viewportTop = window.scrollY;
+        const viewportBottom = viewportTop + window.innerHeight;
+
+        // --- Проверяем видимость кнопок (используя сохраненные данные) ---
+        let isAnyButtonVisible = false;
+        for (const pos of elementPositions.buttons) {
+            // Условие пересечения: (Начало_A <= Конец_B) и (Конец_A >= Начало_B)
+            if (pos.top < viewportBottom && pos.bottom > viewportTop) {
+                isAnyButtonVisible = true;
+                break; // Если нашли хоть одну видимую кнопку, дальше проверять нет смысла
             }
         }
 
-        // Применяем финальное решение
-        ctaButton.classList.toggle('is-visible', shouldBeVisible);
+        // --- Проверяем видимость футера (используя сохраненные данные) ---
+        const isFooterVisible = viewportBottom > elementPositions.footerTop;
+
+        // --- Применяем ВАШУ точную логику, но с быстрыми вычислениями ---
+        let shouldBeVisible;
+
+        if (window.innerWidth < 768) {
+            // Логика для мобильных
+            shouldBeVisible = viewportTop > 300;
+        } else {
+            // Логика для десктопа
+            const scrollTrigger = window.innerHeight * 0.90;
+            shouldBeVisible = viewportTop > scrollTrigger;
+        }
+
+        // --- ФИНАЛЬНОЕ РЕШЕНИЕ: Показываем кнопку, только если:
+        // 1. Основное условие (scroll) выполнено
+        // 2. Ни одна из других кнопок не видна
+        // 3. Футер еще не виден
+        const finalDecision = shouldBeVisible && !isAnyButtonVisible && !isFooterVisible;
+        ctaButton.classList.toggle('is-visible', finalDecision);
     };
 
 
+    // --- 5. Вешаем обработчики событий ---
 
-    // --- 4. Вешаем обработчики событий ---
-    // Вызываем функцию при скролле и при изменении размера окна (на случай смены ориентации)
-    window.addEventListener('scroll', handleCtaButtonVisibility);
-    window.addEventListener('resize', handleCtaButtonVisibility);
+    // Вычисляем позиции один раз при загрузке страницы
+    calculateElementPositions();
+
+    // Вызываем функцию при скролле (очень производительно)
+    window.addEventListener('scroll', handleCtaButtonVisibility, { passive: true });
+
+    // Пересчитываем позиции при изменении размера окна
+    let resizeTimeout2;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimeout2);
+        resizeTimeout2 = setTimeout(() => {
+            calculateElementPositions();
+            handleCtaButtonVisibility(); // Обновляем видимость сразу после пересчета
+        }, 200);
+    });
 
     // Также вызовем функцию один раз при загрузке на случай,
     // если страница загрузилась уже прокрученной
     handleCtaButtonVisibility();
+
+    // --- КОНЕЦ БЛОКА ЛОГИКИ ДЛЯ CTA-КНОПКИ ---
 
     // Плавный скролл
     const anchors = document.querySelectorAll('a[href*="#"]');
