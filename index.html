@@ -21,21 +21,15 @@
       property="og:image"
       content="https://вашсайт.ру/images/имя_изображения.jpg"
     />
-    <link
-      href="
-    https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
-    />
+    
+     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <!-- <link rel="icon" href="favicon.ico" type="image/x-icon" /> -->
     
-    <link
+    <!-- <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
-    />
+    /> -->
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
 
     <link
       rel="preload"
@@ -43,12 +37,7 @@
       as="style"
       onload="this.onload=null;this.rel='stylesheet'"
     />
-    <link
-      rel="preload"
-      href="css/media.css"
-      as="style"
-      onload="this.onload=null;this.rel='stylesheet'"
-    />
+    
     <script defer src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   </head>
   <body class="page__body">
