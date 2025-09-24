@@ -31,12 +31,13 @@
     /> -->
     <link rel="preload" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
 
-    <link
+    <!-- <link
       rel="preload"
       href="css/styles.css"
       as="style"
       onload="this.onload=null;this.rel='stylesheet'"
-    />
+    /> -->
+    <link rel="stylesheet" href="css/styles.css">
     
     <script defer src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   </head>
@@ -752,8 +753,7 @@
             <button class="header__email btn-reset btn-open">
               <svg class="header__email-pic" width="31" height="25">
                 <use xlink:href="#email-icon"></use>
-              </svg>
-              <!-- <img class="header__email-pic" src="icons/email-icon.svg" alt="иконка емейл"> -->
+              </svg>              
             </button>
           </div>
         </div>
@@ -836,6 +836,7 @@
                 <img
                   src="img/about__img-1.webp"
                   alt="фото мужчины с болью в колене"
+                  loading="lazy"
                 />
                 <h3 class="about__subtitle title-h3">
                   Walking is uncomfortable
@@ -845,6 +846,7 @@
                 <img
                   src="img/about__img-2.webp"
                   alt="фото мужчины с болью в колене"
+                  loading="lazy"
                 />
                 <h3 class="about__subtitle title-h3">
                   Stairs<br />
@@ -855,6 +857,7 @@
                 <img
                   src="img/about__img-3.webp"
                   alt="фото мужчины с болью в колене"
+                  loading="lazy"
                 />
                 <h3 class="about__subtitle title-h3">Sports seem impossible</h3>
               </div>
@@ -862,6 +865,7 @@
                 <img
                   src="img/about__img-4.webp"
                   alt="фото мужчины с болью в колене"
+                  loading="lazy"
                 />
                 <h3 class="about__subtitle title-h3">
                   Playing with your children feels risky
@@ -914,29 +918,25 @@
               <div class="video__item">
                 <svg class="video__img" width="61" height="57">
                   <use xlink:href="#check"></use>
-                </svg>
-                <!-- <img class="video__img" src="icons/check.svg" alt="иконка галочка"> -->
+                </svg>                
                 <h4 class="video-subtitle">Walking is free and easy</h4>
               </div>
               <div class="video__item">
                 <svg class="video__img" width="61" height="57">
                   <use href="#check"></use>
-                </svg>
-                <!-- <img class="video__img" src="icons/check.svg" alt="иконка галочка"> -->
+                </svg>                
                 <h4 class="video-subtitle">Stairs feel effortless again</h4>
               </div>
               <div class="video__item">
                 <svg class="video__img" width="61" height="57">
                   <use href="#check"></use>
-                </svg>
-                <!-- <img class="video__img" src="icons/check.svg" alt="иконка галочка"> -->
+                </svg>                
                 <h4 class="video-subtitle">Sports are back in your life</h4>
               </div>
               <div class="video__item">
                 <svg class="video__img" width="61" height="57">
                   <use href="#check"></use>
-                </svg>
-                <!-- <img class="video__img" src="icons/check.svg" alt="иконка галочка"> -->
+                </svg>                
                 <h4 class="video-subtitle">
                   You enjoy every moment with your children
                 </h4>
@@ -960,23 +960,23 @@
           <div class="program__inner">
             <div class="program__left">
               <div class="program__left-item">
-                <img class="program__img" src="img/program-1.webp" alt="" />
+                <img class="program__img" src="img/program-1.webp" alt="program" loading="lazy" />
                 <h4 class="program__left-descr title-h4">
                   Athletes after injury
                 </h4>
               </div>
               <div class="program__left-item">
-                <img class="program__img" src="img/program-2.webp" alt="" />
+                <img class="program__img" src="img/program-2.webp" alt="program" loading="lazy" />
                 <h4 class="program__left-descr title-h4">People of any age</h4>
               </div>
               <div class="program__left-item">
-                <img class="program__img" src="img/program-3.webp" alt="" />
+                <img class="program__img" src="img/program-3.webp" alt="program" loading="lazy" />
                 <h4 class="program__left-descr title-h4">
                   Those who want to prevent knee problems
                 </h4>
               </div>
               <div class="program__left-item">
-                <img class="program__img" src="img/program-4.webp" alt="" />
+                <img class="program__img" src="img/program-4.webp" alt="program" loading="lazy" />
                 <h4 class="program__left-descr title-h4">
                   Athletes after injury
                 </h4>
@@ -1033,8 +1033,7 @@
                 <li class="trust__item list-reset">
                   <svg class="trust__icon" width="60" height="60">
                     <use href="#sneakers"></use>
-                  </svg>
-                  <!-- <img src="icons/sneakers.svg" alt="иконка кроссовки" class="trust__icon"> -->
+                  </svg>                  
                   <div class="trust__item--text">
                     <h3 class="trust-h3 title-h3">Wake up without stiffness</h3>
                     <p class="trust-text text">start your day moving freely.</p>
@@ -1043,8 +1042,7 @@
                 <li class="trust__item list-reset">
                   <svg class="trust__icon" width="45" height="52">
                     <use href="#protection"></use>
-                  </svg>
-                  <!-- <img class="trust__icon" src="icons/protection.svg" alt="иконка защита"> -->
+                  </svg>                  
                   <div class="trust__item--text">
                     <h3 class="trust-h3 title-h3">Protect your knees</h3>
                     <p class="trust-text text">
@@ -1055,8 +1053,7 @@
                 <li class="trust__item list-reset">
                   <svg class="trust__icon" width="52" height="45">
                     <use href="#time"></use>
-                  </svg>
-                  <!-- <img class="trust__icon" src="icons/time.svg" alt="иконка часы"> -->
+                  </svg>                  
                   <div class="trust__item--text">
                     <h3 class="trust-h3 title-h3">Stay young longer</h3>
                     <p class="trust-text text">
@@ -1067,8 +1064,7 @@
                 <li class="trust__item list-reset">
                   <svg class="trust__icon" width="52" height="39">
                     <use href="#stairs"></use>
-                  </svg>
-                  <!-- <img class="trust__icon" src="icons/stairs.svg" alt="иконка ступени"> -->
+                  </svg>                  
                   <div class="trust__item--text">
                     <h3 class="trust-h3 title-h3">Step with confidence</h3>
                     <p class="trust-text text">
@@ -1079,8 +1075,7 @@
                 <li class="trust__item">
                   <svg class="trust__icon" width="51" height="52">
                     <use href="#danse"></use>
-                  </svg>
-                  <!-- <img class="trust__icon" src="icons/danse.svg" alt="иконка танец"> -->
+                  </svg>                  
                   <div class="trust__item--text">
                     <h3 class="trust-h3 title-h3">Live fully again</h3>
                     <p class="trust-text text">
@@ -1116,8 +1111,7 @@
             <div class="features-list__item">
               <svg class="features-pic" width="70" height="70">
                 <use href="#plan"></use>
-              </svg>
-              <!-- <img class="features-pic" src="icons/plan.svg" alt="иконка планирование"> -->
+              </svg>              
               <div class="features-list__text">
                 <h4 class="features-list__title title-h4">
                   DAILY 20-MINUTES PLAN
@@ -1130,8 +1124,7 @@
             <div class="features-list__item">
               <svg class="features-pic" width="70" height="70">
                 <use href="#experience"></use>
-              </svg>
-              <!-- <img class="features-pic" src="icons/experience.svg" alt="иконка опыт"> -->
+              </svg>              
               <div class="features-list__text">
                 <h4 class="features-list__title title-h4">EXPERT-DESIGNED</h4>
                 <p class="features-list__description text">
@@ -1149,8 +1142,7 @@
               </svg>
               <svg class="features-pic--mob" width="50" height="50">
                 <use href="#reabilitation--mob"></use>
-              </svg>
-              <!-- <img class="features-pic" src="icons/reabilitation.svg" alt="иконка реабилитация"> -->
+              </svg>              
               <div class="features-list__text">
                 <h4 class="features-list__title title-h4">SAFE & ADAPTABLE</h4>
                 <p class="features-list__description text">
@@ -1161,8 +1153,7 @@
             <div class="features-list__item">
               <svg class="features-pic" width="70" height="70">
                 <use href="#list"></use>
-              </svg>
-              <!-- <img class="features-pic" src="icons/list.svg" alt="иконка список"> -->
+              </svg>              
               <div class="features-list__text">
                 <h4 class="features-list__title title-h4">
                   TRACK YOUR PROGRESS
@@ -1175,8 +1166,7 @@
             <div class="features-list__item">
               <svg class="features-pic" width="70" height="70">
                 <use href="#yoga"></use>
-              </svg>
-              <!-- <img class="features-pic" src="icons/yoga.svg" alt="иконка йога"> -->
+              </svg>             
               <div class="features-list__text">
                 <h4 class="features-list__title title-h4">
                   NO SPECIAL EQUIPMENT
@@ -1192,7 +1182,8 @@
           <img
             class="bonus__img"
             src="img/present-img--mob.png"
-            alt="подарок"
+            alt="gift"
+            loading="lazy"
           />
           <p class="title-h3 bonus-text--top">
             Bonus PDF mini-course<br />"CORE STRENGTH AND STABILITY”
@@ -1742,7 +1733,7 @@
               ></path>
             </svg>
           </button>
-          <img src="" alt="Enlarged view" class="lightbox__image" />
+          <!-- <img src="" alt="Enlarged view" class="lightbox__image" /> -->
         </div>
       </div>
 
@@ -1919,6 +1910,7 @@
                         src="img/res-img4.jpg"
                         alt="foto of Antonijs Černomordijs"
                         class="result-card__image res-img4"
+                        loading="lazy"
                       />
                       <p class="result-card__text">
                         During the match I got an injury to my calf muscle and
@@ -1944,8 +1936,9 @@
                     <article class="result-card">
                       <img
                         src="img/res-img2.jpg"
-                        alt="Фотография Дину Граура"
+                        alt="Foto of Dinu Gruara"
                         class="result-card__image"
+                        loading="lazy"
                       />
                       <p class="result-card__text">
                         "After just 10 days of Alex’s program, I was running
@@ -1968,8 +1961,9 @@
                     <article class="result-card">
                       <img
                         src="img/res-img3.jpg"
-                        alt="Фотография Aimen Anwar"
+                        alt="Foto of Aimen Anwar"
                         class="result-card__image"
+                        loading="lazy"
                       />
                       <p class="result-card__text">
                         I had chronic knee pain for years. Alex’s program
@@ -1991,8 +1985,9 @@
                     <article class="result-card">
                       <img
                         src="img/res-img1.jpg"
-                        alt="Фотография Olessia Getsko"
+                        alt="Foto of Olessia Getsko"
                         class="result-card__image"
+                        loading="lazy"
                       />
                       <p class="result-card__text">
                         One month before the World Championships I had knee and
@@ -2016,6 +2011,7 @@
                         src="img/res-img5.jpg"
                         alt="Foto of Luis Iberico"
                         class="result-card__image"
+                        loading="lazy"
                       />
                       <p class="result-card__text">
                         “Torcerme el tobillo en la Super Bowl fue una pesadilla. Con el plan de Alex recuperé movilidad y fuerza, volví más rápido y más estable que antes.”
