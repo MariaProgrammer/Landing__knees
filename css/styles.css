@@ -98,8 +98,8 @@ p {
   src: url("../fonts/OpenSans-SemiBold.woff2") format("woff2"),
     url("../fonts/OpenSans-SemiBold.woff") format("woff");
     font-weight: 600; /* SemiBold */
-    font-style: normal;
     font-display: swap;
+  font-style: normal;
 }
 
 .page__body {
