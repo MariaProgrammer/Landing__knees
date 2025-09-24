@@ -139,7 +139,90 @@ document.addEventListener('DOMContentLoaded', () => {
         resizeTimeout = setTimeout(setupAdaptiveAnimation, 500);
     });
 
+    //-------------Логика показа основной ста-кнопки---------------
+    // --- 1. Находим все нужные элементы на странице ---
+    const ctaButton = document.querySelector('.button--cta');
+    const openButtons = document.querySelectorAll('.btn-open:not(.hero__btn), .start__btn');
+    const footer = document.querySelector('footer'); // Предполагаем, что у вас есть тег <footer>
 
+
+    // Проверяем, нашлись ли все элементы, чтобы избежать ошибок
+    if (!ctaButton) {
+        console.error("Элемент с классом .button--cta не найден!");
+        return;
+    }
+
+    // --- 2. Вспомогательная функция для проверки видимости элемента ---
+    /**
+     * Проверяет, виден ли хотя бы частично элемент в окне браузера.
+     * @param {HTMLElement} el - Элемент для проверки.
+     * @returns {boolean} - true, если элемент виден.
+     */
+    const isElementInViewport = (el) => {
+        if (!el) return false;
+        const rect = el.getBoundingClientRect();
+        return (
+            rect.top < window.innerHeight && rect.bottom >= 0
+        );
+    };
+
+    // --- СУПЕР-ОТЛАДОЧНАЯ ВЕРСИЯ ФУНКЦИИ ---
+const handleCtaButtonVisibility = () => {
+  // Код для мобильной версии не меняем, т.к. он работает
+  if (window.innerWidth < 768) {
+    let shouldBeVisible = window.scrollY > 300;
+    for (const btn of openButtons) {
+      if (isElementInViewport(btn)) {
+        shouldBeVisible = false;
+        break;
+      }
+    }
+    ctaButton.classList.toggle('is-visible', shouldBeVisible);
+    return;
+  }
+
+  // --- Детальная отладка для ДЕСКТОПА ---
+  const scrollY = window.scrollY;
+  const scrollTrigger = window.innerHeight * 0.90;
+  let shouldBeVisible = scrollY > scrollTrigger;
+
+  // Проверяем каждую кнопку .btn-open
+  for (const btn of openButtons) {
+    if (isElementInViewport(btn)) {
+      
+      // Если функция считает кнопку видимой, выводим всю информацию о ней!
+      console.warn('--- ОБНАРУЖЕНА ПРОБЛЕМА ---');
+      console.log('Эта кнопка считается видимой и блокирует появление CTA-кнопки:');
+      
+      // Выводим саму кнопку (можно будет проинспектировать)
+      console.log(btn); 
+      
+      // Выводим ее родителя (как вы и просили)
+      console.log('Ее родительский элемент:', btn.parentElement);
+      
+      // Выводим ее размеры и позицию. Обратите внимание на width и height!
+      console.log('Ее геометрия (getBoundingClientRect):', btn.getBoundingClientRect());
+      
+      // Отменяем показ основной кнопки и выходим из цикла
+      shouldBeVisible = false; 
+      break; 
+    }
+  }
+
+  // Применяем финальное решение
+  ctaButton.classList.toggle('is-visible', shouldBeVisible);
+};
+
+
+
+    // --- 4. Вешаем обработчики событий ---
+    // Вызываем функцию при скролле и при изменении размера окна (на случай смены ориентации)
+    window.addEventListener('scroll', handleCtaButtonVisibility);
+    window.addEventListener('resize', handleCtaButtonVisibility);
+
+    // Также вызовем функцию один раз при загрузке на случай,
+    // если страница загрузилась уже прокрученной
+    handleCtaButtonVisibility();
 
     // Плавный скролл
     const anchors = document.querySelectorAll('a[href*="#"]');
@@ -162,42 +245,42 @@ document.addEventListener('DOMContentLoaded', () => {
         const playPauseBtn = videoWrapper.querySelector('.play-pause-button');
 
         const handleCustomButtonFirstPlay = () => {
-        // 1. Показываем стандартные элементы управления
-        video.controls = true;
-        
-        // 2. Добавляем класс, который скроет нашу кастомную кнопку через CSS
-        videoWrapper.classList.add('video-started');
-        
-        // 3. Запускаем воспроизведение
-        const playPromise = video.play();
+            // 1. Показываем стандартные элементы управления
+            video.controls = true;
 
-        // 4. Обрабатываем возможные ошибки (например, автоплей заблокирован браузером)
-        if (playPromise !== undefined) {
-            playPromise.catch(error => {
-                console.error("Не удалось запустить видео:", error);
-                // Если запуск не удался, возвращаем все как было
-                video.controls = false;
-                videoWrapper.classList.remove('video-started');
-            });
-        }
-    };
+            // 2. Добавляем класс, который скроет нашу кастомную кнопку через CSS
+            videoWrapper.classList.add('video-started');
 
-    const handleVideoEnded = () => {
-        video.currentTime = 0;
-        // По желанию, можно вернуть все в исходное состояние, когда видео закончилось:
-        // video.controls = false;
-        // videoWrapper.classList.remove('video-started');
-    };
+            // 3. Запускаем воспроизведение
+            const playPromise = video.play();
 
-    // Вешаем обработчик на кнопку. Опция { once: true } гарантирует,
-    // что этот обработчик сработает только один раз, что нам и нужно.
-    playPauseBtn.addEventListener('click', handleCustomButtonFirstPlay, { once: true });
-    
-    video.addEventListener('ended', handleVideoEnded);
+            // 4. Обрабатываем возможные ошибки (например, автоплей заблокирован браузером)
+            if (playPromise !== undefined) {
+                playPromise.catch(error => {
+                    console.error("Не удалось запустить видео:", error);
+                    // Если запуск не удался, возвращаем все как было
+                    video.controls = false;
+                    videoWrapper.classList.remove('video-started');
+                });
+            }
+        };
+
+        const handleVideoEnded = () => {
+            video.currentTime = 0;
+            // По желанию, можно вернуть все в исходное состояние, когда видео закончилось:
+            // video.controls = false;
+            // videoWrapper.classList.remove('video-started');
+        };
+
+        // Вешаем обработчик на кнопку. Опция { once: true } гарантирует,
+        // что этот обработчик сработает только один раз, что нам и нужно.
+        playPauseBtn.addEventListener('click', handleCustomButtonFirstPlay, { once: true });
+
+        video.addEventListener('ended', handleVideoEnded);
     }
 
     // --------------- Модальное окно (Popup) -----------------------
-    const openPopupButtons = document.querySelectorAll('.btn-open, .header__email');
+    const openPopupButtons = document.querySelectorAll('.btn-open, .header__email, .button--cta-btn');
     const popup = document.querySelector('.popup');
     const cross = document.querySelector('.close-btn');
 
@@ -410,89 +493,89 @@ document.addEventListener('DOMContentLoaded', () => {
     const timerInterval = setInterval(updateTimer, 1000);
 
     // --- ИНИЦИАЛИЗАЦИЯ ВТОРОГО СЛАЙДЕРА (PHOTO GALLERY) ---
-const photoSwiper = new Swiper(".photo-gallery__slider", {
-    // Настройки по умолчанию (для мобильных)
-    loop: true,
-    slidesPerView: "auto", // Оставляем 'auto' для мобильных, чтобы CSS контролировал ширину
-    spaceBetween: 11,      // Расстояние для мобильных
-    centeredSlides: true,  // Центрируем активный слайд на мобильных
+    const photoSwiper = new Swiper(".photo-gallery__slider", {
+        // Настройки по умолчанию (для мобильных)
+        loop: true,
+        slidesPerView: "auto", // Оставляем 'auto' для мобильных, чтобы CSS контролировал ширину
+        spaceBetween: 11,      // Расстояние для мобильных
+        centeredSlides: true,  // Центрируем активный слайд на мобильных
 
-    autoplay: {
-        delay: 2500,
-        disableOnInteraction: true,
-        pauseOnMouseEnter: true,
-    },
-
-    // Адаптивность для экранов от 768px и выше (десктоп)
-    breakpoints: {
-        // Медиа-запрос "от 768px и выше"
-        768: {
-            slidesPerView: 4,     // <-- ИЗМЕНЕНИЕ: Показываем 4 слайда
-            spaceBetween: 20,     // <-- Расстояние для десктопа
-            centeredSlides: false,// <-- Отключаем центрирование
+        autoplay: {
+            delay: 2500,
+            disableOnInteraction: true,
+            pauseOnMouseEnter: true,
         },
-        // Можно добавить еще один breakpoint для очень больших экранов, если нужно
-        1200: {
-            slidesPerView: 5,     // Например, 5 слайдов на больших мониторах
-            spaceBetween: 20,
-            centeredSlides: false,
-        }
-    },
-});
+
+        // Адаптивность для экранов от 768px и выше (десктоп)
+        breakpoints: {
+            // Медиа-запрос "от 768px и выше"
+            768: {
+                slidesPerView: 4,     // <-- ИЗМЕНЕНИЕ: Показываем 4 слайда
+                spaceBetween: 20,     // <-- Расстояние для десктопа
+                centeredSlides: false,// <-- Отключаем центрирование
+            },
+            // Можно добавить еще один breakpoint для очень больших экранов, если нужно
+            1200: {
+                slidesPerView: 5,     // Например, 5 слайдов на больших мониторах
+                spaceBetween: 20,
+                centeredSlides: false,
+            }
+        },
+    });
 
 
     // --- ЛОГИКА ЛАЙТБОКСА ДЛЯ ФОТО (ИСПРАВЛЕННАЯ ВЕРСИЯ) ---
-const lightbox = document.querySelector(".lightbox");
-const lightboxImage = lightbox.querySelector(".lightbox__image");
-const lightboxCloseButton = lightbox.querySelector(".lightbox__close-button");
-const lightboxOverlay = lightbox.querySelector(".lightbox__overlay");
+    const lightbox = document.querySelector(".lightbox");
+    const lightboxImage = lightbox.querySelector(".lightbox__image");
+    const lightboxCloseButton = lightbox.querySelector(".lightbox__close-button");
+    const lightboxOverlay = lightbox.querySelector(".lightbox__overlay");
 
-// --- ИЗМЕНЕНИЕ 1: Находим контейнер слайдов вместо отдельных слайдов ---
-const swiperWrapper = document.querySelector(".photo-gallery__slider .swiper-wrapper");
+    // --- ИЗМЕНЕНИЕ 1: Находим контейнер слайдов вместо отдельных слайдов ---
+    const swiperWrapper = document.querySelector(".photo-gallery__slider .swiper-wrapper");
 
-const openLightbox = (imageElement) => {
-    if (!imageElement) return; // Добавим проверку на всякий случай
+    const openLightbox = (imageElement) => {
+        if (!imageElement) return; // Добавим проверку на всякий случай
 
-    const imgSrc = imageElement.src;
-    const imgAlt = imageElement.alt;
+        const imgSrc = imageElement.src;
+        const imgAlt = imageElement.alt;
 
-    lightboxImage.src = imgSrc;
-    lightboxImage.alt = imgAlt;
+        lightboxImage.src = imgSrc;
+        lightboxImage.alt = imgAlt;
 
-    lightbox.classList.remove("lightbox--hidden");
-    document.body.classList.add("body--modal-open");
-};
+        lightbox.classList.remove("lightbox--hidden");
+        document.body.classList.add("body--modal-open");
+    };
 
-const closeLightbox = () => {
-    lightbox.classList.add("lightbox--hidden");
-    document.body.classList.remove("body--modal-open");
-    lightboxImage.src = "";
-};
+    const closeLightbox = () => {
+        lightbox.classList.add("lightbox--hidden");
+        document.body.classList.remove("body--modal-open");
+        lightboxImage.src = "";
+    };
 
-// --- ИЗМЕНЕНИЕ 2: Используем делегирование событий ---
-// Вешаем один обработчик на wrapper
-if (swiperWrapper) {
-    swiperWrapper.addEventListener("click", (event) => {
-        // Находим ближайший родительский слайд к элементу, по которому кликнули
-        const clickedSlide = event.target.closest(".photo-gallery__slide");
+    // --- ИЗМЕНЕНИЕ 2: Используем делегирование событий ---
+    // Вешаем один обработчик на wrapper
+    if (swiperWrapper) {
+        swiperWrapper.addEventListener("click", (event) => {
+            // Находим ближайший родительский слайд к элементу, по которому кликнули
+            const clickedSlide = event.target.closest(".photo-gallery__slide");
 
-        // Если клик был действительно по слайду (или его содержимому)
-        if (clickedSlide) {
-            const imageInSlide = clickedSlide.querySelector(".photo-gallery__image");
-            openLightbox(imageInSlide);
+            // Если клик был действительно по слайду (или его содержимому)
+            if (clickedSlide) {
+                const imageInSlide = clickedSlide.querySelector(".photo-gallery__image");
+                openLightbox(imageInSlide);
+            }
+        });
+    }
+
+
+    // Обработчики закрытия (остаются без изменений)
+    lightboxCloseButton.addEventListener("click", closeLightbox);
+    lightboxOverlay.addEventListener("click", closeLightbox);
+    document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && !lightbox.classList.contains("lightbox--hidden")) {
+            closeLightbox();
         }
     });
-}
-
-
-// Обработчики закрытия (остаются без изменений)
-lightboxCloseButton.addEventListener("click", closeLightbox);
-lightboxOverlay.addEventListener("click", closeLightbox);
-document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && !lightbox.classList.contains("lightbox--hidden")) {
-        closeLightbox();
-    }
-});
 
 
     // --- ИНИЦИАЛИЗАЦИЯ ТРЕТЬЕГО СЛАЙДЕРА (RESULTS) ---
