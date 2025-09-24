@@ -1,5 +1,9 @@
-* {
+html {
   box-sizing: border-box;
+
+}
+* {
+  
   -webkit-tap-highlight-color: transparent;
 }
 body {
@@ -125,7 +129,7 @@ p {
   margin: 0;
   padding: 0;
   position: relative;  
-  overflow-x: hidden;
+  
 }
 
 .stop-scroll {
@@ -281,7 +285,7 @@ p {
   z-index: 500;
 }
 .header__container {
-  box-sizing: border-box;
+  /* box-sizing: border-box; */
   padding: 0 15px;
   display: flex;
   align-items: center;
