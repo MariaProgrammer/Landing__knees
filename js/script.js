@@ -411,11 +411,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- ИНИЦИАЛИЗАЦИЯ ВТОРОГО СЛАЙДЕРА (PHOTO GALLERY) ---
 const photoSwiper = new Swiper(".photo-gallery__slider", {
-    // Базовые настройки (для мобильных)
+    // Настройки по умолчанию (для мобильных)
     loop: true,
-    slidesPerView: "auto", // Оставляем 'auto', это критически важно
-    spaceBetween: 11,
-    centeredSlides: true, // <-- НОВОЕ: Активный слайд всегда будет в центре
+    slidesPerView: "auto", // Оставляем 'auto' для мобильных, чтобы CSS контролировал ширину
+    spaceBetween: 11,      // Расстояние для мобильных
+    centeredSlides: true,  // Центрируем активный слайд на мобильных
 
     autoplay: {
         delay: 2500,
@@ -423,64 +423,77 @@ const photoSwiper = new Swiper(".photo-gallery__slider", {
         pauseOnMouseEnter: true,
     },
 
-    // Адаптивность для экранов от 768px и выше
+    // Адаптивность для экранов от 768px и выше (десктоп)
     breakpoints: {
+        // Медиа-запрос "от 768px и выше"
         768: {
-            spaceBetween: 20,
-            centeredSlides: false, // <-- НОВОЕ: Отключаем центрирование на десктопе
+            slidesPerView: 4,     // <-- ИЗМЕНЕНИЕ: Показываем 4 слайда
+            spaceBetween: 20,     // <-- Расстояние для десктопа
+            centeredSlides: false,// <-- Отключаем центрирование
         },
+        // Можно добавить еще один breakpoint для очень больших экранов, если нужно
+        1200: {
+            slidesPerView: 5,     // Например, 5 слайдов на больших мониторах
+            spaceBetween: 20,
+            centeredSlides: false,
+        }
     },
 });
 
 
-    // --- ЛОГИКА ЛАЙТБОКСА ДЛЯ ФОТО ---
-    const lightbox = document.querySelector(".lightbox");
-    const lightboxImage = lightbox.querySelector(".lightbox__image");
-    const lightboxCloseButton = lightbox.querySelector(
-        ".lightbox__close-button"
-    );
-    const lightboxOverlay = lightbox.querySelector(".lightbox__overlay");
-    const photoSlides = document.querySelectorAll(".photo-gallery__slide");
+    // --- ЛОГИКА ЛАЙТБОКСА ДЛЯ ФОТО (ИСПРАВЛЕННАЯ ВЕРСИЯ) ---
+const lightbox = document.querySelector(".lightbox");
+const lightboxImage = lightbox.querySelector(".lightbox__image");
+const lightboxCloseButton = lightbox.querySelector(".lightbox__close-button");
+const lightboxOverlay = lightbox.querySelector(".lightbox__overlay");
 
-    const openLightbox = (imageElement) => {
-        const imgSrc = imageElement.src;
-        const imgAlt = imageElement.alt;
+// --- ИЗМЕНЕНИЕ 1: Находим контейнер слайдов вместо отдельных слайдов ---
+const swiperWrapper = document.querySelector(".photo-gallery__slider .swiper-wrapper");
 
-        lightboxImage.src = imgSrc;
-        lightboxImage.alt = imgAlt;
+const openLightbox = (imageElement) => {
+    if (!imageElement) return; // Добавим проверку на всякий случай
 
-        lightbox.classList.remove("lightbox--hidden");
-        document.body.classList.add("body--modal-open");
-    };
+    const imgSrc = imageElement.src;
+    const imgAlt = imageElement.alt;
 
-    const closeLightbox = () => {
-        lightbox.classList.add("lightbox--hidden");
-        document.body.classList.remove("body--modal-open");
-        // Очищаем src, чтобы избежать "мелькания" старого фото при следующем открытии
-        lightboxImage.src = "";
-    };
+    lightboxImage.src = imgSrc;
+    lightboxImage.alt = imgAlt;
 
-    // Навешиваем обработчики на каждый слайд
-    photoSlides.forEach((slide) => {
-        slide.addEventListener("click", () => {
-            const imageInSlide = slide.querySelector(".photo-gallery__image");
-            if (imageInSlide) {
-                openLightbox(imageInSlide);
-            }
-        });
-    });
+    lightbox.classList.remove("lightbox--hidden");
+    document.body.classList.add("body--modal-open");
+};
 
-    // Обработчики закрытия
-    lightboxCloseButton.addEventListener("click", closeLightbox);
-    lightboxOverlay.addEventListener("click", closeLightbox);
-    document.addEventListener("keydown", (e) => {
-        if (
-            e.key === "Escape" &&
-            !lightbox.classList.contains("lightbox--hidden")
-        ) {
-            closeLightbox();
+const closeLightbox = () => {
+    lightbox.classList.add("lightbox--hidden");
+    document.body.classList.remove("body--modal-open");
+    lightboxImage.src = "";
+};
+
+// --- ИЗМЕНЕНИЕ 2: Используем делегирование событий ---
+// Вешаем один обработчик на wrapper
+if (swiperWrapper) {
+    swiperWrapper.addEventListener("click", (event) => {
+        // Находим ближайший родительский слайд к элементу, по которому кликнули
+        const clickedSlide = event.target.closest(".photo-gallery__slide");
+
+        // Если клик был действительно по слайду (или его содержимому)
+        if (clickedSlide) {
+            const imageInSlide = clickedSlide.querySelector(".photo-gallery__image");
+            openLightbox(imageInSlide);
         }
     });
+}
+
+
+// Обработчики закрытия (остаются без изменений)
+lightboxCloseButton.addEventListener("click", closeLightbox);
+lightboxOverlay.addEventListener("click", closeLightbox);
+document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && !lightbox.classList.contains("lightbox--hidden")) {
+        closeLightbox();
+    }
+});
+
 
     // --- ИНИЦИАЛИЗАЦИЯ ТРЕТЬЕГО СЛАЙДЕРА (RESULTS) ---
     const resultSlider = new Swiper('.result__slider', {
