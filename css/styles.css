@@ -1641,13 +1641,14 @@ input[type="email"]:focus {
 
 /* --- СТИЛИ БЛОКА PHOTO-GALLERY (СЛАЙДЕР) --- */
 .photo-gallery {
+  overflow-x: hidden;
   padding-bottom: 60px;
 }
 
 /* Важно: используем уникальный класс для этого слайдера */
 .photo-gallery__slider {
   width: 100%;
-  overflow: hidden; /* Важно для Swiper */
+  overflow-x: hidden; /* Важно для Swiper */
   height: auto;
 }
 
@@ -1659,6 +1660,7 @@ input[type="email"]:focus {
   font-family: inherit;
   text-align: left;
   width: 100%;
+  max-width: 520px;
   height: auto; 
   cursor: pointer;
   display: flex;

@@ -427,13 +427,13 @@ const photoSwiper = new Swiper(".photo-gallery__slider", {
     breakpoints: {
         // Медиа-запрос "от 768px и выше"
         768: {
-            slidesPerView: 4,     // <-- ИЗМЕНЕНИЕ: Показываем 4 слайда
+            // slidesPerView: 4,     // <-- ИЗМЕНЕНИЕ: Показываем 4 слайда
             spaceBetween: 20,     // <-- Расстояние для десктопа
             centeredSlides: false,// <-- Отключаем центрирование
         },
         // Можно добавить еще один breakpoint для очень больших экранов, если нужно
         1200: {
-            slidesPerView: 5,     // Например, 5 слайдов на больших мониторах
+            // slidesPerView: 5,     // Например, 5 слайдов на больших мониторах
             spaceBetween: 20,
             centeredSlides: false,
         }
