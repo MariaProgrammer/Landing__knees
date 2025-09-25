@@ -4,6 +4,11 @@ html {
 * {
   -webkit-tap-highlight-color: transparent;
 }
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
 body {
   margin: 0;
   padding: 0;
@@ -11,12 +16,6 @@ body {
   height: 100%;
   overflow-x: hidden;
   background-color: #f1f3f4; /* Добавим фон на случай, если картинка грузится долго */
-}
-
-*,
-*::before,
-*::after {
-  box-sizing: inherit;
 }
 
 a {
@@ -76,12 +75,12 @@ p {
 }
 
 @font-face {
-  font-family: "Adjusted Arial Fallback 1";
-  src: local(Arial);
-  size-adjust: 101%;
-  ascent-override: 105%;
-  descent-override: 64%;
-  line-gap-override: 0%;
+  font-family: "Adjusted Arial Fallback 1";   
+    src: local(Arial);
+    size-adjust: 71%;
+    ascent-override: 98%;
+    descent-override: 43%;
+    line-gap-override: 26%;
 }
 
 @font-face {
@@ -179,13 +178,7 @@ p {
   line-height: 1.25;
   padding: 24px 66px;
   border-radius: 30px;
-  overflow: hidden;
-
-  /* ДОБАВЛЕНО: Плавный переход для движения.
-     Можно указать несколько свойств через запятую,
-     но "all" сработает для всего. 
-     Для лучшей производительности лучше указывать конкретные свойства.
-     Например: transition: transform 0.3s ease; */
+  overflow: hidden;  
   transition: transform 0.3s ease;
 }
 
@@ -240,7 +233,6 @@ p {
   font-size: clamp(2.1rem, 1rem + 5vw, 6.25rem);
   font-weight: 400;
   line-height: 1;
-
   letter-spacing: 0.5px;
 }
 .title-h3 {
@@ -262,6 +254,20 @@ p {
   font-size: 18px;
   line-height: 1.25;
 }
+.title__blue-gradient {
+  background-image: var(--gradient-blue-color);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  
+}
+.title__orange-gradient {
+  background-image: var(--gradient-orange-color);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+
+}
 
 /* HEADER */
 .header {
@@ -281,8 +287,7 @@ p {
   inset: 0;
   z-index: 500;
 }
-.header__container {
-  /* box-sizing: border-box; */
+.header__container { 
   padding: 0 15px;
   display: flex;
   align-items: center;
@@ -420,11 +425,7 @@ p {
 .hero__number {
   font-size: 100px;
   font-weight: 400;
-  margin-bottom: 30px;
-  background-image: var(--gradient-blue-color);
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
+  margin-bottom: 30px;  
   letter-spacing: 0px;
 }
 .hero__label {
@@ -438,11 +439,7 @@ p {
   padding: 100px 0;
 }
 
-.about__title {
-  background-image: var(--gradient-blue-color);
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
+.about__title {  
   text-align: center;
   margin-bottom: 40px;
 }
@@ -598,11 +595,7 @@ p {
 }
 .video-subtitle {
   font-size: 42px;
-  font-weight: 400;
-  background-image: var(--gradient-orange-color);
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
+  font-weight: 400;  
   letter-spacing: 0.8px;
   line-height: 1;
 }
@@ -615,11 +608,7 @@ p {
   text-align: center;
 }
 
-.program__title {
-  background-image: var(--gradient-blue-color);
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
+.program__title {  
   text-align: center;
   margin-bottom: 40px;
 }
@@ -711,6 +700,7 @@ p {
 
 /* POPUP */
 .popup {
+  visibility: hidden;
   opacity: 0;
   position: fixed;
   left: 0;
@@ -718,15 +708,18 @@ p {
   top: 0;
   width: 100%;
   height: 100%;
-  transition: opacity 0.5s ease-in;
-  -webkit-transition: opacity 0.5s ease-in;
-  -moz-transition: opacity 0.5s ease-in;
-  -ms-transition: opacity 0.5s ease-in;
-  -o-transition: opacity 0.5s ease-in;
+  transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+  -webkit-transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+  -moz-transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+  -ms-transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+  -o-transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
 }
 .popup.active {
+  
   opacity: 1;
+  visibility: visible;  
   z-index: 1000;
+ 
 }
 .popup__cover {
   width: 100%;
@@ -819,11 +812,7 @@ p {
 }
 
 /* Заголовок формы */
-.form-title {
-  background-image: var(--gradient-blue-color);
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
+.form-title {  
   letter-spacing: 0px;
   line-height: 1;
   margin-bottom: 30px;
@@ -991,11 +980,7 @@ input[type="email"]:focus {
 
 .trust__title {
   max-width: 1036px;
-  width: 100%;
-  background-image: var(--gradient-orange-color);
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
+  width: 100%;  
   margin-bottom: 30px;
   align-self: flex-end;
 }
@@ -1009,12 +994,6 @@ input[type="email"]:focus {
 .trust__subtitle {
   color: var(--dark-orange-color);
   margin-bottom: 10px;
-}
-.trust-h3 {
-  background-image: var(--gradient-blue-color);
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
 }
 .trust__subtitle--mob {
   display: none;
@@ -1055,15 +1034,6 @@ input[type="email"]:focus {
   height: 60px;
   flex: 0 0 auto;
 }
-.trust__item--text {
-}
-
-.trust-text {
-  background-image: var(--gradient-blue-color);
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
-}
 
 .trust__btn {
   display: block;
@@ -1094,11 +1064,7 @@ input[type="email"]:focus {
 }
 
 .whats-inside__title {
-  text-align: center;
-  background-image: var(--gradient-blue-color);
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
+  text-align: center;  
   margin-bottom: 40px;
 }
 
@@ -1132,22 +1098,13 @@ input[type="email"]:focus {
   color: var(--color-primary);
 }
 
-.features-list__title {
-  background-image: var(--gradient-blue-color);
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
+.features-list__title {  
   margin-bottom: 8px;
 }
 .features-list__text {
   align-self: flex-start;
 }
-.features-list__description {
-  background-image: var(--gradient-blue-color);
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
-}
+
 .features-pic {
   width: 70px;
   height: 70px;
@@ -1272,20 +1229,12 @@ input[type="email"]:focus {
 .bonus-text--top {
   position: absolute;
   top: 3%;
-  right: 3%;
-  background-image: var(--gradient-orange-color);
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
+  right: 3%;  
 }
 .bonus-text--bottom {
   position: absolute;
   top: 25%;
-  right: 0%;
-  background-image: var(--gradient-blue-color);
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
+  right: 0%;  
 }
 
 .special-offer__details {
@@ -1303,11 +1252,7 @@ input[type="email"]:focus {
 }
 
 .price-block__title {
-  font-size: clamp(2rem, 1rem + 5vw, 5rem);
-  background-image: var(--gradient-blue-color);
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
+  font-size: clamp(2rem, 1rem + 5vw, 5rem);  
   font-weight: 400;
   margin-bottom: 20px;
   line-height: 1;
@@ -1348,11 +1293,7 @@ input[type="email"]:focus {
 .price-block__new-price {
   font-size: clamp(6.25rem, 1rem + 5vw, 8.75rem);
   line-height: 1;
-  font-weight: 700;
-  background-image: var(--gradient-blue-color);
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
+  font-weight: 700;  
 }
 .countdown-timer {
   background-color: #cbe3f1;
@@ -1361,11 +1302,7 @@ input[type="email"]:focus {
 }
 .countdown-timer__title {
   text-align: center;
-  font-size: clamp(2rem, 1rem + 5vw, 5rem);
-  background-image: var(--gradient-blue-color);
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
+  font-size: clamp(2rem, 1rem + 5vw, 5rem);  
   font-weight: 400;
   margin-bottom: 20px;
   line-height: 1;
@@ -1400,11 +1337,7 @@ input[type="email"]:focus {
 .time-unit__label {
   font-family: var(--second-family);
   font-weight: 400;
-  font-size: 15px;
-  background-image: var(--gradient-blue-color);
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
+  font-size: 15px;  
   margin-top: 5px;
 }
 
@@ -1618,11 +1551,7 @@ input[type="email"]:focus {
   background-repeat: no-repeat;
 }
 
-.trust-me__title {
-  background-image: var(--gradient-blue-color);
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
+.trust-me__title {  
   text-align: left;
   margin-bottom: 40px;
 }
@@ -1786,11 +1715,7 @@ input[type="email"]:focus {
   padding: 0 15px;
 }
 
-.trust-me__cta-text {
-  background-image: var(--gradient-blue-color);
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
+.trust-me__cta-text {  
   margin-bottom: 24px;
 }
 
@@ -1922,11 +1847,7 @@ input[type="email"]:focus {
   .trust-me__title--mob {
     display: block;
     text-align: center;
-    margin-bottom: 32px;
-    background-image: var(--gradient-blue-color);
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
+    margin-bottom: 32px;    
   }
   .trust-me__btn {
     display: block;
@@ -1980,7 +1901,7 @@ input[type="email"]:focus {
 
 .worries__content-wrapper {
   padding: 60px 0 0 60px;
-  background: url("../img/worries__ellipse.png"), #fff;
+  background: url("../img/worries__ellipse.webp"), #fff;
   background-position: -10% 30%;
   background-repeat: no-repeat;
   display: grid;
@@ -1998,11 +1919,7 @@ input[type="email"]:focus {
   align-self: self-start;
 }
 
-.worries__title {
-  background-image: var(--gradient-blue-color);
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
+.worries__title {  
   margin-bottom: 40px;
   max-width: 806px;
 }
@@ -2039,11 +1956,7 @@ input[type="email"]:focus {
   color: transparent;
 }
 
-.worries-list__question {
-  background-image: var(--gradient-orange-color);
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
+.worries-list__question {  
   margin: 0 0 5px 0;
 }
 
@@ -2053,11 +1966,7 @@ input[type="email"]:focus {
   margin: 0;
 }
 
-.worries__conclusion {
-  background-image: var(--gradient-blue-color);
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
+.worries__conclusion {  
   margin-bottom: 30px;
   max-width: 945px;
 }
@@ -2150,11 +2059,7 @@ input[type="email"]:focus {
   text-align: center;
 }
 
-.result__title {
-  background-image: var(--gradient-blue-color);
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
+.result__title {  
   text-align: left;
   margin-bottom: 40px;
 }
@@ -2257,7 +2162,6 @@ input[type="email"]:focus {
   height: 60px;
   border-radius: 50%;
   background: var(--gradient-orange-color);
-
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2363,11 +2267,7 @@ input[type="email"]:focus {
 }
 
 .start__title {
-  width: 100%;
-  background-image: var(--gradient-blue-color);
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
+  width: 100%;  
   margin-bottom: 40px;
 }
 
@@ -2393,11 +2293,7 @@ input[type="email"]:focus {
 }
 
 .start__price-intro {
-  text-align: left;
-  background-image: var(--gradient-blue-color);
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
+  text-align: left;  
   margin-bottom: 24px;
 }
 
@@ -2767,11 +2663,7 @@ input[type="email"]:focus {
   border-bottom: 1px solid #dce1e4;
 }
 
-.site-footer__title {
-  background-image: var(--gradient-blue-color);
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
+.site-footer__title {  
   margin-bottom: 20px;
   letter-spacing: 0.5px;
 }
@@ -3317,11 +3209,7 @@ input[type="email"]:focus {
     display: block;
     font-size: 34px !important;
     font-weight: 700;
-    font-family: var(--font-family);
-    background-image: var(--gradient-blue-color);
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
+    font-family: var(--font-family);    
     text-align: center;
     margin-bottom: 32px;
     font-size: 46px;
@@ -3360,11 +3248,7 @@ input[type="email"]:focus {
     display: none;
   }
   .trust__title--mob {
-    display: block;
-    background-image: var(--gradient-orange-color);
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
+    display: block;    
     max-width: 100%;
     width: 100%;
     text-align: center;

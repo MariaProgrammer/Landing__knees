@@ -306,15 +306,18 @@ document.addEventListener('DOMContentLoaded', () => {
     openPopupButtons.forEach(button => {
         button.addEventListener('click', (e) => {
             e.preventDefault();
+            
             popup.classList.add('active');
             document.body.classList.add('stop-scroll');
+            
         });
     }); // <-- ВОТ ЗДЕСЬ ЗАКАНЧИВАЕТСЯ ЦИКЛ forEach. ОН БЫЛ ЗАКРЫТ В САМОМ КОНЦЕ ФАЙЛА.
 
     // Функция закрытия окна на крестик (теперь она ВНЕ цикла)
     if (cross) { // Добавим проверку на наличие элемента
         cross.addEventListener('click', () => {
-            popup.classList.remove('active');
+            popup.classList.remove('active');  
+                    
             document.body.classList.remove('stop-scroll');
         });
     }
