@@ -21,12 +21,36 @@
       property="og:image"
       content="https://вашсайт.ру/images/имя_изображения.jpg"
     />
-    
-     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <!-- <link rel="icon" href="favicon.ico" type="image/x-icon" /> -->   
-        
-    <link rel="preload" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
 
+    <link
+      rel="preload"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <!-- <link rel="icon" href="favicon.ico" type="image/x-icon" /> -->
+
+    <link
+      rel="preload"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <link
+      rel="preload"
+      href="/fonts/BebasNeueRegular.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+
+    <link
+      rel="preload"
+      href="/fonts/BebasNeue-Bold.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
     <link
       rel="preload"
       href="css/styles.css"
@@ -680,18 +704,37 @@
     </svg>
     <div class="button--cta">
       <div class="container">
-        <p class="button--cta-text text">This offer won't return once it ends — please dont miss ypur chance. Take it <strong>now</strong> — while it's still avaliable.</p>
-      <button class="button--cta-btn btn-reset" aria-label="Открыть форму обратной связи">Start the Course</button>
-      <p class="button--cta-text text">Please read our <a class="button--cta-link" href="privacy-policy.html">Privacy policy</a> and <a class="button--cta-link" href="terms.html">Terms of service.</a></p>
-      </div>      
+        <p class="button--cta-text text">
+          This offer won't return once it ends — please dont miss ypur chance.
+          Take it <strong>now</strong> — while it's still avaliable.
+        </p>
+        <button
+          class="button--cta-btn btn-reset"
+          aria-label="Открыть форму обратной связи"
+        >
+          Start the Course
+        </button>
+        <p class="button--cta-text text">
+          Please read our
+          <a class="button--cta-link" href="privacy-policy.html"
+            >Privacy policy</a
+          >
+          and
+          <a class="button--cta-link" href="terms.html">Terms of service.</a>
+        </p>
+      </div>
     </div>
 
     <div class="popup">
       <div class="popup__cover"></div>
       <div class="popup__inner">
         <div class="form-wrapper">
-          <button class="close-btn" aria-label="Закрыть форму обратной связи">&times;</button>
-          <h1 class="title-h2 form-title title__blue-gradient">SUBMIT YOUR<br />REQUEST</h1>
+          <button class="close-btn" aria-label="Закрыть форму обратной связи">
+            &times;
+          </button>
+          <h1 class="title-h2 form-title title__blue-gradient">
+            SUBMIT YOUR<br />REQUEST
+          </h1>
 
           <form id="requestForm" novalidate>
             <div class="form-group">
@@ -716,7 +759,11 @@
               <div class="error-message" id="email-error"></div>
             </div>
 
-            <button type="submit" class="submit-btn btn btn-reset" aria-label="Отправить форму обратной связи">
+            <button
+              type="submit"
+              class="submit-btn btn btn-reset"
+              aria-label="Отправить форму обратной связи"
+            >
               <span>Start My Recovery Now</span>
             </button>
           </form>
@@ -750,10 +797,13 @@
                 </li>
               </ul>
             </nav>
-            <button class="header__email btn-reset btn-open" aria-label="Открыть форму обратной связи">
+            <button
+              class="header__email btn-reset btn-open"
+              aria-label="Открыть форму обратной связи"
+            >
               <svg class="header__email-pic" width="31" height="25">
                 <use xlink:href="#email-icon"></use>
-              </svg>              
+              </svg>
             </button>
           </div>
         </div>
@@ -771,7 +821,10 @@
               Regain ease of movement and get rid of knee pain in 14 days at
               home, without surgery or expensive procedures.
             </p>
-            <button class="hero__btn btn btn-reset btn-open" aria-label="Открыть форму обратной связи">
+            <button
+              class="hero__btn btn btn-reset btn-open"
+              aria-label="Открыть форму обратной связи"
+            >
               <span>Start My Recovery Now</span>
             </button>
           </div>
@@ -779,7 +832,7 @@
           <div class="hero__inner-right">
             <div class="hero__item">
               <span class="hero__number title__blue-gradient">1,564</span>
-              <span class="hero__label">People helped so far</span>
+              <span class="hero__label">sessions conducted</span>
             </div>
             <div class="hero__item">
               <span class="hero__number title__blue-gradient">99%</span>
@@ -787,7 +840,7 @@
             </div>
             <div class="hero__item">
               <span class="hero__number title__blue-gradient">28,000+</span>
-              <span class="hero__label">Lives changed</span>
+              <span class="hero__label">hours of rehabilitation</span>
             </div>
           </div>
         </div>
@@ -803,23 +856,26 @@
           <p class="hero__subtitle">
             Step-by-step plan from a physiotherapist. Just 20 minutes a day.
           </p>
-          <button class="hero__btn btn btn-reset btn-open" aria-label="Открыть форму обратной связи">
+          <button
+            class="hero__btn btn btn-reset btn-open"
+            aria-label="Открыть форму обратной связи"
+          >
             <span>Start My Recovery Now</span>
           </button>
         </div>
 
         <div class="hero__inner-right">
           <div class="hero__item">
-            <span class="hero__number">1,564</span>
-            <span class="hero__label">People helped so far</span>
+            <span class="hero__number title__blue-gradient">1,564</span>
+            <span class="hero__label"> people helped</span>
           </div>
           <div class="hero__item">
-            <span class="hero__number">99%</span>
-            <span class="hero__label">Satisfied clients</span>
+            <span class="hero__number title__blue-gradient">99%</span>
+            <span class="hero__label">noticed less pain</span>
           </div>
           <div class="hero__item">
-            <span class="hero__number">28,000+</span>
-            <span class="hero__label">Lives changed</span>
+            <span class="hero__number title__blue-gradient">28,000+</span>
+            <span class="hero__label">hours of rehab delivered</span>
           </div>
         </div>
       </div>
@@ -918,31 +974,37 @@
               <div class="video__item">
                 <svg class="video__img" width="61" height="57">
                   <use xlink:href="#check"></use>
-                </svg>                
-                <h4 class="video-subtitle title__orange-gradient">Walking is free and easy</h4>
+                </svg>
+                <h4 class="video-subtitle title__orange-gradient">
+                  Walking is free and easy
+                </h4>
               </div>
               <div class="video__item">
                 <svg class="video__img" width="61" height="57">
                   <use href="#check"></use>
-                </svg>                
-                <h4 class="video-subtitle title__orange-gradient">Stairs feel effortless again</h4>
+                </svg>
+                <h4 class="video-subtitle title__orange-gradient">
+                  Stairs feel effortless again
+                </h4>
               </div>
               <div class="video__item">
                 <svg class="video__img" width="61" height="57">
                   <use href="#check"></use>
-                </svg>                
-                <h4 class="video-subtitle title__orange-gradient">Sports are back in your life</h4>
+                </svg>
+                <h4 class="video-subtitle title__orange-gradient">
+                  Sports are back in your life
+                </h4>
               </div>
               <div class="video__item">
                 <svg class="video__img" width="61" height="57">
                   <use href="#check"></use>
-                </svg>                
+                </svg>
                 <h4 class="video-subtitle title__orange-gradient">
                   You enjoy every moment with your children
                 </h4>
               </div>
             </div>
-            <button class="video__btn--mob btn btn-reset">
+            <button class="video__btn--mob btn btn-reset btn-open" aria-label="Открыть форму обратной связи">
               <span>Yes, This Is For Me</span>
             </button>
           </div>
@@ -960,23 +1022,43 @@
           <div class="program__inner">
             <div class="program__left">
               <div class="program__left-item">
-                <img class="program__img" src="img/program-1.webp" alt="program" loading="lazy" />
+                <img
+                  class="program__img"
+                  src="img/program-1.webp"
+                  alt="program"
+                  loading="lazy"
+                />
                 <h4 class="program__left-descr title-h4">
                   Athletes after injury
                 </h4>
               </div>
               <div class="program__left-item">
-                <img class="program__img" src="img/program-2.webp" alt="program" loading="lazy" />
+                <img
+                  class="program__img"
+                  src="img/program-2.webp"
+                  alt="program"
+                  loading="lazy"
+                />
                 <h4 class="program__left-descr title-h4">People of any age</h4>
               </div>
               <div class="program__left-item">
-                <img class="program__img" src="img/program-3.webp" alt="program" loading="lazy" />
+                <img
+                  class="program__img"
+                  src="img/program-3.webp"
+                  alt="program"
+                  loading="lazy"
+                />
                 <h4 class="program__left-descr title-h4">
                   Those who want to prevent knee problems
                 </h4>
               </div>
               <div class="program__left-item">
-                <img class="program__img" src="img/program-4.webp" alt="program" loading="lazy" />
+                <img
+                  class="program__img"
+                  src="img/program-4.webp"
+                  alt="program"
+                  loading="lazy"
+                />
                 <h4 class="program__left-descr title-h4">
                   Athletes after injury
                 </h4>
@@ -1004,7 +1086,10 @@
                   Bring back the joy and freedom of movement
                 </li>
               </ul>
-              <button class="program__btn btn btn-reset btn-open" aria-label="Открыть форму обратной связи">
+              <button
+                class="program__btn btn btn-reset btn-open"
+                aria-label="Открыть форму обратной связи"
+              >
                 <span>Start My Recovery Now</span>
               </button>
             </div>
@@ -1033,18 +1118,24 @@
                 <li class="trust__item list-reset">
                   <svg class="trust__icon" width="60" height="60">
                     <use href="#sneakers"></use>
-                  </svg>                  
+                  </svg>
                   <div class="trust__item--text">
-                    <h3 class="trust-h3 title-h3 title__blue-gradient">Wake up without stiffness</h3>
-                    <p class="trust-text text title__blue-gradient">start your day moving freely.</p>
+                    <h3 class="trust-h3 title-h3 title__blue-gradient">
+                      Wake up without stiffness
+                    </h3>
+                    <p class="trust-text text title__blue-gradient">
+                      start your day moving freely.
+                    </p>
                   </div>
                 </li>
                 <li class="trust__item list-reset">
                   <svg class="trust__icon" width="45" height="52">
                     <use href="#protection"></use>
-                  </svg>                  
+                  </svg>
                   <div class="trust__item--text">
-                    <h3 class="trust-h3 title-h3 title__blue-gradient">Protect your knees</h3>
+                    <h3 class="trust-h3 title-h3 title__blue-gradient">
+                      Protect your knees
+                    </h3>
                     <p class="trust-text text title__blue-gradient">
                       strong joints mean no surprises, no injuries.
                     </p>
@@ -1053,9 +1144,11 @@
                 <li class="trust__item list-reset">
                   <svg class="trust__icon" width="52" height="45">
                     <use href="#time"></use>
-                  </svg>                  
+                  </svg>
                   <div class="trust__item--text">
-                    <h3 class="trust-h3 title-h3 title__blue-gradient">Stay young longer</h3>
+                    <h3 class="trust-h3 title-h3 title__blue-gradient">
+                      Stay young longer
+                    </h3>
                     <p class="trust-text text title__blue-gradient">
                       dance, walk, play sports at any age
                     </p>
@@ -1064,9 +1157,11 @@
                 <li class="trust__item list-reset">
                   <svg class="trust__icon" width="52" height="39">
                     <use href="#stairs"></use>
-                  </svg>                  
+                  </svg>
                   <div class="trust__item--text">
-                    <h3 class="trust-h3 title-h3 title__blue-gradient">Step with confidence</h3>
+                    <h3 class="trust-h3 title-h3 title__blue-gradient">
+                      Step with confidence
+                    </h3>
                     <p class="trust-text text title__blue-gradient">
                       no fear of stairs, uneven ground or sudden pain
                     </p>
@@ -1075,9 +1170,11 @@
                 <li class="trust__item">
                   <svg class="trust__icon" width="51" height="52">
                     <use href="#danse"></use>
-                  </svg>                  
+                  </svg>
                   <div class="trust__item--text">
-                    <h3 class="trust-h3 title-h3 title__blue-gradient">Live fully again</h3>
+                    <h3 class="trust-h3 title-h3 title__blue-gradient">
+                      Live fully again
+                    </h3>
                     <p class="trust-text text title__blue-gradient">
                       start your travel, enjoy hobbies, spend time with family
                       without limits.moving freely.
@@ -1090,7 +1187,10 @@
                 And it takes only 20<br />
                 minutes a day
               </h3>
-              <button class="trust__btn btn btn-reset btn-open" aria-label="Открыть форму обратной связи">
+              <button
+                class="trust__btn btn btn-reset btn-open"
+                aria-label="Открыть форму обратной связи"
+              >
                 <span>Start My Recovery Now</span>
               </button>
             </div>
@@ -1105,13 +1205,15 @@
       </section>
       <section class="whats-inside">
         <div class="container">
-          <h2 class="whats-inside__title title-h2 title__blue-gradient">WHAT'S INSIDE</h2>
+          <h2 class="whats-inside__title title-h2 title__blue-gradient">
+            WHAT'S INSIDE
+          </h2>
 
           <div class="features-list">
             <div class="features-list__item">
               <svg class="features-pic" width="70" height="70">
                 <use href="#plan"></use>
-              </svg>              
+              </svg>
               <div class="features-list__text">
                 <h4 class="features-list__title title-h4 title__blue-gradient">
                   DAILY 20-MINUTES PLAN
@@ -1124,9 +1226,11 @@
             <div class="features-list__item">
               <svg class="features-pic" width="70" height="70">
                 <use href="#experience"></use>
-              </svg>              
+              </svg>
               <div class="features-list__text">
-                <h4 class="features-list__title title-h4 title__blue-gradient">EXPERT-DESIGNED</h4>
+                <h4 class="features-list__title title-h4 title__blue-gradient">
+                  EXPERT-DESIGNED
+                </h4>
                 <p class="features-list__description text title__blue-gradient">
                   10+ years physiotherapy experience
                 </p>
@@ -1142,9 +1246,11 @@
               </svg>
               <svg class="features-pic--mob" width="50" height="50">
                 <use href="#reabilitation--mob"></use>
-              </svg>              
+              </svg>
               <div class="features-list__text">
-                <h4 class="features-list__title title-h4 title__blue-gradient">SAFE & ADAPTABLE</h4>
+                <h4 class="features-list__title title-h4 title__blue-gradient">
+                  SAFE & ADAPTABLE
+                </h4>
                 <p class="features-list__description text title__blue-gradient">
                   works post-injury, post-surgery, chronic pain
                 </p>
@@ -1153,7 +1259,7 @@
             <div class="features-list__item">
               <svg class="features-pic" width="70" height="70">
                 <use href="#list"></use>
-              </svg>              
+              </svg>
               <div class="features-list__text">
                 <h4 class="features-list__title title-h4 title__blue-gradient">
                   TRACK YOUR PROGRESS
@@ -1166,7 +1272,7 @@
             <div class="features-list__item">
               <svg class="features-pic" width="70" height="70">
                 <use href="#yoga"></use>
-              </svg>             
+              </svg>
               <div class="features-list__text">
                 <h4 class="features-list__title title-h4 title__blue-gradient">
                   NO SPECIAL EQUIPMENT
@@ -1446,33 +1552,48 @@
               </div>
               <div class="special-offer__details">
                 <div class="price-block">
-                  <p class="price-block__title title__blue-gradient">ALL OF THIS — FOR JUST</p>
+                  <p class="price-block__title title__blue-gradient">
+                    ALL OF THIS — FOR JUST
+                  </p>
                   <div class="price-block__prices">
                     <div class="price-block__old-price">99€</div>
 
-                    <div class="price-block__new-price title__blue-gradient">€12.75</div>
+                    <div class="price-block__new-price title__blue-gradient">
+                      €12.75
+                    </div>
                   </div>
                 </div>
                 <div class="countdown-timer">
-                  <p class="countdown-timer__title title__blue-gradient">OFFER EXPIRES IN</p>
+                  <p class="countdown-timer__title title__blue-gradient">
+                    OFFER EXPIRES IN
+                  </p>
                   <div class="countdown-timer__wrapper">
                     <div class="time-unit">
                       <span class="time-unit__value" id="hours">12</span>
-                      <span class="time-unit__label title__blue-gradient">hour</span>
+                      <span class="time-unit__label title__blue-gradient"
+                        >hour</span
+                      >
                     </div>
                     <span class="countdown-timer__separator">:</span>
                     <div class="time-unit">
                       <span class="time-unit__value" id="minutes">45</span>
-                      <span class="time-unit__label title__blue-gradient">min</span>
+                      <span class="time-unit__label title__blue-gradient"
+                        >min</span
+                      >
                     </div>
                     <span class="countdown-timer__separator">:</span>
                     <div class="time-unit">
                       <span class="time-unit__value" id="seconds">22</span>
-                      <span class="time-unit__label title__blue-gradient">sec</span>
+                      <span class="time-unit__label title__blue-gradient"
+                        >sec</span
+                      >
                     </div>
                   </div>
                 </div>
-                <button class="special-offer__btn btn btn-reset btn-open" aria-label="Открыть форму обратной связи">
+                <button
+                  class="special-offer__btn btn btn-reset btn-open"
+                  aria-label="Открыть форму обратной связи"
+                >
                   <span>Start My Recovery Now</span>
                 </button>
               </div>
@@ -1497,7 +1618,9 @@
 
       <section class="trust-me" id="trust-me">
         <div class="container">
-          <h2 class="trust-me__title--mob title-h2 title__blue-gradient">WHY YOU CAN TRUST ME</h2>
+          <h2 class="trust-me__title--mob title-h2 title__blue-gradient">
+            WHY YOU CAN TRUST ME
+          </h2>
           <div class="trust-me__about">
             <div class="trust-me__photo-wrapper">
               <img
@@ -1560,7 +1683,7 @@
                     />
                   </div>
                   <figcaption class="photo-gallery__caption">
-                    <strong>Robert Faryj</strong> 
+                    <strong>Robert Faryj</strong>
                     International Instructor GFDMO / IFDMO
                   </figcaption>
                 </figure>
@@ -1676,7 +1799,7 @@
                       loading="lazy"
                     />
                   </div>
-                  <figcaption class="photo-gallery__caption">                    
+                  <figcaption class="photo-gallery__caption">
                     <strong>Dr. Florian Pfab</strong>
                     Head of medical department Brighton and Hove Albion
                   </figcaption>
@@ -1693,7 +1816,7 @@
               PEOPLE'S LIVES — AND I KNOW HOW TO BRING BACK FREEDOM OF MOVEMENT
               WITHOUT SURGERIES OR ENDLESS PILLS.
             </p>
-            <button class="trust-me__btn btn btn-reset">
+            <button class="trust-me__btn btn btn-reset btn-open" aria-label="Открыть форму обратной связи">
               <span>Yes, I Trust You — Let’s Start</span>
             </button>
           </div>
@@ -1729,7 +1852,9 @@
               <ol class="worries-list">
                 <li class="worries-list__item">
                   <div>
-                    <h3 class="worries-list__question title-h3 title__orange-gradient">
+                    <h3
+                      class="worries-list__question title-h3 title__orange-gradient"
+                    >
                       IS IT FOR ME?
                     </h3>
                     <p class="worries-list__answer text">Yes, any age/level</p>
@@ -1737,7 +1862,9 @@
                 </li>
                 <li class="worries-list__item">
                   <div>
-                    <h3 class="worries-list__question title-h3 title__orange-gradient">
+                    <h3
+                      class="worries-list__question title-h3 title__orange-gradient"
+                    >
                       WHAT IF I DO IT WRONG?
                     </h3>
                     <p class="worries-list__answer text">
@@ -1747,7 +1874,9 @@
                 </li>
                 <li class="worries-list__item">
                   <div>
-                    <h3 class="worries-list__question title-h3 title__orange-gradient">
+                    <h3
+                      class="worries-list__question title-h3 title__orange-gradient"
+                    >
                       WHAT IF IT HURTS?
                     </h3>
                     <p class="worries-list__answer text">
@@ -1757,7 +1886,9 @@
                 </li>
                 <li class="worries-list__item">
                   <div>
-                    <h3 class="worries-list__question title-h3 title__orange-gradient">
+                    <h3
+                      class="worries-list__question title-h3 title__orange-gradient"
+                    >
                       I DON'T HAVE TIME
                     </h3>
                     <p class="worries-list__answer text">15–20 min/day</p>
@@ -1765,7 +1896,9 @@
                 </li>
                 <li class="worries-list__item">
                   <div>
-                    <h3 class="worries-list__question title-h3 title__orange-gradient">
+                    <h3
+                      class="worries-list__question title-h3 title__orange-gradient"
+                    >
                       TOO OLD / NOT FIT
                     </h3>
                     <p class="worries-list__answer text">Yes, any age/level</p>
@@ -1773,7 +1906,9 @@
                 </li>
                 <li class="worries-list__item">
                   <div>
-                    <h3 class="worries-list__question title-h3 title__orange-gradient">
+                    <h3
+                      class="worries-list__question title-h3 title__orange-gradient"
+                    >
                       IS IT FOR ME?
                     </h3>
                     <p class="worries-list__answer text">
@@ -1783,7 +1918,9 @@
                 </li>
                 <li class="worries-list__item">
                   <div>
-                    <h3 class="worries-list__question title-h3 title__orange-gradient">
+                    <h3
+                      class="worries-list__question title-h3 title__orange-gradient"
+                    >
                       AFTER SURGERY?
                     </h3>
                     <p class="worries-list__answer text">
@@ -1793,7 +1930,11 @@
                 </li>
                 <li class="worries-list__item">
                   <div>
-                    <h3 class="worries-list__question title-h3 title__orange-gradient">EQUIPMENT?</h3>
+                    <h3
+                      class="worries-list__question title-h3 title__orange-gradient"
+                    >
+                      EQUIPMENT?
+                    </h3>
                     <p class="worries-list__answer text">
                       Just mat + mini-bands + loop band.
                     </p>
@@ -1801,7 +1942,11 @@
                 </li>
                 <li class="worries-list__item">
                   <div>
-                    <h3 class="worries-list__question title-h3 title__orange-gradient">RESULTS?</h3>
+                    <h3
+                      class="worries-list__question title-h3 title__orange-gradient"
+                    >
+                      RESULTS?
+                    </h3>
                     <p class="worries-list__answer text">
                       First 7–14 days of noticeable relief.
                     </p>
@@ -1813,7 +1958,10 @@
                 THAT'S WHY MORE THAN 1 500 PEOPLE HAVE ALREADY TRUSTED THIS
                 PROGRAM AND GOT RESULTS. NOW IT'S YOUR TURN
               </p>
-              <button class="worries__btn btn btn-reset btn-open" aria-label="Открыть форму обратной связи">
+              <button
+                class="worries__btn btn btn-reset btn-open"
+                aria-label="Открыть форму обратной связи"
+              >
                 <span>Start My Recovery Now</span>
               </button>
             </div>
@@ -1995,7 +2143,9 @@
                         loading="lazy"
                       />
                       <p class="result-card__text">
-                        “Torcerme el tobillo en la Super Bowl fue una pesadilla. Con el plan de Alex recuperé movilidad y fuerza, volví más rápido y más estable que antes.”
+                        “Torcerme el tobillo en la Super Bowl fue una pesadilla.
+                        Con el plan de Alex recuperé movilidad y fuerza, volví
+                        más rápido y más estable que antes.”
                       </p>
                       <div class="result-card__author">
                         <span> Luis Iberico</span>
@@ -2004,7 +2154,7 @@
                         </svg>
                       </div>
                       <div class="result-card__author-role">
-                        	Club Sporting Cristal
+                        Club Sporting Cristal
                       </div>
                     </article>
                   </div>
@@ -2339,10 +2489,10 @@
                       — it strengthens joints and muscles and supports recovery.
                     </p>
                     <p>
-                      ❌ I do not recommend starting if you currently have an acute
-                      injury or inflammation. After surgery? Yes, safe (with
-                      doctor’s approval). Many people used it after surgery and
-                      recovered faster.
+                      ❌ I do not recommend starting if you currently have an
+                      acute injury or inflammation. After surgery? Yes, safe
+                      (with doctor’s approval). Many people used it after
+                      surgery and recovered faster.
                     </p>
                   </div>
                 </div>
@@ -2352,7 +2502,9 @@
               <details class="faq__item">
                 <summary class="faq__question">
                   <span class="faq__question-number title-h3">6.</span>
-                  <span class="faq__question-text title-h3">What if I don’t have time every day?</span>
+                  <span class="faq__question-text title-h3"
+                    >What if I don’t have time every day?</span
+                  >
                   <svg
                     class="faq__icon"
                     viewBox="0 0 24 24"
@@ -2368,7 +2520,9 @@
                 </summary>
                 <div class="faq__answer">
                   <div class="faq__answer-content text">
-                    You can train whenever it’s convenient for you. The goal is to complete the session within 24 hours. If you miss a day, you can simply continue later.
+                    You can train whenever it’s convenient for you. The goal is
+                    to complete the session within 24 hours. If you miss a day,
+                    you can simply continue later.
                   </div>
                 </div>
               </details>
@@ -2393,7 +2547,8 @@
                 </summary>
                 <div class="faq__answer">
                   <div class="faq__answer-content text">
-                    Yes! You’ll get lifetime access to the Iron Knees program and all materials.
+                    Yes! You’ll get lifetime access to the Iron Knees program
+                    and all materials.
                   </div>
                 </div>
               </details>
@@ -2418,10 +2573,17 @@
                 </summary>
                 <div class="faq__answer">
                   <div class="faq__answer-content text">
-                    <p>1️⃣ Payment is made in your local currency (the price is shown in euros for convenience).</p>
-                    <p>2️⃣ We accept Visa / MasterCard, Apple Pay, Google Pay.
-</p>
-                    <p>3️⃣ You can also make a direct transfer — just write to me on Instagram 👉 @alex_fisio</p>
+                    <p>
+                      1️⃣ Payment is made in your local currency (the price is
+                      shown in euros for convenience).
+                    </p>
+                    <p>
+                      2️⃣ We accept Visa / MasterCard, Apple Pay, Google Pay.
+                    </p>
+                    <p>
+                      3️⃣ You can also make a direct transfer — just write to me
+                      on Instagram 👉 @alex_fisio
+                    </p>
                   </div>
                 </div>
               </details>
@@ -2446,8 +2608,15 @@
                 </summary>
                 <div class="faq__answer">
                   <div class="faq__answer-content text">
-                    <p>Right after payment! You’ll instantly receive access to your first training session and can start whenever you’re ready.</p>
-                    <p>Lifetime access online. PDF with videos & checklists — one-time payment €12.75.</p>
+                    <p>
+                      Right after payment! You’ll instantly receive access to
+                      your first training session and can start whenever you’re
+                      ready.
+                    </p>
+                    <p>
+                      Lifetime access online. PDF with videos & checklists —
+                      one-time payment €12.75.
+                    </p>
                     <p>Start today from anywhere in the world.</p>
                   </div>
                 </div>
@@ -2473,16 +2642,25 @@
                 </summary>
                 <div class="faq__answer">
                   <div class="faq__answer-content text">
-                    <p>Yes! While I can’t promise the exact same outcome for everyone, doing the program consistently will definitely bring progress: less pain, easier walking, stronger legs.
-</p>
-                    <p>The program includes over 100 exercises that gradually progress from easy to more advanced.</p>
+                    <p>
+                      Yes! While I can’t promise the exact same outcome for
+                      everyone, doing the program consistently will definitely
+                      bring progress: less pain, easier walking, stronger legs.
+                    </p>
+                    <p>
+                      The program includes over 100 exercises that gradually
+                      progress from easy to more advanced.
+                    </p>
                   </div>
                 </div>
               </details>
             </div>
           </div>
 
-          <button class="faq__btn btn btn-reset btn-open" aria-label="Открыть форму обратной связи">
+          <button
+            class="faq__btn btn btn-reset btn-open"
+            aria-label="Открыть форму обратной связи"
+          >
             <span>Yes, This Is For Me </span>
           </button>
         </div>
@@ -2492,7 +2670,9 @@
       <div class="container">
         <div class="site-footer__main">
           <div class="site-footer__contact">
-            <h2 class="site-footer__title title-h2 title__blue-gradient">CONTACT ME</h2>
+            <h2 class="site-footer__title title-h2 title__blue-gradient">
+              CONTACT ME
+            </h2>
             <a
               href="mailto:physioguide72@gmail.com"
               class="site-footer__email-link"
@@ -2527,7 +2707,10 @@
         </div>
       </div>
     </footer>
-    <script defer src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"
+    ></script>
     <script defer src="js/script.js"></script>
   </body>
 </html>
