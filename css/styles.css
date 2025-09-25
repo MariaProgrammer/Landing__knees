@@ -1690,6 +1690,7 @@ input[type="email"]:focus {
 
 .photo-gallery__slide {
   /* Сбрасываем стили кнопки */
+  display: block;
   border: none;
   background: none;
   padding: 0;
@@ -1712,6 +1713,22 @@ input[type="email"]:focus {
   outline-offset: 3px;
   border-radius: var(--border-radius-main);
 }
+/* Добавьте этот код в ваш CSS-файл, например, после стилей для .photo-gallery__slide */
+
+.photo-gallery__link {
+  display: block; /* Заставляет ссылку занимать все пространство родителя */
+  text-decoration: none; /* Убирает подчеркивание */
+  color: inherit; /* Наследует цвет текста от родителя */
+  outline: none; /* Убирает стандартный контур при фокусе */
+}
+
+/* Добавляем красивый контур при фокусе с клавиатуры для доступности */
+.photo-gallery__link:focus-visible {
+  outline: 2px solid var(--dark-orange-color); /* Или любой другой ваш акцентный цвет */
+  outline-offset: 3px;
+  border-radius: 30px; /* Повторяем скругление слайда */
+}
+
 
 .photo-gallery__image-wrapper {
   border-radius: 30px;
