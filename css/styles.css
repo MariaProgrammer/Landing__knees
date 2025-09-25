@@ -46,7 +46,7 @@ p {
   ascent-override: 92.34%;
   descent-override: 23.08%;
   line-gap-override: 0.00%;
-  size-adjust: 104.50%;
+  /* size-adjust: 104.50%; */
 }
 
 /* Резервный для Bebas Neue BOLD (700) */
@@ -56,7 +56,7 @@ p {
   ascent-override: 92.44%;
   descent-override: 23.11%;
   line-gap-override: 0.00%;
-  size-adjust: 108.89%;
+  /* size-adjust: 108.89%; */
 }
 
 /* Резервный для Open Sans REGULAR (400) */
@@ -66,7 +66,7 @@ p {
   ascent-override: 105.32%;
   descent-override: 28.61%;
   line-gap-override: 0.00%;
-  size-adjust: 91.63%;
+  /* size-adjust: 91.63%; */
 }
 
 /* Резервный для Open Sans SEMIBOLD (600) */
@@ -76,7 +76,7 @@ p {
   ascent-override: 105.32%;
   descent-override: 28.61%;
   line-gap-override: 0.00%;
-  size-adjust: 92.48%;
+  /* size-adjust: 92.48%; */
 }
 
 
@@ -2871,7 +2871,7 @@ input[type="email"]:focus {
     flex-direction: column;
   }
   .trust__list {
-    margin: 32;
+    margin: 32px;
   }
   .trust {
     background-image: url("../img/trust__bg.webp");
@@ -3262,7 +3262,7 @@ input[type="email"]:focus {
   }
   .program__left {
     grid-template-columns: repeat(1, 1fr);
-    grid-template-rows: repeat(auto, minmax(1170px, 1fr));
+    grid-template-rows: repeat(auto-fit, minmax(1170px, 1fr));
     gap: 11px;
   }
   .program__img {
