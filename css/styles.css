@@ -2708,7 +2708,7 @@ input[type="email"]:focus {
     font-size: 28px;
   }
   .faq__answer {
-    padding-left: 50px;
+    padding-left: 25px;
     font-size: 16px;
   }
 }
