@@ -2888,7 +2888,7 @@ input[type="email"]:focus {
     flex-direction: column;
   }
   .trust__list {
-    margin: 32px;
+    margin: 32px 0;
   }
   .trust {
     background-image: url("../img/trust__bg.webp");
