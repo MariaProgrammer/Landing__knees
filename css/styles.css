@@ -3278,8 +3278,7 @@ input[type="email"]:focus {
     font-size: 46px;
   }
   .program__left {
-    grid-template-columns: repeat(1, 1fr);
-    grid-template-rows: repeat(auto-fit, minmax(1170px, 1fr));
+    grid-template-columns: repeat(1, 1fr);    
     gap: 11px;
   }
   .program__img {
