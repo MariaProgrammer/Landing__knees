@@ -468,15 +468,17 @@ p {
   margin-right: 150px;
 }
 .hero__number {
-  font-family: var(--font-bebas-regular);
+  font-family: var(--font-bebas-regular);  
+  line-height: 1.2;
   font-size: 100px;
   font-weight: 400;
-  margin-bottom: 30px;  
+  /* margin-bottom: 30px;   */
   letter-spacing: 0px;
 }
 .hero__label {
   font-family: var( --font-opensans-regular);
   color: var(--color-black);
+  text-transform: lowercase;
   font-size: 18px;
   font-weight: 400;
 }
