@@ -21,6 +21,39 @@
       property="og:image"
       content="https://вашсайт.ру/images/имя_изображения.jpg"
     />
+    <style>
+      /* Стиль для самого прелоадера */
+      #preloader {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #F1F3F4;
+        z-index: 9999;
+        transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out; /* Плавное исчезновение */
+      }
+      /* Класс, который мы будем добавлять через JS, чтобы скрыть прелоадер */
+      #preloader.preloader--hidden {
+        opacity: 0;
+        visibility: hidden;
+      }
+      /* Прячем основной контент, пока он не готов */
+      body.preloading {
+        overflow: hidden; /* Предотвращаем прокрутку на время загрузки */
+      }
+      /* Стили для начального состояния анимированного текста */
+      .animate-on-load {
+        opacity: 0;
+        transform: translateX(-50px); /* Изначально текст сдвинут влево и невидим */
+        transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+      }
+      /* Стили для конечного состояния анимированного текста */
+      .animate-on-load.is-visible {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    </style>
 
     <link
       rel="preload"
@@ -58,7 +91,8 @@
       onload="this.onload=null;this.rel='stylesheet'"
     />
   </head>
-  <body class="page__body">
+  <body class="preloading page__body">
+    <div id="preloader"></div>
     <svg
       xmlns="http://www.w3.org/2000/svg"
       xmlns:xlink="http://www.w3.org/1999/xlink"

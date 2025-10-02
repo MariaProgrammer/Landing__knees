@@ -128,10 +128,19 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
     }, 1800);
+    // --- НОВЫЙ КОД: ФУНКЦИЯ ДЛЯ СКРЫТИЯ ПРЕЛОАДЕРА ---
+    function hidePreloader() {
+        const preloader = document.getElementById('preloader');
+        const body = document.body;
 
-
+        preloader.classList.add('preloader--hidden'); // Добавляем класс для плавного исчезновения
+        body.classList.remove('preloading'); // Убираем класс с body, чтобы контент стал видимым
+    }
 
     setupAdaptiveAnimation();
+    // Прячем прелоадер после того, как все готово.
+    // Можно добавить небольшую задержку, чтобы анимация плиток успела начаться.
+    setTimeout(hidePreloader, 200);
 
     let resizeTimeout;
     window.addEventListener('resize', () => {
