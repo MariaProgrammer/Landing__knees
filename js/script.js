@@ -252,41 +252,41 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- КОНЕЦ БЛОКА ЛОГИКИ ДЛЯ CTA-КНОПКИ ---
     // --- НАЧАЛО НОВОГО БЛОКА: ЛОГИКА АКТИВНОГО СОСТОЯНИЯ И ЗАКРЫТИЯ ---
 
-if (ctaButton) {
-    // --- 1. Функция для закрытия активного состояния ---
-    // Вынесена в отдельную функцию для переиспользования
-    const closeCtaActiveState = () => {
-        // Предполагаем, что активное состояние задается классом 'is-active'
-        ctaButton.classList.remove('is-visible');
-    };
+    if (ctaButton) {
+        // --- 1. Функция для закрытия активного состояния ---
+        // Вынесена в отдельную функцию для переиспользования
+        const closeCtaActiveState = () => {
+            // Предполагаем, что активное состояние задается классом 'is-active'
+            ctaButton.classList.remove('is-visible');
+        };
 
-    // --- 2. Обработчик клика по самой кнопке ---
-    // Открывает/закрывает активное состояние
-    ctaButton.addEventListener('click', (event) => {
-        // toggle переключает класс: добавляет, если его нет, и убирает, если он есть
-        ctaButton.classList.toggle('is-visible');
-    });
+        // --- 2. Обработчик клика по самой кнопке ---
+        // Открывает/закрывает активное состояние
+        ctaButton.addEventListener('click', (event) => {
+            // toggle переключает класс: добавляет, если его нет, и убирает, если он есть
+            ctaButton.classList.toggle('is-visible');
+        });
 
-    // --- 3. Обработчик для закрытия по клавише ESC ---
-    document.addEventListener('keydown', (event) => {
-        // Проверяем, что нажата именно клавиша Escape и кнопка сейчас активна
-        if (event.key === 'Escape' && ctaButton.classList.contains('is-visible')) {
-            closeCtaActiveState();
-        }
-    });
+        // --- 3. Обработчик для закрытия по клавише ESC ---
+        document.addEventListener('keydown', (event) => {
+            // Проверяем, что нажата именно клавиша Escape и кнопка сейчас активна
+            if (event.key === 'Escape' && ctaButton.classList.contains('is-visible')) {
+                closeCtaActiveState();
+            }
+        });
 
-    // --- 4. Обработчик для закрытия по клику вне элемента ---
-    document.addEventListener('click', (event) => {
-        // Проверяем, что кнопка активна и что клик был НЕ по ней или ее дочерним элементам
-        // event.target - это элемент, по которому кликнули
-        // ctaButton.contains(event.target) - вернет true, если клик был внутри кнопки
-        if (ctaButton.classList.contains('is-visible') && !ctaButton.contains(event.target)) {
-            closeCtaActiveState();
-        }
-    });
-}
+        // --- 4. Обработчик для закрытия по клику вне элемента ---
+        document.addEventListener('click', (event) => {
+            // Проверяем, что кнопка активна и что клик был НЕ по ней или ее дочерним элементам
+            // event.target - это элемент, по которому кликнули
+            // ctaButton.contains(event.target) - вернет true, если клик был внутри кнопки
+            if (ctaButton.classList.contains('is-visible') && !ctaButton.contains(event.target)) {
+                closeCtaActiveState();
+            }
+        });
+    }
 
-// --- КОНЕЦ НОВОГО БЛОКА ---
+    // --- КОНЕЦ НОВОГО БЛОКА ---
 
     // Плавный скролл
     const anchors = document.querySelectorAll('a[href*="#"]');
@@ -295,7 +295,7 @@ if (ctaButton) {
         anchor.addEventListener("click", function (e) {
             e.preventDefault();
             const blockID = anchor.getAttribute("href").substring(1);
-            document.getElementById(blockID).scrollIntoView({                
+            document.getElementById(blockID).scrollIntoView({
                 block: "start",
             });
         });
@@ -351,18 +351,18 @@ if (ctaButton) {
     openPopupButtons.forEach(button => {
         button.addEventListener('click', (e) => {
             e.preventDefault();
-            
+
             popup.classList.add('active');
             document.body.classList.add('stop-scroll');
-            
+
         });
     }); // <-- ВОТ ЗДЕСЬ ЗАКАНЧИВАЕТСЯ ЦИКЛ forEach. ОН БЫЛ ЗАКРЫТ В САМОМ КОНЦЕ ФАЙЛА.
 
     // Функция закрытия окна на крестик (теперь она ВНЕ цикла)
     if (cross) { // Добавим проверку на наличие элемента
         cross.addEventListener('click', () => {
-            popup.classList.remove('active');  
-                    
+            popup.classList.remove('active');
+
             document.body.classList.remove('stop-scroll');
         });
     }
