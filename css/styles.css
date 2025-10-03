@@ -1177,7 +1177,7 @@ input[type="email"]:focus {
 
 .video-slider__slide {
   width: 65%; /* Ширина активного слайда */
-
+  max-width: 901px;
   aspect-ratio: 1.45 / 1;
   border-radius: 30px;
   overflow: hidden;
@@ -1531,7 +1531,10 @@ input[type="email"]:focus {
     line-height: 1.25;
   }
   .video-slider__slide {
-    width: 80%;
+    
+    width: 80%; /* Увеличиваем относительную ширину для лучшего вида на мобильных */
+    max-width: 335px; /* Максимальная ширина для мобильных */
+  
   }
 
   .price-block__old-price {
