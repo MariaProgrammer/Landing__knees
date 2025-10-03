@@ -965,14 +965,14 @@ input[type="email"]:focus {
   -o-transform: translateY(0);
 }
 
-.button--cta-text {
+/* .button--cta-text {
   margin-bottom: 12px;
-}
+} */
 .button--cta-btn {
   display: block;
   width: 100%;
   background: var(--dark-orange-color);
-  margin-bottom: 12px;
+  /* margin-bottom: 12px; */
   padding: 15px 0;
   display: flex;
   align-items: center;
@@ -989,11 +989,11 @@ input[type="email"]:focus {
   -ms-border-radius: 12px;
   -o-border-radius: 12px;
 }
-.button--cta-link {
+/* .button--cta-link {
   cursor: pointer;
   font-weight: 700;
   text-transform: uppercase;
-}
+} */
 
 /* TRUST */
 
