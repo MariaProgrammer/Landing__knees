@@ -557,9 +557,9 @@ p {
 
 /* Стили самого видео-плеера */
 .video-player {
-  width: 100%;
-  height: 100%;
-  max-height: 790px;
+  width: 100%; 
+  aspect-ratio: 2.17 / 1;
+  max-height: 90dvh;
   object-fit: cover; /* Видео заполняет контейнер, сохраняя пропорции */
   display: block; /* Убираем возможный нижний отступ */
 }
@@ -1632,7 +1632,7 @@ input[type="email"]:focus {
 .trust-me__photo {
   display: block;
   width: 100%;
-  height: auto;
+  max-height: 668px;
   object-fit: cover;
 }
 .trust-me__photo--mob {
@@ -1652,6 +1652,7 @@ input[type="email"]:focus {
 }
 
 .trust-me__list {
+  margin: 0;
   list-style: none;
   padding-left: 20px;
 }
@@ -3114,10 +3115,11 @@ input[type="email"]:focus {
     z-index: 3000;
   }
   .header__container {
-    top: 20px;
+    display: none;
+    /* top: 20px;
     height: 48px;
     padding: 0 5px;
-    background: rgba(255, 255, 255, 0.6);
+    background: rgba(255, 255, 255, 0.6); */
   }
   .hero {
     padding-top: 0;
@@ -3467,7 +3469,11 @@ input[type="email"]:focus {
     left: 45%;
   }
   .video-player {
-    aspect-ratio: 1.45 / 1;
+    width: 100%;
+    height: 100%;
+    aspect-ratio: auto;
+    /* aspect-ratio: 335 / 230; */
+    /* aspect-ratio: 1.45 / 1; */
   }
   .worries {
     padding: 40px 0;
